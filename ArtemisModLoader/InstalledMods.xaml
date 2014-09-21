@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="ArtemisModLoader.InstalledMods"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctl="clr-namespace:ArtemisModLoader"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ctl:OppositeBoolConverter x:Key="OppositeBoolConverter" />
+        <ctl:ParmMatchToVisibilityConverter x:Key="ParmMatchToVisibilityConverter" />
+        <ctl:GreaterThanParmVisibilityConverter x:Key="GreaterThanParmVisibilityConverter" />
+        <ctl:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <ctl:IDToTitleConverter x:Key="IDToTitleConverter" />
+    </UserControl.Resources>
+    <GroupBox>
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="{x:Static resx:Resources.InstalledMods}" />
+        </GroupBox.Header>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <ItemsControl
+                ItemsSource="{Binding Source={x:Static ctl:InstalledModConfigurations.Instance}, Path=Configurations, Mode=OneWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="BurlyWood" BorderThickness="2" Margin="4,4,4,4">
+                            <DockPanel>
+                                <TextBlock
+                                    Visibility="{Binding DependsOn, Mode=OneWay, Converter={StaticResource NullToHiddenConverter}}"
+                                    DockPanel.Dock="Bottom" Foreground="Red" Text="{Binding DependsOn, Mode=OneWay, Converter={StaticResource IDToTitleConverter}}" />
+                                <Button
+                                    Visibility="{Binding ID, Mode=OneWay, Converter={StaticResource ParmMatchToVisibilityConverter}, ConverterParameter='5E0D29F0-DEC1-440F-B7A0-F16C520394B1|Collapsed'}"
+                                    ToolTip="{x:Static resx:Resources.ActivateModToolTip}"
+                                    IsEnabled="{Binding IsActive, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}"
+                                    DockPanel.Dock="Left"
+                                    CommandParameter="{Binding}" Click="Activate_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48" Source="/ArtemisModLoader;component/Images/icon_activate.png" />
+                                            <TextBlock
+                                                Text="{x:Static resx:Resources.Activate}"
+                                                VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+
+                                <Button
+                                    DockPanel.Dock="Left"
+                                    Visibility="{Binding ID, Mode=OneWay, Converter={StaticResource ParmMatchToVisibilityConverter}, ConverterParameter='5E0D29F0-DEC1-440F-B7A0-F16C520394B1|Collapsed'}"
+                                    ToolTip="{x:Static resx:Resources.RemoveModToolTip}"
+                                    IsEnabled="{Binding IsActive, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}"
+                                    CommandParameter="{Binding}"
+                                    Click="Uninstall_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48" Source="/ArtemisModLoader;component/Images/uninstall.png" />
+                                            <TextBlock Text="{x:Static resx:Resources.Uninstall}" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+
+                                <ctl:ModDescriptorControl
+                                    DockPanel.Dock="Left"
+                                    Configuration="{Binding}" />
+
+                                <Button
+                                    Visibility="{Binding Download.Webpage, Mode=OneWay, Converter={StaticResource NullToHiddenConverter}}"
+                                    ToolTip="{x:Static resx:Resources.BrowseToolTip}"
+                                    DockPanel.Dock="Right"
+                                    CommandParameter="{Binding}" Click="Browse_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48"  Source="/ArtemisModLoader;component/Images/Explorer.png" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+
+                                <TextBlock />
+                            </DockPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+    </GroupBox>
+</UserControl>

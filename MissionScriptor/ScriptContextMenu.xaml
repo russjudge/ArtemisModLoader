@@ -1,0 +1,67 @@
+﻿<ContextMenu x:Class="MissionStudio.ScriptContextMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Name="uc" >
+    <MenuItem
+        Header="Undo"
+        Command="Undo"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/undo.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+
+    <MenuItem
+        Header="Redo"
+        Command="Redo"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/redo.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <Separator />
+    <MenuItem
+        Header="Cut"
+        Command="Cut"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/scissors.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        Header="Copy"
+        Command="Copy"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/copy.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        Header="Paste"
+        Command="Paste"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/paste.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <Separator />
+    <MenuItem
+        Header="Format &amp; Validate"
+        Command="AlignCenter"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/gnome_format_indent_more.png" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <!--<MenuItem
+        Header="Create Scriplet"
+        Command="AlignLeft"
+        CommandTarget="{Binding CommandTarget, ElementName=uc, Mode=OneWay}" >
+        <MenuItem.Icon>
+            <Image Height="16" Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/gnome_format_indent_more.png" />
+        </MenuItem.Icon>
+    </MenuItem>-->
+    <!-- Cut, Copy, Paste, Format &amp; Validate, Create Scriptlet (from selected) -->
+</ContextMenu>

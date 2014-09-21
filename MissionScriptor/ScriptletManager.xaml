@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="MissionStudio.ScriptletManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MissionStudio"
+             xmlns:helper="clr-namespace:RussLibrary.Helpers;assembly=RussLibrary"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary" 
+             mc:Ignorable="d" Name="uc">
+    <UserControl.Resources>
+
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <GroupBox>
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="Scriptlets" />
+        </GroupBox.Header>
+        <DockPanel>
+            <Button
+                DockPanel.Dock="Top" HorizontalAlignment="Right"
+                Click="Import_Click" ToolTip="Import">
+                <Button.Content>
+                    <Image Height="24" Source="pack://application:,,,/MissionStudio;component/Images/angular_stock_icons_import.png" />
+                </Button.Content>
+            </Button>
+
+            <ListBox
+                SelectedItem="{Binding Path=SelectedScript, Mode=TwoWay, ElementName=uc}"
+                AllowDrop="True" Drop="Scriptlet_Drop" DragEnter="Scriptlet_DragEnter"
+                ItemsSource="{Binding Scripts, Mode=OneWay, ElementName=uc}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBox
+                            helper:FocusHelper.ActionFocus="{Binding EnableEdit, Mode=OneWay}"
+                            Tag="{Binding}"
+                            LostFocus="TextBox_LostFocus" 
+                            KeyDown="TextBox_KeyDown" 
+                            Visibility="{Binding EnableEdit, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                            Text="{Binding Path=DisplayItem, Mode=TwoWay}"></TextBox>
+
+
+                            <TextBlock
+                            Visibility="{Binding EnableEdit, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}"
+                            Tag="{Binding}"
+                            MouseLeftButtonUp="Scriptlet_MouseUp" PreviewMouseLeftButtonDown="Scriptlet_MouseDown"
+                            MouseMove="TextBlock_MouseMove" Loaded="TextBlock_Loaded" 
+                            VerticalAlignment="Center" Text="{Binding DisplayItem, Mode=OneWay}" >
+                            <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem CommandParameter="{Binding}" Click="Insert_Click" Header="Insert">
+                                    <MenuItem.Icon>
+                                        <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/Actions-insert-horizontal-rule-icon.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem CommandParameter="{Binding}" Click="Edit_Click" Header="Edit">
+                                    <MenuItem.Icon>
+                                        <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/pencil.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <Separator />
+                                 <MenuItem CommandParameter="{Binding}" Click="Export_Click" Header="Export">
+                                    <MenuItem.Icon>
+                                        <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/angular_stock_icons_export.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                             
+                                <Separator />
+                                 <MenuItem CommandParameter="{Binding}" Click="Rename_Click" Header="Rename">
+                                  
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem CommandParameter="{Binding}" Click="Delete_Click" Header="Delete">
+                                    <MenuItem.Icon>
+                                        <Image Height="16" Source="pack://application:,,,/RussLibrary;component/Images/erase.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                            </TextBlock>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+        </DockPanel>
+    </GroupBox>
+</UserControl>

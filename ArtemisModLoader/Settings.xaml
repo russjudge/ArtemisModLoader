@@ -1,0 +1,24 @@
+﻿<Window x:Class="ArtemisModLoader.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+        Name="uc"
+        Title="{x:Static resx:Resources.SettingsTitle}" SizeToContent="WidthAndHeight">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label FontWeight="Bold" Content="{x:Static resx:Resources.InstallLocationLabel}" />
+            <TextBox
+                Width="300"
+                Text="{Binding Path=ArtemisInstallLocation, Mode=TwoWay, ElementName=uc}"  />
+            <Button Content="{x:Static resx:Resources.Browse}" Click="Browse_Click"></Button>
+        </StackPanel>
+        <StackPanel ToolTip="{x:Static resx:Resources.ArtemisExtenderToolTip}" Orientation="Horizontal" >
+            <CheckBox Padding="4,0,0,0" IsChecked="{Binding Path=UseArtemisExtender, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" Content="{x:Static resx:Resources.UseArtemisExtender}"/>
+            <Label Margin="20,0,0,0" FontWeight="Bold" Content="{x:Static resx:Resources.PathToArtemisExtenderLabel}" />
+            <TextBox
+                Width="300"
+                Text="{Binding Path=ArtemisExtenderPath, Mode=TwoWay, ElementName=uc}"  />
+            <Button Content="{x:Static resx:Resources.Browse}" Click="Extender_Click"></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

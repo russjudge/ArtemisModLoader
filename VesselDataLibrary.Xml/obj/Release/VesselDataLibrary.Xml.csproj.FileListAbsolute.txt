@@ -1,0 +1,12 @@
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\VesselDataLibrary.Xml.dll
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\VesselDataLibrary.Xml.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\log4net.dll
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\RussLibrary.dll
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\SharpCompress.dll
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\bin\Release\RussLibrary.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.csprojResolveAssemblyReference.cache
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.DataStrings.resources
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.Properties.Resources.resources
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.csproj.GenerateResource.Cache
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.dll
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary.Xml\obj\Release\VesselDataLibrary.Xml.pdb

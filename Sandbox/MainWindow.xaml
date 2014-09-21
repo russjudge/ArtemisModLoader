@@ -1,0 +1,104 @@
+﻿<Window x:Class="Sandbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctlVessel="clr-namespace:VesselDataLibrary.Controls;assembly=VesselDataLibrary"
+        xmlns:ctlRuss="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:Mission="clr-namespace:MissionStudio;assembly=MissionStudio"
+        xmlns:eng="clr-namespace:ArtemisEngineeringPresets;assembly=ArtemisEngineeringPresets"
+        xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:spacemap="clr-namespace:MissionStudio.Spacemap;assembly=MissionStudio"
+        Name="uc"
+        Title="Sandbox Testing" SizeToContent="WidthAndHeight">
+    <DockPanel>
+        <GroupBox DockPanel.Dock="Top" BorderBrush="Green" BorderThickness="3">
+            <GroupBox.Header>
+                <TextBlock Text="Class Generation" FontWeight="Bold" />
+            </GroupBox.Header>
+            <WrapPanel>
+                <Button Content="Generate C# Class from Xml" HorizontalAlignment="Left" Click="XMLGen_click" />
+                <Button Content="Generate C# class from INI" HorizontalAlignment="Left" Click="INIGen_click" />
+                <Button Content="Generate Xaml segment from C# dependency object" Click="XamlGen_click" />
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox DockPanel.Dock="Top">
+            <GroupBox.Header>
+                <TextBlock Text="Testing" FontWeight="Bold" />
+            </GroupBox.Header>
+            <WrapPanel>
+                <Button DockPanel.Dock="Left"  Content="Open Mod Development Manager" HorizontalAlignment="Right" Click="LoadVesselData_Click" />
+
+                <Button DockPanel.Dock="Left" Content="Mod Definition Window" HorizontalAlignment="Left" Click="ModDef_click" />
+                <Button DockPanel.Dock="Left" Content="Test all Downloads" Click="TestDownloads_Click" />
+                <Button DockPanel.Dock="Left" Content="Activate Stock" Click="ActivateStock_Click" />
+                <Button DockPanel.Dock="Left" Content="Play test music" Click="Preset_Click" />
+                <Button DockPanel.Dock="Left" Content="Stop music" Click="Stop_Click" />
+            </WrapPanel>
+        </GroupBox>
+        <TabControl DockPanel.Dock="Top" >
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Mission Studio" FontWeight="Bold" />
+                </TabItem.Header>
+                <spacemap:Designer />
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock FontWeight="Bold" Text="Engineering Preset" />
+                </TabItem.Header>
+                <StackPanel>
+                    <Button HorizontalAlignment="Right" Content="Load Default" Click="LoadEngineering_Click" />
+                <eng:Manager Name="engPreset" />
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock FontWeight="Bold" Text="Avalon edit" />
+
+                </TabItem.Header>
+        
+
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Folder Browser" FontWeight="Bold" />
+                </TabItem.Header>
+                <!--<ctlRuss:FolderBrowserControl RootPath="C:\Users\Russ\AppData\Roaming\Russ Judge\ArtemisModLoader\ArtemisCopy" />-->
+                <!--<ctlRuss:FolderBrowserControl RootPath="C:\Users\rjudge\AppData\Roaming\Russ Judge\ArtemisModLoader\ArtemisCopy" />-->
+                <ctlRuss:FileExplorerControl RootPath="C:\Users\Russ\AppData\Roaming\Russ Judge\ArtemisModLoader\ArtemisCopy" />
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="File Mapping" FontWeight="Bold" />
+                </TabItem.Header>
+                
+                    <DockPanel>
+                        <ctlVessel:BaseFileMappingControl DockPanel.Dock="Top" 
+                            Configuration="{Binding Configuration, Mode=OneWay, ElementName=uc}"
+                            Mappings="{Binding Configuration.BaseFiles.Files, Mode=OneWay, ElementName=uc}"
+                            ForSubMod="True" />
+                    <Button HorizontalAlignment="Left" DockPanel.Dock="Top" Click="AddBaseFile_Click" Content="Add Base File" />
+
+                </DockPanel>
+               
+
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Beam Port" FontWeight="Bold" />
+                </TabItem.Header>
+
+                <GroupBox
+                    Header="Beam Drawing Play">
+                    
+
+                        <ctlVessel:BeamPortControl DockPanel.Dock="Right" Beam="{Binding Beam, Mode=OneWay, ElementName=uc}" />
+                    
+                </GroupBox>
+            </TabItem>
+            
+        </TabControl>
+        
+
+    </DockPanel>
+</Window>

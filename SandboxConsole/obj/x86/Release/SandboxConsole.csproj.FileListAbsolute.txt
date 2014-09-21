@@ -1,0 +1,5 @@
+E:\Development Projects\Source Control\ArtemisModLoader\SandboxConsole\bin\Release\SandboxConsole.exe
+E:\Development Projects\Source Control\ArtemisModLoader\SandboxConsole\bin\Release\SandboxConsole.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\SandboxConsole\obj\x86\Release\SandboxConsole.csprojResolveAssemblyReference.cache
+E:\Development Projects\Source Control\ArtemisModLoader\SandboxConsole\obj\x86\Release\SandboxConsole.exe
+E:\Development Projects\Source Control\ArtemisModLoader\SandboxConsole\obj\x86\Release\SandboxConsole.pdb

@@ -1,0 +1,8 @@
+﻿<Window x:Class="DMXCommander.Controls.ImageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ImageWindow" Height="300" Width="300" KeyDown="OnKeyDown" WindowState="Maximized" WindowStyle="None">
+    <Grid>
+        
+    </Grid>
+</Window>

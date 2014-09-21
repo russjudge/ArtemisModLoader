@@ -1,0 +1,63 @@
+﻿<Window x:Class="ArtemisModLoader.ModDefinitionSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+        Name="uc" WindowStartupLocation="CenterOwner"
+        Title="{x:Static resx:Resources.ModDefinitionTitle}" SizeToContent="WidthAndHeight">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="{x:Static resx:Resources.TitleLabel}" FontWeight="Bold" />
+            <TextBox Width="200" Text="{Binding Path=Configuration.Title, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+            <CheckBox
+                HorizontalAlignment="Right" Margin="20,4,4,4"
+                IsChecked="{Binding Path=Configuration.SupportsInvasionMode, Mode=TwoWay, ElementName=uc}"
+                Content="{x:Static resx:Resources.SupportsInvasionMode}" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="{x:Static resx:Resources.DescriptionLabel}" FontWeight="Bold" />
+            <TextBox HorizontalAlignment="Stretch" Width="300" Text="{Binding Path=Configuration.Description, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="{x:Static resx:Resources.AuthorLabel}" FontWeight="Bold" />
+            <TextBox Width="200" Text="{Binding Path=Configuration.Author, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="ID:" FontWeight="Bold" />
+            <TextBlock MinWidth="200" Text="{Binding Configuration.ID, Mode=OneWay, ElementName=uc}" VerticalAlignment="Center" />
+            <Button ToolTip="{x:Static resx:Resources.GUIDToolTip}" Click="NewGUID_click"
+                Content="{x:Static resx:Resources.GUIDButton}" />
+            <Button Click="Filename_click">
+                <Button.ToolTip>
+                    <TextBlock
+                        TextWrapping="Wrap"
+                        Text="{x:Static resx:Resources.FilenameIDToolTip}" />
+                </Button.ToolTip>
+                <Button.Content>
+                    <TextBlock Text="{x:Static resx:Resources.FilenameIDButton}" />
+                </Button.Content>
+                </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="{x:Static resx:Resources.PackageDownloadLabel}" FontWeight="Bold" />
+            <TextBox
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MinWidth="300"
+                Text="{Binding Path=Configuration.Download.Source, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" ToolTip="{x:Static resx:Resources.LeaveBlankToolTip}" >
+            <Label Content="{x:Static resx:Resources.PackageWebpageLabel}" FontWeight="Bold" />
+            <TextBox
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MinWidth="300"
+                Text="{Binding Path=Configuration.Download.Webpage, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" ToolTip="{x:Static resx:Resources.DependsOnToolTip}">
+            <Label Content="{x:Static resx:Resources.DependsOnLabel}" FontWeight="Bold" />
+            <TextBox
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" MinWidth="300"
+                Text="{Binding Path=Configuration.DependsOn, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />  
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button IsDefault="True" Click="OK_Click" Content="{x:Static resx:Resources.OK}"></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

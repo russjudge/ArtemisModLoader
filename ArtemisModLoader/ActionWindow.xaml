@@ -1,0 +1,268 @@
+﻿<Window x:Class="ArtemisModLoader.ActionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+        xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+        xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+        xmlns:audio="clr-namespace:RussLibraryAudio;assembly=RussLibrary.Audio"
+	    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	    xmlns:prop="clr-namespace:ArtemisModLoader.Properties;assembly=AMLLibrary"
+        Icon="pack://application:,,,/ArtemisModLoader;component/Images/MainIcon.png" Name="uc"
+        Loaded="ActionWindow_Loaded"
+        Title="Artemis Mod Loader" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <prop:Settings x:Key="Settings" />
+        <valueConvert:GreaterThanParmVisibilityConverter x:Key="GreaterThanParmVisibilityConverter" />
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <valueConvert:LessThanParmVisibilityConverter x:Key="LessThanParmVisibilityConverter" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"  />
+            <ColumnDefinition Width="Auto"  />
+            <ColumnDefinition Width="Auto"  />
+            <ColumnDefinition Width="Auto"  />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Margin="4,4,4,4" Click="ModManager_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <Image Width="32" Source="pack://application:,,,/AMLLibrary;component/Images/1357789874_palette.png" />
+                    <TextBlock Text="{x:Static resx:Resources.ModManager}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <!--<audio:PlayPlayListButton Grid.Row="0" Grid.Column="2" >-->
+        <!--<audio:PlayPlayListButton.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </audio:PlayPlayListButton.Background>-->
+        <!--</audio:PlayPlayListButton>-->
+
+
+        <Button
+            Grid.Row="3" Grid.Column="0"
+            ToolTip="{x:Static resx:Resources.AboutToolTip}"
+            Margin="4,4,4,4" Click="About_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <Image Width="32" Source="pack://application:,,,/ArtemisModLoader;component/Images/Info_icon_002.svg.png" />
+                    <TextBlock Text="{x:Static resx:Resources.About}" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+
+
+        <Button Grid.Row="1" Grid.Column="0" Margin="4,4,4,4" Click="btnInstall_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <StackPanel>
+                <Image Height="32" Source="pack://application:,,,/ArtemisModLoader;component/Images/ModManager.png" />
+                <TextBlock
+                    FontSize="10"
+                    Text="Mod &amp; Mission"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock FontSize="10" Text="Management" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Row="2" Grid.Column="0" Margin="4,4,4,4" Click="GetAndroid_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <Image Width="32" Source="pack://application:,,,/ArtemisModLoader;component/Images/Android SH.png" />
+                    <TextBlock Text="{x:Static resx:Resources.GetAndroid}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+
+
+        <Button Grid.Row="0" Grid.Column="2" Margin="4,4,4,4" Click="Settings_Click" ToolTip="{x:Static resx:Resources.Settings}" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <Image Width="32" Source="pack://application:,,,/AMLLibrary;component/Images/Settings-icon.png" />
+                    <TextBlock Text="{x:Static resx:Resources.Settings}" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+        <Button Grid.Row="0" Grid.Column="1" Margin="4,4,4,4" Click="MissionStudio_Click" ToolTip="Mission Studio" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <Image Width="32" Source="pack://application:,,,/ArtemisModLoader;component/Images/1360035698_run.png" />
+                    <TextBlock Text="Mission Studio" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+        <xctk:DropDownButton Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2">
+            <xctk:DropDownButton.DropDownContent>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Light Gradient:" VerticalAlignment="Center" />
+                    <xctk:ColorPicker ShowRecentColors="True" SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}"/>
+                    <Label Content="Dark Gradient:" />
+                    <xctk:ColorPicker SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" />
+
+                </StackPanel>
+            </xctk:DropDownButton.DropDownContent>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" >
+
+                    <Label
+                Visibility="{Binding SelectedIPAddress, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}}"
+                ToolTip="{x:Static resx:Resources.IPToolTip}"
+                Margin="6,0,0,0" VerticalAlignment="Center" FontWeight="Black" Content="{x:Static resx:Resources.ServerIPLabel}" />
+                    <ComboBox
+                Visibility="{Binding IPAddresses.Count, Mode=OneWay, ElementName=uc, Converter={StaticResource GreaterThanParmVisibilityConverter}, ConverterParameter=1}"
+                SelectedItem="{Binding Path=SelectedIPAddress, Mode=TwoWay, ElementName=uc}"
+                ItemsSource="{Binding IPAddresses, Mode=OneTime, ElementName=uc}"
+                Margin="4,4,4,4"
+                ToolTip="{x:Static resx:Resources.IPToolTip}"
+                DockPanel.Dock="Left"
+                VerticalAlignment="Center" VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Stretch" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button
+                                ToolTip="{x:Static resx:Resources.RemoveIPEntry}"
+                                CommandParameter="{Binding}"
+                                Click="RemoveIPAddress_Click">
+                                        <Image Width="32" Source="pack://application:,,,/ArtemisModLoader;component/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock
+                Visibility="{Binding IPAddresses.Count, Mode=OneWay, ElementName=uc, Converter={StaticResource LessThanParmVisibilityConverter}, ConverterParameter=2}"
+                VerticalAlignment="Center" Text="{Binding SelectedIPAddress, Mode=OneWay, ElementName=uc}" />
+
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label
+                ToolTip="Network port used by Artemis for communicating between server and clients."
+                Margin="6,0,0,0" VerticalAlignment="Center" FontWeight="Black" Content="Network Port:" />
+                    <ctl:DecimalBox
+                    DisplayFormat="####0"
+                    MinWidth="70" HorizontalAlignment="Stretch"
+                    Value="{Binding Path=Port, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                    <Button ToolTip="WARNING!! You should not change this unless you know what you are doing!" Content="Apply" Click="PortApply_Click" />
+                </StackPanel>
+            </StackPanel>
+        </xctk:DropDownButton>
+        <Button
+            Click="Exit_Click"
+            IsCancel="True"   
+            Margin="4,4,4,4"
+            Grid.Row="4" Grid.Column="0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+
+                    <Image Source="pack://application:,,,/ArtemisModLoader;component/Images/305_Close_48x48_72.png" Height="32" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Exit" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <WrapPanel Orientation="Horizontal" 
+            Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" Background="{x:Null}">
+
+            <Button Click="PayPal_click" Background="{x:Null}">
+                <Image Height="70" Source="pack://application:,,,/ArtemisModLoader;component/Images/paypal-donate-feature.jpg" />
+            </Button>
+            <StackPanel Background="#7FF5F5F5">
+                <TextBlock
+                Padding="4,4,4,0"
+                Text="Donations welcome!  A lot of hard work has been put into this application."/>
+                    <TextBlock
+                Padding="4,0,4,0"
+                
+                        Text="If you like what you see, please send a donation through PayPal" />
+                <TextBlock
+                Padding="4,0,4,0"
+                
+                        Text="to russjudge@gmail.com." />
+            </StackPanel>
+        </WrapPanel>
+        <Button
+            IsDefault="True" 
+            Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="3"
+            Margin="4,4,4,4" Click="RunArtemis_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionLight}" Offset="0" />
+                    <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ActionDark}" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Content>
+                <StackPanel>
+                    <TextBlock VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontStyle="Italic" FontSize="48" HorizontalAlignment="Center" Text="Play" />
+                    <Image Source="pack://application:,,,/ArtemisModLoader;component/Images/icon11_0.png"  />
+                    <TextBlock VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Text="!!!!" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+    </Grid>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF924A39" Offset="0" />
+            <GradientStop Color="#FF10B45C" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+</Window>

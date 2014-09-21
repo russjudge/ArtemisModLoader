@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="RussLibrary.Controls.ValidationControl"
+             Name="uc"
+            
+             xmlns:ctl="clr-namespace:RussLibrary.Controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d">
+    <DockPanel  HorizontalAlignment="Stretch" >
+        <!---->
+        <!--Content="{Binding Content, ElementName=uc, Mode=OneWay}"-->
+        <!--DataContext="{Binding DataContext, Mode=OneWay, ElementName=uc}"-->
+        <ctl:ValidationBulb
+            
+            Validation="{Binding Validation, Mode=OneWay, ElementName=uc}"
+            DockPanel.Dock="Right" />
+        <!--DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}"-->
+        <ContentControl
+            
+            Name="cc"
+            DockPanel.Dock="Left"
+            Content="{Binding RelativeSource={RelativeSource Self}, Path=InnerContent, Mode=TwoWay, ElementName=uc}"
+            />
+        
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="E:\Development Projects\Source Control\ArtemisModLoader\Resources\bin\Debug\AMLResources.dll">
+   <Modules>
+    <Module Name="amlresources.dll">
+     <Resources>
+      <Resource Name="AMLResources.Properties.Resources.resources">
+       <Messages>
+        <Message Id="dat" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Status="Active" Created="2014-01-29 00:08:11Z" FixCategory="NonBreaking">
+         <Issue Name="StringResource" Certainty="50" Level="CriticalWarning">In resource 'AMLResources.Properties.Resources.resx', referenced by name 'ApplyToAndroid', correct the spelling of 'dat' in string value 'In order to apply to the Unofficial Android Client, go into the Artemis Android Client Settings, Advanced settings and set the "Artemis/dat" location.   Note:  Official Android Client cannot currently be modded.'.</Issue>
+        </Message>
+        <Message Id="modded" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Status="Active" Created="2014-01-29 00:08:11Z" FixCategory="NonBreaking">
+         <Issue Name="StringResource" Certainty="50" Level="CriticalWarning">In resource 'AMLResources.Properties.Resources.resx', referenced by name 'ApplyToAndroid', correct the spelling of 'modded' in string value 'In order to apply to the Unofficial Android Client, go into the Artemis Android Client Settings, Advanced settings and set the "Artemis/dat" location.   Note:  Official Android Client cannot currently be modded.'.</Issue>
+         <Issue Name="StringResource" Certainty="50" Level="CriticalWarning">In resource 'AMLResources.Properties.Resources.resx', referenced by name 'CopyToAndroidTip', correct the spelling of 'modded' in string value 'Copy Critical files to Unofficial Android Client (only from active variation).  Note:  Official Android Client cannot currently be modded.'.</Issue>
+        </Message>
+       </Messages>
+      </Resource>
+     </Resources>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703">
+   <Name>Resource strings should be spelled correctly</Name>
+   <Description>The individual words that make up a resource string should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="StringResource">In resource {0}, referenced by name '{1}', correct the spelling of '{2}' in string value '{3}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264483(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

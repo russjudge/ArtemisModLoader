@@ -1,0 +1,14 @@
+﻿<Window x:Class="DMXCommand.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctl="clr-namespace:DMXCommander.Controls;assembly=DMXCommander" Closed="OnClosed"
+        Title="DMX Commander" Name="uc" SizeToContent="Width" Height="600" MinWidth="300">
+    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button Content="Open" ToolTip="Open DMX Command File" Click="OnOpenDMXFile"/>
+            
+        </StackPanel>
+        <ctl:DMXCommandControl DockPanel.Dock="Top" Name="DMX" />
+    </DockPanel>
+</Window>

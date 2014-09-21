@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllFilesFilter" xml:space="preserve">
+    <value>(*.*)|*.*</value>
+  </data>
+  <data name="AMLFilter" xml:space="preserve">
+    <value>(*.aml)|*.aml</value>
+  </data>
+  <data name="AndroidClientWebsite" xml:space="preserve">
+    <value>http://www.artemis.eochu.com/?page_id=28#/20121018/unofficial-android-client-for-artemis-1988927</value>
+  </data>
+  <data name="ArtemisWebsite" xml:space="preserve">
+    <value>http://www.artemis.eochu.com</value>
+  </data>
+  <data name="DefaultAMLExtension" xml:space="preserve">
+    <value>.aml</value>
+  </data>
+  <data name="ModsURL" xml:space="preserve">
+    <value>http://artemiswiki.pbworks.com/w/page/52152707/Mods</value>
+  </data>
+  <data name="RegistryInstallLocation" xml:space="preserve">
+    <value>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\windows\CurrentVersion\App Paths\Artemis.exe</value>
+  </data>
+  <data name="RegistryIPAddressLocation" xml:space="preserve">
+    <value>HKEY_CURRENT_USER\Software\ArtemisSBS</value>
+  </data>
+  <data name="RegistryIPAddressLocationValue" xml:space="preserve">
+    <value>IPAddress</value>
+  </data>
+  <data name="SupportedCompressedFilesFilter" xml:space="preserve">
+    <value> (*.zip;*.rar;*.gzip;*.7zip;*.tar)|*.zip;*.rar;*.gzip;*.7zip;*.tar</value>
+  </data>
+  <data name="XMLFilter" xml:space="preserve">
+    <value> (*.xml)|*.xml</value>
+  </data>
+  <data name="CR" xml:space="preserve">
+    <value>
+</value>
+  </data>
+  <data name="CRCR" xml:space="preserve">
+    <value>
+
+</value>
+  </data>
+  <data name="WTFURL" xml:space="preserve">
+    <value>http://thedailywtf.com</value>
+  </data>
+  <data name="AMLUpdateURL" xml:space="preserve">
+    <value>http://artemis.forumchitchat.com/post/artemis-mod-loader-v-3-0-6476535</value>
+  </data>
+  <data name="AdminVerb" xml:space="preserve">
+    <value>RunAs</value>
+  </data>
+  <data name="ApplicationLogFile" xml:space="preserve">
+    <value>application.log</value>
+  </data>
+  <data name="ArtemisINI" xml:space="preserve">
+    <value>artemis.ini</value>
+  </data>
+  <data name="Comma" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="MissPrefix" xml:space="preserve">
+    <value>MISS_</value>
+  </data>
+  <data name="MyEmail" xml:space="preserve">
+    <value>russjudge@gmail.com</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="Quote" xml:space="preserve">
+    <value>"</value>
+  </data>
+  <data name="RestoreArtemisCmd" xml:space="preserve">
+    <value>RestoreArtemis.cmd</value>
+  </data>
+  <data name="Space" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="vesselData" xml:space="preserve">
+    <value>vesselData.xml</value>
+  </data>
+  <data name="XcopyCommand" xml:space="preserve">
+    <value>xcopy "{0}\*.*" "{1}" /s /Y /K /R /H /Q</value>
+  </data>
+  <data name="XMLExtension" xml:space="preserve">
+    <value>.xml</value>
+  </data>
+  <data name="VesselDataCurrentVersion" xml:space="preserve">
+    <value>1.702</value>
+  </data>
+  <data name="ArcWidth" xml:space="preserve">
+    <value>ArcWidth</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="CycleTime" xml:space="preserve">
+    <value>CycleTime</value>
+  </data>
+  <data name="Damage" xml:space="preserve">
+    <value>Damage</value>
+  </data>
+  <data name="DependsOn" xml:space="preserve">
+    <value>DependsOn</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DiffuseFile" xml:space="preserve">
+    <value>DiffuseFile</value>
+  </data>
+  <data name="DXSExtension" xml:space="preserve">
+    <value>.dxs</value>
+  </data>
+  <data name="GlowFile" xml:space="preserve">
+    <value>GlowFile</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="MeshFile" xml:space="preserve">
+    <value>MeshFile</value>
+  </data>
+  <data name="PushRadius" xml:space="preserve">
+    <value>PushRadius</value>
+  </data>
+  <data name="Range" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="SpecularFile" xml:space="preserve">
+    <value>SpecularFile</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Webpage" xml:space="preserve">
+    <value>Webpage</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Caret" xml:space="preserve">
+    <value>^</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Front" xml:space="preserve">
+    <value>Front</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Side" xml:space="preserve">
+    <value>Side</value>
+  </data>
+  <data name="SNTExtension" xml:space="preserve">
+    <value>.snt</value>
+  </data>
+  <data name="TopSpeed" xml:space="preserve">
+    <value>TopSpeed</value>
+  </data>
+  <data name="TorpedoType" xml:space="preserve">
+    <value>TorpedoType</value>
+  </data>
+  <data name="TurnRate" xml:space="preserve">
+    <value>TurnRate</value>
+  </data>
+  <data name="UniqueID" xml:space="preserve">
+    <value>UniqueID</value>
+  </data>
+  <data name="StockID" xml:space="preserve">
+    <value>{5E0D29F0-DEC1-440F-B7A0-F16C520394B1}</value>
+  </data>
+  <data name="ImageFilter" xml:space="preserve">
+    <value>Image files(*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga)|*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga</value>
+  </data>
+  <data name="Artemis1661FileDate" xml:space="preserve">
+    <value>09/16/2012</value>
+  </data>
+  <data name="ModStockFile" xml:space="preserve">
+    <value>ModDefinitions\MOD_Stock.aml</value>
+  </data>
+</root>

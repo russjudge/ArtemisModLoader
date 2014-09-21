@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="MissionStudio.Spacemap.PropertiesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:Helper="clr-namespace:RussLibrary.Helpers;assembly=RussLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             Background="White" 
+             Height="200"
+             mc:Ignorable="d" Name="uc">
+    <UserControl.Resources>
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <Style x:Key="DefaultLisviewItemBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+            <Setter Property="BorderBrush" Value="#DBE2EC"/>
+            <Setter Property="Margin" Value="-6,-1,-6,-1"/>
+        </Style>
+
+        <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF9E5" Offset="0.0" />
+                    <GradientStop Color="#FFB444" Offset="0.5" />
+                    <GradientStop Color="#FFE69D" Offset="1" />
+                </LinearGradientBrush>
+
+                <LinearGradientBrush x:Key="{x:Static SystemColors.ControlBrushKey}" StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#FFF9E5" Offset="0.0" />
+                    <GradientStop Color="#FFB444" Offset="0.5" />
+                    <GradientStop Color="#FFE69D" Offset="1" />
+                </LinearGradientBrush>
+
+           
+            </Style.Resources>
+        </Style>
+        <LinearGradientBrush x:Key="DefaultSelectedItemBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFF9E5" Offset="0.0" />
+            <GradientStop Color="#FFB444" Offset="0.5" />
+            <GradientStop Color="#FFE69D" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" x:Key="GridColumnHeaderBrush">
+            <GradientStop Offset="0" Color="#364E81"/>
+            <GradientStop Offset="1" Color="#12204F"/>
+        </LinearGradientBrush>
+        <Style x:Key="DefaultListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="{StaticResource DefaultSelectedItemBrush}"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="IsTabStop" Value="False" />
+        </Style>
+     
+        <Style x:Key="DefaultListViewHeaderStyle" TargetType="{x:Type GridViewColumnHeader}" >
+            <Setter Property="Background" Value="{StaticResource GridColumnHeaderBrush}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource DefaultSelectedItemBrush}"/>
+                    <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+    <GroupBox>
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold"  Text="Properties" />
+        </GroupBox.Header>
+
+        <ListView 
+            KeyboardNavigation.TabNavigation="Contained"
+            Style="{StaticResource DefaultListViewStyle}" ItemContainerStyle="{StaticResource DefaultListViewItemStyle}"
+            ItemsSource="{Binding PropertyCollection, Mode=OneWay, ElementName=uc}"
+            >
+
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="IsTabStop" Value="False" />
+                </Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Background" Value="Transparent"/>
+
+                </Style>
+            </ListView.Resources>
+
+            <ListView.View>
+
+                <GridView ColumnHeaderContainerStyle="{StaticResource DefaultListViewHeaderStyle}">
+
+                    <GridViewColumn Width="100">
+
+
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                    Style="{StaticResource DefaultLisviewItemBorderStyle}">
+                                    <TextBlock
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Text="{Binding PropertyName, Mode=OneWay}" FontWeight="Bold" IsHitTestVisible="False" />
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="80">
+
+
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border
+                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                    Style="{StaticResource DefaultLisviewItemBorderStyle}">
+                                    <StackPanel
+                                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                        <TextBox
+                                            HorizontalAlignment="Stretch"
+                                            Visibility="{Binding ValidChoices, Mode=OneWay, Converter={StaticResource NullToHiddenConverter}, ConverterParameter=VISIBLE}"
+                                            Helper:WatermarkService.Watermark="&lt;null&gt;" Text="{Binding Path=Value, Mode=TwoWay}" Grid.Column="2" Width="{Binding}" HorizontalContentAlignment="Stretch" />
+                                        <ComboBox
+                                            HorizontalAlignment="Stretch"
+                                            Visibility="{Binding ValidChoices, Mode=OneWay, Converter={StaticResource NullToHiddenConverter}, ConverterParameter=COLLAPSED}"
+                                            SelectedItem="{Binding Path=Value, Mode=TwoWay}"
+                                            ItemsSource="{Binding ValidChoices, Mode=OneWay}" HorizontalContentAlignment="Stretch" />
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </GroupBox>
+</UserControl>

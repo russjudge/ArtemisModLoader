@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="RussLibrary.Controls.FolderBrowserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:russConverter="clr-namespace:RussLibrary.ValueConverters"
+             mc:Ignorable="d" Name="uc" >
+
+    <UserControl.Resources>
+        <russConverter:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+
+        <!-- The windows explorer style treeview of folders -->
+    <TreeView
+        Name="tv"
+        PreviewMouseDown="tv_PreviewMouseDown"      
+        ItemsSource="{Binding ViewModel.Folders, Mode=OneWay, ElementName=uc}"
+        SelectedValuePath="" Background="{x:Null}">
+        <TreeView.ItemContainerStyle>
+            <Style TargetType="{x:Type TreeViewItem}">
+                <Setter
+                    Property="Tag"
+                    Value="{Binding}" />
+                <Setter
+                    Property="IsExpanded"
+                    Value="{Binding IsExpanded, Mode=TwoWay}" />
+                <Setter
+                    Property="IsSelected"
+                    Value="{Binding IsSelected, Mode=TwoWay}" />
+                <Setter
+                    Property="FontWeight"
+                    Value="Normal" />
+                <Style.Triggers>
+                    <Trigger
+                        Property="IsSelected"
+                        Value="True">
+                        <Setter
+                            Property="FontWeight"
+                            Value="Bold" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </TreeView.ItemContainerStyle>
+
+        <TreeView.ItemTemplate>
+            <HierarchicalDataTemplate ItemsSource="{Binding Folders}">
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Visibility="{Binding IsExpanded, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                        Margin="2"
+                        Height="16" Source="pack://application:,,,/RussLibrary;component/Images/FolderOpen.png" />
+                    <Image
+                        Visibility="{Binding IsExpanded, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}"
+                        Margin="2"
+                        Height="16" Source="pack://application:,,,/RussLibrary;component/Images/FolderClosed.png" />
+
+                    <TextBlock
+                        Text="{Binding FolderName}"
+                        Margin="2"
+                        Height="16" />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.ItemTemplate>
+    </TreeView>
+
+
+</UserControl>

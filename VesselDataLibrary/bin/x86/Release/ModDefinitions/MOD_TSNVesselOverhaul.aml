@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ModConfiguration
+  DefinitionVersion="1"
+  DependsOn=""
+  ID="{A5E5BBA8-7A09-440A-94CE-E660CF8B1498}"
+  Description="Addition and Overhaul of TSN Ships"
+  Title="TSN Vessel Overhaul"
+  Author="LtMattmoo">
+
+  <!-- due to unable to directly download file (due to host site), Cannot fill in the "Source" attribute. -->
+  <!--Source="https://dl.dropboxusercontent.com/u/14746342/ArtemisMods/TSN_Vessel_Overhaul_1_0.zip" (alternative copy)-->
+  <Download
+    Source="https://www.dropbox.com/s/g1rhajwxgbycl26/TSN_Vessel_Overhaul_1_0_2.zip"
+    Webpage="http://px2owffng8.embed.tal.ki/20130619/mod-tsn-vessel-overhaul-2680357/?viewmark=1"
+    />
+
+  
+</ModConfiguration>

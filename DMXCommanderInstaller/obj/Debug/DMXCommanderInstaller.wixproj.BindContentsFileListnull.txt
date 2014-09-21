@@ -1,0 +1,9 @@
+..\DMXCommander\DMX_ReadMe.txt
+..\DMXCommander\DMX_ScriptReference.txt
+..\DMXCommand\bin\Debug\DMXCommand.exe
+..\DMXCommand\bin\Debug\DMXCommand.exe.config
+..\DMXCommand\bin\Debug\DMXCommander.dll
+..\ArtemisModLoader\EULA.rtf
+..\DMXCommand\bin\Debug\ftd2xx.dll
+..\DMXCommand\bin\Debug\log4net.dll
+..\DMXCommand\bin\Debug\RussLibrary.dll

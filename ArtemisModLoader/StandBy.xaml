@@ -1,0 +1,14 @@
+﻿<Window x:Class="ArtemisModLoader.StandBy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+        xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+        Name="uc" 
+        Title="{x:Static resx:Resources.ProcessingTitle}" SizeToContent="Height" Width="600" Topmost="True">
+    <StackPanel>
+        <!--<ProgressBar IsIndeterminate="True" />-->
+        <ctl:ProgressIndicator />
+        <TextBlock Text="{Binding Message, Mode=OneWay, ElementName=uc}" TextWrapping="Wrap" VerticalAlignment="Center" />
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="ArtemisModLoader.Variations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctl="clr-namespace:ArtemisModLoader"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             mc:Ignorable="d" Name="uc"
+             >
+    <UserControl.Resources>
+        
+        <ctl:OppositeBoolConverter x:Key="OppositeBoolConverter" />
+        <ctl:BoolToDecimalConverter x:Key="BoolToDecimalConverter" />
+    </UserControl.Resources>
+    <GroupBox
+        BorderBrush="Gainsboro"  BorderThickness="3">
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="{x:Static resx:Resources.Variations}" />
+        </GroupBox.Header>
+        <ItemsControl
+            ItemsSource="{Binding Mod.SubMods, Mode=OneWay, ElementName=uc}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="2,2,2,2"
+                        Padding="2,2,2,2"
+                        BorderBrush="GreenYellow"
+                        BorderThickness="{Binding IsActive, Mode=OneWay, Converter={StaticResource BoolToDecimalConverter}, ConverterParameter='3|0'}" >
+                        <Button
+                            ToolTip="{x:Static resx:Resources.VariationActivate}"
+                            Margin="2,2,2,2"
+                            Padding="2,2,2,2"
+                            IsEnabled="{Binding IsActive, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}"
+                            Click="Activate_Click" CommandParameter="{Binding}">
+                            <CheckBox
+                                Margin="2,2,2,2"
+                                Padding="2,2,2,2"
+                                IsChecked="{Binding IsActive, Mode=OneWay}" Content="{Binding Title}" />
+                        </Button>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </GroupBox>
+</UserControl>

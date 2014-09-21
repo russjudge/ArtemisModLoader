@@ -1,0 +1,168 @@
+﻿<UserControl x:Class="RussLibrary.Controls.FileExplorerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctl="clr-namespace:RussLibrary.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:helper="clr-namespace:RussLibrary.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters"
+             Name="uc"
+             Background="#5FFFFFFF"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <valueConvert:FilenameToImage x:Key="FilenameToImage" />
+        <valueConvert:NumericConverter x:Key="NumericConverter" />
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Background="#B9FFFFFF"
+                    Orientation="Horizontal">
+            <Label VerticalAlignment="Center"
+                   Content="Root Path:"
+                   FontWeight="Bold" />
+            <TextBlock Margin="6,0,0,0"
+                       VerticalAlignment="Center"
+                       Text="{Binding RootPath,
+                                      Mode=OneWay,
+                                      ElementName=uc}"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+
+            <ctl:FolderBrowserControl Grid.Column="0"
+                                      Background="#B9FFFFFF"
+                                      RootPath="{Binding RootPath,
+                                                         Mode=OneWay,
+                                                         ElementName=uc}"
+                                      SelectedPath="{Binding Path=SelectedPath,
+                                                             Mode=TwoWay,
+                                                             ElementName=uc}" />
+            <GridSplitter Grid.Column="0"
+                          Width="5"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Stretch"
+                          ResizeDirection="Columns" />
+            <TextBlock Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="Error getting file list.  If all else fails--try rebooting."
+                       Visibility="{Binding FileError,
+                                            Mode=OneWay,
+                                            ElementName=uc,
+                                            Converter={StaticResource BoolToVisibilityParameterConverter},
+                                            ConverterParameter='Visible|Collapsed'}" />
+            <ListView Name="lv"
+                      Grid.Column="1"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Top"
+                      AllowDrop="True"
+                      Background="#B9FFFFFF"
+                      DragEnter="lv_DragEnter"
+                      Drop="lv_Drop"
+                      ItemsSource="{Binding CurrentFiles,
+                                            Mode=OneWay,
+                                            ElementName=uc}"
+                      ListBoxItem.MouseDoubleClick="Mouse_DoubleClick"
+                      MouseMove="lv_MouseMove"
+                      MouseUp="lv_MouseUp"
+                      PreviewMouseDown="ListView_PreviewMouseDown"
+                      SelectedItem="{Binding Path=SelectedFile,
+                                             Mode=TwoWay,
+                                             ElementName=uc}"
+                      Visibility="{Binding FileError,
+                                           Mode=OneWay,
+                                           ElementName=uc,
+                                           Converter={StaticResource BoolToVisibilityParameterConverter},
+                                           ConverterParameter='Collapsed|Visible'}">
+
+
+                <ListView.View>
+
+                    <GridView>
+                        <GridViewColumn Width="300">
+                            <GridViewColumnHeader Tag="Name"
+                                                  helper:GridViewColumnHeaderSorter.IsDefault="True"
+                                                  helper:GridViewColumnHeaderSorter.SortColumnID="Attributes|Name" />
+
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center"
+                                               FontWeight="Bold"
+                                               Text="Name" />
+                                </DataTemplate>
+
+                            </GridViewColumn.HeaderTemplate>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Width="16"
+                                               Height="16"
+                                               Margin="2"
+                                               Source="{Binding Converter={StaticResource FilenameToImage}}" />
+                                        <TextBlock Margin="2"
+                                                   VerticalAlignment="Center"
+                                                   Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150">
+                            <GridViewColumnHeader Tag="Date"
+                                                  helper:GridViewColumnHeaderSorter.IsDefault="False"
+                                                  helper:GridViewColumnHeaderSorter.SortColumnID="LastWriteTime" />
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center"
+                                               FontWeight="Bold"
+                                               Text="Date Modified" />
+                                </DataTemplate>
+
+                            </GridViewColumn.HeaderTemplate>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding LastWriteTime}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="100">
+                            <GridViewColumnHeader Tag="Length"
+                                                  helper:GridViewColumnHeaderSorter.IsDefault="False"
+                                                  helper:GridViewColumnHeaderSorter.SortColumnID="Length" />
+
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock VerticalAlignment="Center"
+                                               FontWeight="Bold"
+                                               Text="Size" />
+                                </DataTemplate>
+
+                            </GridViewColumn.HeaderTemplate>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               Text="{Binding Length,
+                                                              Converter={StaticResource NumericConverter}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</UserControl>

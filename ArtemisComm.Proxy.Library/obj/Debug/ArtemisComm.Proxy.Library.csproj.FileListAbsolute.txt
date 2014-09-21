@@ -1,0 +1,8 @@
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\obj\Debug\ArtemisComm.Proxy.Library.csprojResolveAssemblyReference.cache
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\bin\Debug\ArtemisComm.Proxy.Library.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\bin\Debug\ArtemisComm.Proxy.Library.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\bin\Debug\ArtemisComm.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\bin\Debug\log4net.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\bin\Debug\ArtemisComm.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\obj\Debug\ArtemisComm.Proxy.Library.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.Proxy.Library\obj\Debug\ArtemisComm.Proxy.Library.pdb

@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="MissionStudio.Spacemap.SpaceObject"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             IsTabStop="True" Focusable="True"
+             mc:Ignorable="d" Name="uc" Width="Auto" Height="Auto">
+    <UserControl.Resources>
+        <valueConvert:EnumNameMatchToVisibility x:Key="EnumNameMatchToVisibility" />
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        </UserControl.Resources>
+    <AdornerDecorator>
+        <StackPanel>
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Player ship"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Player|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/player.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Neutral Ship"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Neutral|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/friend.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Enemy Ship"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Enemy|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/enemy.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Anamoly"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Anomaly|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/pickup.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Station"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Station|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/stationIcon.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Black Hole"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='BlackHole|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/BlackHoleIcon.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Monster"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Monster|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/monster.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Generic Mesh"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='GenericMesh|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/genericMesh.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Mine"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Mines|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/mine.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Asteroid"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Asteroids|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/asteroids.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Whale"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Whale|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/whale.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Nebula"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Nebulas|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/nebula.png" />
+            <Image
+            Width="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            Height="{Binding ImageWidth, Mode=OneWay, ElementName=uc}"
+            ToolTip="Destroy Near"
+            Visibility="{Binding ObjectType, ElementName=uc, Mode=OneWay,
+            Converter={StaticResource EnumNameMatchToVisibility}, ConverterParameter='Destroyer|Visible|Collapsed'}"
+            Source="pack://application:,,,/MissionStudio;component/Images/1385_Disable_24x24_72.png" />
+
+
+
+            <TextBlock
+            Visibility="{Binding ObjectName, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}}"
+            Foreground="Magenta"
+            HorizontalAlignment="Center" Text="{Binding ObjectName, ElementName=uc, Mode=OneWay}" />
+
+
+        </StackPanel>
+    </AdornerDecorator>
+</UserControl>

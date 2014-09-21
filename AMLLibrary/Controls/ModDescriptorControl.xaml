@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="ArtemisModLoader.Controls.ModDescriptorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             mc:Ignorable="d" Name="uc" Background="#6FFFFFFF">
+    <UserControl.Resources>
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <StackPanel
+        Margin="4,4,4,4">
+        <TextBlock FontWeight="Bold"  Text="{Binding Configuration.Title, Mode=OneWay, ElementName=uc}" />
+        <StackPanel
+            Visibility="{Binding Configuration.Author, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}}"
+            Orientation="Horizontal">
+            <TextBlock FontSize="10" Foreground="DarkSlateGray" Text="By: " />
+            <TextBlock FontSize="10" Foreground="DarkSlateGray" Text="{Binding Configuration.Author, Mode=OneWay, ElementName=uc}" />
+        </StackPanel>
+        <TextBlock Text="{Binding Configuration.Description, Mode=OneWay, ElementName=uc}" />
+        <TextBlock
+            Visibility="{Binding Configuration.SupportsInvasionMode, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}"
+            Text="{x:Static resx:Resources.MissionModeOnly}"
+            Foreground="Red" FontWeight="Bold" FontSize="10" />
+
+
+    </StackPanel>
+</UserControl>

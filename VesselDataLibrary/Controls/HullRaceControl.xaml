@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.HullRaceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:prop="clr-namespace:ArtemisModLoader.Properties;assembly=AMLLibrary"
+             xmlns:vesselCtl="clr-namespace:VesselDataLibrary.Controls"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             mc:Ignorable="d" Name="uc">
+
+    <UserControl.Resources>
+        <prop:Settings x:Key="Settings" />
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.HullRaceLight}" Offset="0" />
+            <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.HullRaceDark}" Offset="1" />
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <Border Width="500" Margin="6,6,6,6" Padding="6,6,6,6" BorderBrush="Azure" BorderThickness="2">
+        <DockPanel LastChildFill="True" >
+            <xctk:DropDownButton  DockPanel.Dock="Top" HorizontalContentAlignment="Stretch">
+                <xctk:DropDownButton.DropDownContent>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Light Gradient:" VerticalAlignment="Center" />
+                        <xctk:ColorPicker ShowRecentColors="True" SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.HullRaceLight}"/>
+                        <Label Content="Dark Gradient:" />
+                        <xctk:ColorPicker SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.HullRaceDark}" />
+
+                    </StackPanel>
+                </xctk:DropDownButton.DropDownContent>
+
+                <StackPanel Orientation="Horizontal" >
+
+                    <Label FontWeight="Bold" Content="{x:Static resx:Resources.IDLabel}" />
+                    <ctl:DecimalBox MinWidth="80" Margin="4,0,10,0" MinNumber="0" Value="{Binding Path=Data.ID, Mode=TwoWay, ElementName=uc}"/>
+                    <Label FontWeight="Bold" Content="{x:Static resx:Resources.RaceNameLabel}" />
+                    <TextBox
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Stretch" MinWidth="100" Margin="4,0,4,0"
+                        Text="{Binding Path=Data.Name, Mode=TwoWay, ElementName=uc}" />
+                </StackPanel>
+            </xctk:DropDownButton>
+            <GroupBox
+                 DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock Text="{x:Static resx:Resources.KeysHeader}" FontWeight="Bold" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton
+                    Name="rad"
+                    Margin="4,0,4,0"
+                    Grid.Row="0" Grid.Column="0"
+                    GroupName="{Binding Group1, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Player}" IsChecked="{Binding Path=IsPlayerShip, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Margin="4,0,4,0"
+                    Grid.Row="1" Grid.Column="0"
+                    GroupName="{Binding Group1, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Friendly}" IsChecked="{Binding Path=IsFriendlyShip, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Margin="4,0,4,0"
+                    Grid.Row="2" Grid.Column="0"
+                    GroupName="{Binding Group1, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Enemy}" IsChecked="{Binding Path=IsEnemyShip, Mode=TwoWay, ElementName=uc}" />
+
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="0" Grid.Column="1"
+                    GroupName="{Binding Group2, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Standard}" IsChecked="{Binding Path=IsEnemyStandard, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="1" Grid.Column="1"
+                    GroupName="{Binding Group2, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Support}" IsChecked="{Binding Path=IsEnemySupport, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="2" Grid.Column="1"
+                    GroupName="{Binding Group2, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.Loner}" IsChecked="{Binding Path=IsEnemyLoner, Mode=TwoWay, ElementName=uc}" />
+
+                    <CheckBox
+                        Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                        Margin="4,0,4,0"
+                        Grid.Row="3" Grid.Column="1" Content="{x:Static resx:Resources.Elite}"
+                        IsChecked="{Binding Path=IsEnemyElite, Mode=TwoWay, ElementName=uc}" />
+
+
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="0" Grid.Column="2"
+                    GroupName="{Binding Group3, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.WhaleLover}" IsChecked="{Binding Path=IsEnemyWhaleLover, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="1" Grid.Column="2"
+                    GroupName="{Binding Group3, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.WhaleHater}" IsChecked="{Binding Path=IsEnemyWhaleHater, Mode=TwoWay, ElementName=uc}" />
+                    <RadioButton
+                    Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Margin="4,0,4,0"
+                    Grid.Row="2" Grid.Column="2"
+                    GroupName="{Binding Group3, Mode=OneTime, ElementName=uc}" Content="{x:Static resx:Resources.WhaleIndifferent}" IsChecked="{Binding Path=IsEnemyWhaleIndifferent, Mode=TwoWay, ElementName=uc}" />
+                    <CheckBox
+                        Margin="4,0,4,0"
+                        Visibility="{Binding IsEnemyShip, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                        Content="Biomech"
+                        Grid.Row="3" Grid.Column="2"
+                        IsChecked="{Binding Path=IsEnemyBiomech, Mode=TwoWay, ElementName=uc}" />
+
+
+                </Grid>
+            </GroupBox>
+            <vesselCtl:TauntControl DockPanel.Dock="Top" Taunts="{Binding Data.Taunts, Mode=OneWay, ElementName=uc}" />
+        </DockPanel>
+    </Border>
+</UserControl>

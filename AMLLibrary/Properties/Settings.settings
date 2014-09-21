@@ -1,0 +1,93 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtemisModLoader.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ModManagerColorLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFFFF</Value>
+    </Setting>
+    <Setting Name="ModManagerColorDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#796DEF34</Value>
+    </Setting>
+    <Setting Name="MissionColorLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFFFF</Value>
+    </Setting>
+    <Setting Name="MissionColorDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#798A0000</Value>
+    </Setting>
+    <Setting Name="ModDefinerLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FF9727</Value>
+    </Setting>
+    <Setting Name="ModDefinerDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79B9E4FF</Value>
+    </Setting>
+    <Setting Name="ModSelectorLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFC00</Value>
+    </Setting>
+    <Setting Name="ModSelectorDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79C4BFF8</Value>
+    </Setting>
+    <Setting Name="SessionMonitorLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#7900FF10</Value>
+    </Setting>
+    <Setting Name="SessionMonitorDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFF0D</Value>
+    </Setting>
+    <Setting Name="SettingsLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79D49696</Value>
+    </Setting>
+    <Setting Name="SettingsDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79EFEF0C</Value>
+    </Setting>
+    <Setting Name="ActionLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#797FF816</Value>
+    </Setting>
+    <Setting Name="ActionDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79F29700</Value>
+    </Setting>
+    <Setting Name="FileMappingsLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79DFCFF5</Value>
+    </Setting>
+    <Setting Name="FileMappingsDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79F28282</Value>
+    </Setting>
+    <Setting Name="VariationsLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79F5E64B</Value>
+    </Setting>
+    <Setting Name="VariationsDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#794EA6F2</Value>
+    </Setting>
+    <Setting Name="ArtemisINILight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79E2F5F5</Value>
+    </Setting>
+    <Setting Name="ArtemisINIDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#798DC3E5</Value>
+    </Setting>
+    <Setting Name="HullRaceLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#7967A1FC</Value>
+    </Setting>
+    <Setting Name="HullRaceDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79BE5AFC</Value>
+    </Setting>
+    <Setting Name="VesselLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#791CF2B0</Value>
+    </Setting>
+    <Setting Name="VesselDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79EF9D1C</Value>
+    </Setting>
+    <Setting Name="MergeLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFFFF</Value>
+    </Setting>
+    <Setting Name="MergeDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79FFFFFF</Value>
+    </Setting>
+    <Setting Name="SelectMergeLight" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#7960F260</Value>
+    </Setting>
+    <Setting Name="SelectMergeDark" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#79E87777</Value>
+    </Setting>
+    <Setting Name="UpdateRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

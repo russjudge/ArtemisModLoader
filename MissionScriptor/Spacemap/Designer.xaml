@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="MissionStudio.Spacemap.Designer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:space="clr-namespace:MissionStudio.Spacemap" 
+             mc:Ignorable="d" Name="uc" AllowDrop="False"     >
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <StackPanel Name="ZoomStack" Orientation="Horizontal" >
+
+                <Button ToolTip="Zoom Out" Click="ZoomOut_Click">
+                    <Button.Content>
+                        <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/2391_ZoomOut.png" />
+                    </Button.Content>
+                </Button>
+
+                <Button ToolTip="Zoom In" Click="ZoomIn_Click">
+                    <Button.Content>
+                        <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/2392_ZoomIn_48x48.png" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <Border
+                Name="ItemPool"
+                Grid.Row="1"
+                Background="#FF000020"
+                BorderBrush="Maroon" BorderThickness="2">
+                <StackPanel>
+                    <ItemsControl
+                        Background="#FF000020"
+                        ItemsSource="{Binding ObjectList, Mode=OneWay, ElementName=uc}" >
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <space:SpaceObject Unloaded="SpaceObject_unloaded" Width="24" ObjectType="{Binding}" Loaded="SpaceObject_loaded" />
+
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <!-- List of commands here (everything but create and destroy_near) -->
+                    <ScrollViewer
+                        Height="200"
+                        VerticalScrollBarVisibility="Auto" >
+                        <ItemsControl
+                        Background="BlanchedAlmond"
+                        ItemsSource="{Binding Unmappables, Mode=OneWay, ElementName=uc}" >
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <!--<StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">-->
+                                        <GroupBox Tag="{Binding}" Loaded="SpaceObject_loaded" Background="Beige" BorderBrush="BurlyWood" BorderThickness="1">
+                                           
+                                                <TextBlock
+                                                    Padding="4,4,4,4" Text="{Binding}"  />
+                                    </GroupBox>
+                                        <!--<space:UnmappableObject Unloaded="SpaceObject_unloaded" CommandName="{Binding}" Loaded="SpaceObject_loaded" />
+                                        <TextBlock></TextBlock>-->
+                                    <!--</StackPanel>-->
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <space:PropertiesControl PropertyCollection="{Binding SelectedSpaceObject.Attributes, Mode=OneWay, ElementName=uc}" />
+
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+        <ScrollViewer
+            Name="canvasScroll"
+            VerticalAlignment="Top" HorizontalAlignment="Left" 
+            HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" 
+            Grid.Column="2">
+            <Canvas
+                PreviewKeyDown="Canvas_KeyDown" PreviewKeyUp="Canvas_KeyUp"
+                Width="500" Height="500"
+                KeyboardNavigation.TabNavigation="Contained"
+                Keyboard.KeyDown="Canvas_KeyDown"
+                MouseWheel="Canvas_MouseWheel"
+                MinHeight="500" MinWidth="500"
+                Background="#FF000020"
+                Name="canvas" SizeChanged="uc_SizeChanged" AllowDrop="True" Drop="canvas_Drop">
+                <Canvas.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Zoom Out" Click="ZoomOut_Click">
+                            <MenuItem.Icon>
+                                <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/2391_ZoomOut.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Zoom In" Click="ZoomIn_Click">
+                            <MenuItem.Icon>
+                                <Image Height="16" Source="pack://application:,,,/MissionStudio;component/Images/2392_ZoomIn_48x48.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+
+                </Canvas.ContextMenu>
+            </Canvas>
+        </ScrollViewer>
+        <GridSplitter Width="5" Name="gridSplit" 
+            Foreground="Fuchsia" Background="Gray" HorizontalAlignment="Center" ResizeDirection="Columns"
+            Grid.Column="1" VerticalAlignment="Stretch" />
+
+        <GridSplitter Width="5"
+            Foreground="Fuchsia" Background="Gray" HorizontalAlignment="Center" ResizeDirection="Columns"
+            Grid.Column="3" VerticalAlignment="Stretch" />
+        <!-- unmappable objects here -->
+        <GroupBox Grid.Column="4">
+            <GroupBox.Header>
+                <TextBlock Text="Commands and Conditions" FontWeight="Bold"  />
+            </GroupBox.Header>
+        <ScrollViewer
+            VerticalScrollBarVisibility="Auto" >
+            <ItemsControl
+                Background="BlanchedAlmond"
+                ItemsSource="{Binding CommandsAndConditions, Mode=OneWay, ElementName=uc}" >
+                
+            </ItemsControl>
+        </ScrollViewer>
+        </GroupBox>
+    </Grid>
+
+</UserControl>

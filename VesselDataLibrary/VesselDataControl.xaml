@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="VesselDataLibrary.VesselDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:ctl="clr-namespace:VesselDataLibrary"
+             mc:Ignorable="d" Name="uc">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button ToolTip="{x:Static resx:Resources.New}" Click="New_click">
+                <Button.Content>
+                    <Image  Height="32" Source="/AMLLibrary;component/Images/gnome_document_new.png" />
+                </Button.Content>
+            </Button>
+            <Button ToolTip="{x:Static resx:Resources.Open}" Click="Open_click">
+                <Button.Content>
+                    <Image Height="32" Source="/VesselDataLibrary;component/Images/folder_open.png" />
+                </Button.Content>
+
+            </Button>
+            <Button ToolTip="{x:Static resx:Resources.Save}" Click="Save_click" >
+                <Button.Content>
+                    <Image Height="32" Source="/VesselDataLibrary;component/Images/save.png" />
+                </Button.Content>
+            </Button>
+            <Button ToolTip="{x:Static resx:Resources.SaveAs}" Click="SaveAs_click" >
+                <Button.Content>
+                    <Image Height="32" Source="/VesselDataLibrary;component/Images/document_save_as.png" />
+                </Button.Content>
+            </Button>
+            <Button ToolTip="{x:Static resx:Resources.MergeToolTip}"  Click="Merge_click" >
+                <Button.Content>
+
+                    <Image Height="32" Source="/AMLLibrary;component/Images/Merge-48.png" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        
+            <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="{x:Static resx:Resources.HullRacesHeader}" FontWeight="Bold" />
+                </TabItem.Header>
+                <DockPanel >
+                    <Button DockPanel.Dock="Top" ToolTip="{x:Static resx:Resources.AddRace}" HorizontalAlignment="Right" Click="AddRace_click">
+                        <Button.Content>
+                            <Image Height="32" Source="/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                        </Button.Content>
+                    </Button>
+                    <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Data.HullRaces, Mode=OneWay, ElementName=uc}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+                                        VerticalAlignment="Top" HorizontalAlignment="Left"
+                                        CommandParameter="{Binding}"
+                                        ToolTip="{x:Static resx:Resources.DeleteRace}" Click="DeleteRace_Click">
+                                            <Button.Content>
+                                                <Image Height="32" Source="/VesselDataLibrary;component/Images/delete.png" />
+                                            </Button.Content>
+                                        </Button>
+                                        <ctl:HullRaceControl Data="{Binding}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="{x:Static resx:Resources.VesselsHeader}" FontWeight="Bold" />
+                </TabItem.Header>
+                <DockPanel >
+                    <Button DockPanel.Dock="Top" ToolTip="{x:Static resx:Resources.AddVessel}" HorizontalAlignment="Right" Click="AddVessel_click">
+                        <Button.Content>
+                            <Image Height="32" Source="/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                        </Button.Content>
+                    </Button>
+                    <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Data.Vessels, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                    <StackPanel>
+                                        <Button
+                                            VerticalAlignment="Top" HorizontalAlignment="Left"
+                                            CommandParameter="{Binding}"
+                                            ToolTip="{x:Static resx:Resources.DeleteVessel}" Click="DeleteVessel_Click">
+                                            <Button.Content>
+                                                <Image Height="32" Source="/VesselDataLibrary;component/Images/delete.png" />
+                                            </Button.Content>
+                                        </Button>
+                                        <!--<ctl:VesselControl Data="{Binding}" />-->
+                                    </StackPanel>
+                                </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</UserControl>

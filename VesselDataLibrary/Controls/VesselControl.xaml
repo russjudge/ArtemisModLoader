@@ -1,0 +1,667 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.VesselControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctl="clr-namespace:VesselDataLibrary.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prop="clr-namespace:ArtemisModLoader.Properties;assembly=AMLLibrary"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:usr="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             Name="uc"
+             HorizontalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             Loaded="uc_Loaded"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <prop:Settings x:Key="Settings" />
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <valueConvert:PropertyToValidationConverter x:Key="PropertyToValidationConverter" />
+        <valueConvert:ParmMatchToVisibilityConverter x:Key="ParmMatchToVisibilityConverter" />
+        <valueConvert:GreaterThanParmVisibilityConverter x:Key="GreaterThanParmVisibilityConverter" />
+        <valueConvert:ValidationToBrush x:Key="ValidationToBrush" />
+    </UserControl.Resources>
+    <UserControl.Background>
+        <RadialGradientBrush>
+            <GradientStop Offset="0" Color="{Binding Source={StaticResource Settings}, Path=Default.VesselLight}" />
+            <GradientStop Offset="1" Color="{Binding Source={StaticResource Settings}, Path=Default.VesselDark}" />
+        </RadialGradientBrush>
+    </UserControl.Background>
+    <GroupBox HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <GroupBox.Header>
+            <xctk:DropDownButton>
+                <xctk:DropDownButton.DropDownContent>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label VerticalAlignment="Center" Content="Light Gradient:" />
+                        <xctk:ColorPicker SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.VesselLight}" ShowRecentColors="True" />
+                        <Label Content="Dark Gradient:" />
+                        <xctk:ColorPicker SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.VesselDark}" />
+
+                    </StackPanel>
+                </xctk:DropDownButton.DropDownContent>
+
+                <StackPanel HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Label Margin="4,0,0,0"
+                           VerticalAlignment="Center"
+                           Content="{x:Static resx:Resources.IDLabel}"
+                           FontWeight="Bold" />
+                    <usr:DecimalBox VerticalAlignment="Center" Value="{Binding Path=Data.UniqueID, ElementName=uc, Mode=TwoWay}" />
+                    <Label Margin="4,0,0,0"
+                           Content="{x:Static resx:Resources.SideLabel}"
+                           FontWeight="Bold"
+                           Foreground="{Binding Data.ValidationCollection,
+                                                Mode=OneWay,
+                                                ElementName=uc,
+                                                Converter={StaticResource ValidationToBrush},
+                                                ConverterParameter='Side|Black|Orange|Red'}" />
+                    <ComboBox MinWidth="70"
+                              VerticalAlignment="Center"
+                              ItemsSource="{Binding HullRaces,
+                                                    Mode=OneWay,
+                                                    ElementName=uc}"
+                              SelectedValue="{Binding Path=Data.Side,
+                                                      ElementName=uc,
+                                                      Mode=TwoWay}"
+                              SelectedValuePath="ID">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding ID, Mode=OneWay}" />
+                                    <TextBlock VerticalAlignment="Center" Text=" - " />
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Name, Mode=OneWay}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
+                    <Label Margin="4,0,0,0"
+                           VerticalAlignment="Center"
+                           Content="{x:Static resx:Resources.ClassnameLabel}"
+                           FontWeight="Bold" />
+                    <TextBox MinWidth="70"
+                             VerticalAlignment="Center"
+                             Text="{Binding Path=Data.ClassName,
+                                            Mode=TwoWay,
+                                            ElementName=uc}" />
+
+                    <Label Margin="4,0,0,0"
+                           VerticalAlignment="Center"
+                           Content="{x:Static resx:Resources.BroadTypeLabel}"
+                           FontWeight="Bold" />
+                    <TextBox MinWidth="70"
+                             VerticalAlignment="Center"
+                             Text="{Binding Path=Data.BroadType,
+                                            Mode=TwoWay,
+                                            ElementName=uc}"
+                             Visibility="{Binding Data.BroadType,
+                                                  ElementName=uc,
+                                                  Converter={StaticResource NullToHiddenConverter},
+                                                  ConverterParameter=visible}" />
+                    <ComboBox VerticalAlignment="Center"
+                              ItemsSource="{Binding Data.BroadTypeList,
+                                                    Mode=OneWay,
+                                                    ElementName=uc}"
+                              SelectedItem="{Binding Path=Data.UserBroadType,
+                                                     Mode=TwoWay,
+                                                     ElementName=uc}"
+                              Visibility="{Binding Data.BroadType,
+                                                   ElementName=uc,
+                                                   Converter={StaticResource NullToHiddenConverter}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock VerticalAlignment="Center"
+                                               Text="{Binding}"
+                                               Visibility="{Binding Converter={StaticResource NullToHiddenConverter}}" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <CheckBox Margin="4,0,4,0"
+                              VerticalAlignment="Center"
+                              Content="Is Sentient"
+                              IsChecked="{Binding Path=Data.IsSentient,
+                                                  Mode=TwoWay,
+                                                  ElementName=uc}" />
+                    <CheckBox Margin="4,0,4,0"
+                              VerticalAlignment="Center"
+                              Content="Is Anomaly Eater"
+                              IsChecked="{Binding Path=Data.IsAnomalyEater,
+                                                  Mode=TwoWay,
+                                                  ElementName=uc}" />
+                    <CheckBox Margin="4,0,4,0"
+                              VerticalAlignment="Center"
+                              Content="Is Asteroid Eater"
+                              IsChecked="{Binding Path=Data.IsAsteroidEater,
+                                                  Mode=TwoWay,
+                                                  ElementName=uc}" />
+
+                    <Button Click="AddBroadType_Click" ToolTip="{x:Static resx:Resources.AddBroadType}">
+                        <Button.Content>
+                            <Image Width="16" Source="pack://application:,,,/AMLLibrary;component/Images/Actions-list-add-icon.png" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </xctk:DropDownButton>
+        </GroupBox.Header>
+
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.DescriptionLabel}"
+                       DockPanel.Dock="Left"
+                       FontWeight="Bold" />
+                <TextBox MinWidth="300"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Center"
+                         AcceptsReturn="True"
+                         Text="{Binding Path=Data.Description.TextData,
+                                        Mode=TwoWay,
+                                        ElementName=uc}"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto" />
+
+            </DockPanel>
+            <StackPanel DockPanel.Dock="Top"
+                        Orientation="Horizontal"
+                        Visibility="{Binding Data.BroadType,
+                                             Mode=OneWay,
+                                             ElementName=uc,
+                                             Converter={StaticResource ParmMatchToVisibilityConverter},
+                                             ConverterParameter='player|Collapsed|Visible'}">
+                <Label VerticalAlignment="Center"
+                       Content="{x:Static resx:Resources.FleetAILabel}"
+                       FontWeight="Bold" />
+                <usr:DecimalBox Width="70"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                MinNumber="0"
+                                Value="{Binding Path=Data.FleetAICommonality.Commonality,
+                                                Mode=TwoWay,
+                                                ElementName=uc}" />
+
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Label VerticalAlignment="Center"
+                       Content="Carrier Compliment (if carrier):"
+                       FontWeight="Bold" />
+                <usr:DecimalBox Width="70"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                MinNumber="0"
+                                Value="{Binding Path=Data.Carrier.Compliment,
+                                                Mode=TwoWay,
+                                                ElementName=uc}" />
+
+            </StackPanel>
+            <ctl:ArtControl HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            Configuration="{Binding Configuration,
+                                                    Mode=OneWay,
+                                                    ElementName=uc}"
+                            Data="{Binding Data,
+                                           Mode=OneWay,
+                                           ElementName=uc}"
+                            DockPanel.Dock="Top"
+                            SearchPrefixes="{Binding SearchPrefixes,
+                                                     Mode=OneWay,
+                                                     ElementName=uc}" />
+            <StackPanel DockPanel.Dock="Top"
+                        Orientation="Horizontal"
+                        Visibility="{Binding Data.BroadType,
+                                             Mode=OneWay,
+                                             ElementName=uc,
+                                             Converter={StaticResource ParmMatchToVisibilityConverter},
+                                             ConverterParameter='player|Visible|Collapsed'}">
+                <Label Content="{x:Static resx:Resources.InternalDataLabel}"
+                       DockPanel.Dock="Left"
+                       FontWeight="Bold" />
+                <usr:FileSelectionControl MinWidth="200"
+                                          DialogTitle="{x:Static resx:Resources.SelectMeshFile}"
+                                          FileDisplay="{Binding Path=Data.InternalDefinition.File,
+                                                                ElementName=uc,
+                                                                Mode=TwoWay}"
+                                          Filter="Internal Data files (*.snt)|*.snt|All Files (*.*)|*.*"
+                                          InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                                          Prefix="{Binding Configuration.InstalledPath,
+                                                           Mode=OneWay,
+                                                           ElementName=uc}"
+                                          SearchPrefixes="{Binding SearchPrefixes,
+                                                                   Mode=OneWay,
+                                                                   ElementName=uc}"
+                                          ValidExtensions=".snt;" />
+            </StackPanel>
+            <GroupBox DockPanel.Dock="Top">
+                <GroupBox.Header>
+                    <TextBlock VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Text="{x:Static resx:Resources.ShieldsAndPerformance}" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Content="{x:Static resx:Resources.FrontLabel}"
+                           FontWeight="Bold" />
+                    <DockPanel Grid.Row="0" Grid.Column="1">
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        MinNumber="0"
+                                        Value="{Binding Path=Data.Shields.Front,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+                    <Label Grid.Row="0"
+                           Grid.Column="2"
+                           Content="{x:Static resx:Resources.BackLabel}"
+                           FontWeight="Bold" />
+                    <DockPanel Grid.Row="0" Grid.Column="3">
+
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        MinNumber="0"
+                                        Value="{Binding Path=Data.Shields.Back,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           Content="{x:Static resx:Resources.TurnRateLabel}"
+                           FontWeight="Bold" />
+                    <DockPanel Grid.Row="1" Grid.Column="1">
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Value="{Binding Path=Data.Performance.TurnRate,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Content="{x:Static resx:Resources.TopSpeedLabel}"
+                           FontWeight="Bold" />
+                    <DockPanel Grid.Row="1" Grid.Column="3">
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Value="{Binding Path=Data.Performance.TopSpeed,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="2"
+                           Content="Production Coefficient:"
+                           FontWeight="Bold"
+                           ToolTip="Useful only for bases" />
+                    <DockPanel Grid.Row="2"
+                               Grid.Column="3"
+                               ToolTip="Useful only for bases">
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Value="{Binding Path=Data.Production.Coefficient,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           Content="Efficiency:"
+                           FontWeight="Bold" />
+                    <DockPanel Grid.Row="2" Grid.Column="1">
+
+                        <usr:DecimalBox HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center"
+                                        Value="{Binding Path=Data.Performance.Efficiency,
+                                                        Mode=TwoWay,
+                                                        ElementName=uc}" />
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+            <ctl:TubeStorageControl DockPanel.Dock="Top"
+                                    Torpedos="{Binding Data.Torpedoes,
+                                                       Mode=OneWay,
+                                                       ElementName=uc}"
+                                    Visibility="{Binding Data.BroadType,
+                                                         Mode=OneWay,
+                                                         ElementName=uc,
+                                                         Converter={StaticResource ParmMatchToVisibilityConverter},
+                                                         ConverterParameter='player|Visible|Collapsed'}" />
+            <Expander Name="beamExpander"
+                      DockPanel.Dock="Top"
+                      Expanded="beamExpander_Expanded">
+                <Expander.Header>
+                    <StackPanel Name="BeamHeader">
+
+
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <Label VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.Beams}"
+                                   FontWeight="Bold" />
+
+                            <Button HorizontalAlignment="Right"
+                                    Click="AddBeamPort_click"
+                                    DockPanel.Dock="Top"
+                                    ToolTip="{x:Static resx:Resources.AddBeamPort}">
+                                <Button.Content>
+                                    <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                                </Button.Content>
+                            </Button>
+
+                        </StackPanel>
+                        <!--  Width="{Binding Width, Mode=OneWay, ElementName=BeamHeader}"  -->
+                        <ctl:BeamPortStack Width="600"
+                                           Height="220"
+                                           BeamPorts="{Binding Data.BeamPorts,
+                                                               Mode=OneWay,
+                                                               ElementName=uc}"
+                                           DockPanel.Dock="Top"
+                                           Visibility="{Binding Data.BeamPorts.Count,
+                                                                ElementName=uc,
+                                                                Mode=OneWay,
+                                                                Converter={StaticResource GreaterThanParmVisibilityConverter},
+                                                                ConverterParameter=0}"
+                                           WallRatio="{Binding WallRatio,
+                                                               Mode=OneWay,
+                                                               ElementName=uc}" />
+                    </StackPanel>
+                </Expander.Header>
+
+
+                <ItemsControl ItemsSource="{Binding Data.BeamPorts, Mode=OneWay, ElementName=uc}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Button HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Click="DeleteBeamPort_Click"
+                                        CommandParameter="{Binding}"
+                                        DockPanel.Dock="Left"
+                                        ToolTip="{x:Static resx:Resources.DeleteBeamPort}">
+                                    <Button.Content>
+                                        <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                    </Button.Content>
+                                </Button>
+                                <ctl:BeamPortControl Beam="{Binding}"
+                                                     Loaded="BeamPortControl_Loaded"
+                                                     Unloaded="BeamPortControl_Unloaded"
+                                                     WallRatio="{Binding WallRatio,
+                                                                         Mode=OneWay,
+                                                                         ElementName=uc}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </Expander>
+            <Expander Name="droneExpander" DockPanel.Dock="Top">
+                <Expander.Header>
+                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <Label VerticalAlignment="Center"
+                               Content="Drone Ports"
+                               FontWeight="Bold" />
+                        <Button HorizontalAlignment="Right"
+                                Click="AddDronePort_click"
+                                DockPanel.Dock="Top"
+                                ToolTip="Add Drone Port">
+                            <Button.Content>
+                                <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                </Expander.Header>
+                <DockPanel>
+
+                    <ItemsControl ItemsSource="{Binding Data.DronePorts, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="DeleteDronePort_Click"
+                                            CommandParameter="{Binding}"
+                                            DockPanel.Dock="Left"
+                                            ToolTip="Delete Drone Port">
+                                        <Button.Content>
+                                            <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                        </Button.Content>
+                                    </Button>
+                                    <StackPanel DockPanel.Dock="Top">
+                                        <ctl:VectorControl Vector="{Binding Mode=OneWay}" />
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition SharedSizeGroup="VectorLabel" />
+                                                <ColumnDefinition SharedSizeGroup="VectorValue" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0"
+                                                   Grid.Column="0"
+                                                   Content="{x:Static resx:Resources.Damage}"
+                                                   FontWeight="Bold" />
+                                            <Label Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   Content="{x:Static resx:Resources.CycleTime}"
+                                                   FontWeight="Bold" />
+
+                                            <Label Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Content="{x:Static resx:Resources.Range}"
+                                                   FontWeight="Bold" />
+                                            <usr:DecimalBox Grid.Row="0"
+                                                            Grid.Column="1"
+                                                            MinWidth="70"
+                                                            HorizontalAlignment="Stretch"
+                                                            MinNumber="0"
+                                                            Value="{Binding Path=Damage,
+                                                                            Mode=TwoWay}" />
+
+                                            <usr:DecimalBox Grid.Row="1"
+                                                            Grid.Column="1"
+                                                            MinWidth="70"
+                                                            HorizontalAlignment="Stretch"
+                                                            MinNumber="0"
+                                                            Value="{Binding Path=CycleTime,
+                                                                            Mode=TwoWay}" />
+
+                                            <usr:DecimalBox Grid.Row="2"
+                                                            Grid.Column="1"
+                                                            MinWidth="70"
+                                                            HorizontalAlignment="Stretch"
+                                                            MinNumber="0"
+                                                            Value="{Binding Path=Range,
+                                                                            Mode=TwoWay}" />
+                                        </Grid>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DockPanel>
+            </Expander>
+            <DockPanel DockPanel.Dock="Left">
+                <Expander Name="torptupeExpander" DockPanel.Dock="Top">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.TorpedoTubes}"
+                                   FontWeight="Bold" />
+                            <Button HorizontalAlignment="Right"
+                                    Click="AddTubePort_click"
+                                    DockPanel.Dock="Top"
+                                    ToolTip="{x:Static resx:Resources.AddTubePort}">
+                                <Button.Content>
+                                    <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+
+                    </Expander.Header>
+                    <ItemsControl ItemsSource="{Binding Data.TorpedoTubes, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="DeleteTubePort_Click"
+                                            CommandParameter="{Binding}"
+                                            DockPanel.Dock="Left"
+                                            ToolTip="{x:Static resx:Resources.DeleteTubePort}">
+                                        <Button.Content>
+                                            <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                        </Button.Content>
+                                    </Button>
+                                    <ctl:VectorControl Vector="{Binding}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Expander>
+                <Expander Name="impulseExpander" DockPanel.Dock="Top">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.ImpulsePoints}"
+                                   FontWeight="Bold" />
+                            <Button HorizontalAlignment="Right"
+                                    Click="AddImpulsePoint_click"
+                                    DockPanel.Dock="Top"
+                                    ToolTip="{x:Static resx:Resources.AddImpulsePoint}">
+                                <Button.Content>
+                                    <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+
+                    </Expander.Header>
+                    <ItemsControl ItemsSource="{Binding Data.ImpulsePoints, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="DeleteImpulsePoint_Click"
+                                            CommandParameter="{Binding}"
+                                            DockPanel.Dock="Left"
+                                            ToolTip="{x:Static resx:Resources.DeleteImpulsePoint}">
+                                        <Button.Content>
+                                            <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                        </Button.Content>
+                                    </Button>
+                                    <ctl:VectorControl Vector="{Binding}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Expander>
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Right">
+                <Expander Name="EnginePortExpander" DockPanel.Dock="Top">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.EnginePorts}"
+                                   FontWeight="Bold" />
+                            <Button HorizontalAlignment="Right"
+                                    Click="AddEnginePort_click"
+                                    DockPanel.Dock="Top"
+                                    ToolTip="{x:Static resx:Resources.AddEnginePort}">
+                                <Button.Content>
+                                    <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+
+                    </Expander.Header>
+                    <ItemsControl ItemsSource="{Binding Data.EnginePorts, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="DeleteEnginePort_Click"
+                                            CommandParameter="{Binding}"
+                                            DockPanel.Dock="Left"
+                                            ToolTip="{x:Static resx:Resources.DeleteEnginePort}">
+                                        <Button.Content>
+                                            <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                        </Button.Content>
+                                    </Button>
+                                    <ctl:VectorControl Vector="{Binding}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Expander>
+
+
+
+                <Expander Name="ManeuverExpander" DockPanel.Dock="Top">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label VerticalAlignment="Center"
+                                   Content="{x:Static resx:Resources.ManeuverPoints}"
+                                   FontWeight="Bold" />
+                            <Button HorizontalAlignment="Right"
+                                    Click="AddManeuverPoint_click"
+                                    DockPanel.Dock="Top"
+                                    ToolTip="{x:Static resx:Resources.AddManeuverPoint}">
+                                <Button.Content>
+                                    <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/Actions-list-add-icon.png" />
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+
+                    </Expander.Header>
+                    <ItemsControl ItemsSource="{Binding Data.ManeuverPoints, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Click="DeleteManeuverPoint_Click"
+                                            CommandParameter="{Binding}"
+                                            DockPanel.Dock="Left"
+                                            ToolTip="{x:Static resx:Resources.DeleteManeuverPoint}">
+                                        <Button.Content>
+                                            <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                        </Button.Content>
+                                    </Button>
+                                    <ctl:VectorControl Vector="{Binding}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Expander>
+            </DockPanel>
+        </DockPanel>
+    </GroupBox>
+
+</UserControl>

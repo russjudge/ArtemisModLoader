@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Namespaces>
+  <Namespace Name="MissionStudio.Spacemap">
+   <Messages>
+    <Message Id="Spacemap" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Spacemap' in namespace name 'MissionStudio.Spacemap'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="E:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\bin\Debug\MissionStudio.dll">
+   <Modules>
+    <Module Name="missionstudio.dll">
+     <Namespaces>
+      <Namespace Name="MissionStudio">
+       <Types>
+        <Type Name="ScriptControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#RemoveEventTag(System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor" File="ScriptControl.cs" Line="236">'ScriptControl.RemoveEventTag(string)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ScriptletManager" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Scriptlet" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Scriptlet' in type name 'ScriptletManager'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Scriptlet_Drop(System.Object,System.Windows.DragEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor" File="ScriptletManager.xaml.cs" Line="260">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptletManager.Scriptlet_Drop(object, DragEventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor" File="ScriptletManager.xaml.cs" Line="263">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptletManager.Scriptlet_Drop(object, DragEventArgs)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MissionStudio.Spacemap">
+       <Types>
+        <Type Name="Designer" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.ComponentModel.TypeConverter.ConvertFromString(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="24">Method 'Designer.Designer()' passes a literal string as parameter 'text' of a call to 'TypeConverter.ConvertFromString(string)'. Retrieve the following string(s) from a resource table instead: "#FF0000C0".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CommandsAndConditions" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="309">Change 'Designer.CommandsAndConditions' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InitializeMap()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="124">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'Designer.InitializeMap()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LoadScript(System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="104">The 'this' parameter (or 'Me' in Visual Basic) of 'Designer.LoadScript(string, int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+            <Message Id="caretPosition" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="104">Parameter 'caretPosition' of 'Designer.LoadScript(string, int)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+            <Message Id="script" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="104">Parameter 'script' of 'Designer.LoadScript(string, int)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ObjectList" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="542">Change 'Designer.ObjectList' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RemoveBorderAdorner(System.Windows.UIElement)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="445">The 'this' parameter (or 'Me' in Visual Basic) of 'Designer.RemoveBorderAdorner(UIElement)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetSpaceObjectSize(MissionStudio.Spacemap.SpaceObject)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="498">The 'this' parameter (or 'Me' in Visual Basic) of 'Designer.SetSpaceObjectSize(SpaceObject)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ShiftIsDown" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'Designer.ShiftIsDown' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#uc_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="oldX" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="677">'Designer.uc_SizeChanged(object, SizeChangedEventArgs)' declares a variable, 'oldX', of type 'double', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="oldY" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="678">'Designer.uc_SizeChanged(object, SizeChangedEventArgs)' declares a variable, 'oldY', of type 'double', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="sizeChange" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="618">'Designer.uc_SizeChanged(object, SizeChangedEventArgs)' declares a variable, 'sizeChange', of type 'double', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Unmappables" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="525">Change 'Designer.Unmappables' to be read-only by removing the property setter.</Issue>
+            </Message>
+            <Message Id="Unmappables" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="Designer.xaml.cs" Line="525">Correct the spelling of 'Unmappables' in member name 'Designer.Unmappables' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UnmappablesListProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Unmappables" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Unmappables' in member name 'Designer.UnmappablesListProperty' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IMappable" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Attributes" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning">Change 'IMappable.Attributes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PropertiesControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#PropertyCollection" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="PropertiesControl.xaml.cs" Line="38">Change 'PropertiesControl.PropertyCollection' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PropertyItem" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Value" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="BaseType" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="PropertyItem.cs" Line="244">The property name 'PropertyItem.Value' is confusing given the existence of inherited method 'DependencyObject.GetValue(DependencyProperty)'. Rename or remove this property.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SpaceObject" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Attributes" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="96">Change 'SpaceObject.Attributes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MissionStudio.Spacemap.IMappable.Attributes" Kind="Property" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="428">Change 'SpaceObject.IMappable.Attributes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+           <Accessors>
+            <Accessor Name="#MissionStudio.Spacemap.IMappable.get_Attributes()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+             <Messages>
+              <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+               <Issue Name="PropertyGetter" Certainty="90" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="429">'SpaceObject.IMappable.Attributes.get()' creates an exception of type 'NotImplementedException', an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#OnXChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="165">Because the behavior of 'double.ToString()' could vary based on the current user's locale settings, replace this call in 'SpaceObject.OnXChanged(DependencyObject, DependencyPropertyChangedEventArgs)' with a call to 'double.ToString(IFormatProvider)'. If the result of 'double.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnYChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="182">Because the behavior of 'double.ToString()' could vary based on the current user's locale settings, replace this call in 'SpaceObject.OnYChanged(DependencyObject, DependencyPropertyChangedEventArgs)' with a call to 'double.ToString(IFormatProvider)'. If the result of 'double.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnZChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Double.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="198">Because the behavior of 'double.ToString()' could vary based on the current user's locale settings, replace this call in 'SpaceObject.OnZChanged(DependencyObject, DependencyPropertyChangedEventArgs)' with a call to 'double.ToString(IFormatProvider)'. If the result of 'double.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetUnnamedObjectAdornerProperties(MissionStudio.Spacemap.UnnamedObjectAdorner)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.TryParse(System.String,System.Int32@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="TryParse" Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="302">'SpaceObject.SetUnnamedObjectAdornerProperties(UnnamedObjectAdorner)' calls 'int.TryParse(string, out int)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#XmlCommandUpdate(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="attributes" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="56">'SpaceObject.XmlCommandUpdate(string)' declares a variable, 'attributes', of type 'List&lt;string&gt;', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="System.String.IndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="60">Because the behavior of 'string.IndexOf(string)' could vary based on the current user's locale settings, replace this call in 'SpaceObject.XmlCommandUpdate(string)' with a call to 'string.IndexOf(string, StringComparison)'. If the result of 'string.IndexOf(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+            <Message Id="System.String.IndexOf(System.String,System.Int32)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="66">Because the behavior of 'string.IndexOf(string, int)' could vary based on the current user's locale settings, replace this call in 'SpaceObject.XmlCommandUpdate(string)' with a call to 'string.IndexOf(string, int, StringComparison)'. If the result of 'string.IndexOf(string, int, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="69">Because the behavior of 'string.IndexOf(string, int)' could vary based on the current user's locale settings, replace this call in 'SpaceObject.XmlCommandUpdate(string)' with a call to 'string.IndexOf(string, int, StringComparison)'. If the result of 'string.IndexOf(string, int, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="SpaceObject.xaml.cs" Line="82">Because the behavior of 'string.IndexOf(string, int)' could vary based on the current user's locale settings, replace this call in 'SpaceObject.XmlCommandUpdate(string)' with a call to 'string.IndexOf(string, int, StringComparison)'. If the result of 'string.IndexOf(string, int, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UnmappableObject" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Unmappable" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Unmappable' in type name 'UnmappableObject'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Attributes" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnmappableObject.xaml.cs" Line="81">Change 'UnmappableObject.Attributes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MappableObject" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Mappable" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnmappableObject.xaml.cs" Line="64">Correct the spelling of 'Mappable' in member name 'UnmappableObject.MappableObject' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MappableObjectProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Mappable" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Mappable' in member name 'UnmappableObject.MappableObjectProperty' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UnnamedObjectAdorner" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#count" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="count" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="151">Correct the casing of 'count' in member name 'UnnamedObjectAdorner.count' by changing it to 'Count'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#countProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="count" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'count' in member name 'UnnamedObjectAdorner.countProperty' by changing it to 'Count'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endAngle" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="312">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endAngle' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endAngleProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endAngleProperty' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endX" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="247">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endX' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endXProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endXProperty' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endY" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="263">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endY' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endYProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endYProperty' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endZ" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="279">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endZ' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#endZProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="end" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'end' in member name 'UnnamedObjectAdorner.endZProperty' by changing it to 'End'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="e" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="17">Parameter 'e' of 'UnnamedObjectAdorner.OnValueChanged(DependencyObject, DependencyPropertyChangedEventArgs)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#radius" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="radius" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="167">Correct the casing of 'radius' in member name 'UnnamedObjectAdorner.radius' by changing it to 'Radius'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#radiusProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="radius" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'radius' in member name 'UnnamedObjectAdorner.radiusProperty' by changing it to 'Radius'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#randomRange" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="random" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="183">Correct the casing of 'random' in member name 'UnnamedObjectAdorner.randomRange' by changing it to 'Random'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#randomRangeProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="random" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'random' in member name 'UnnamedObjectAdorner.randomRangeProperty' by changing it to 'Random'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startAngle" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="295">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startAngle' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startAngleProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startAngleProperty' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startX" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="199">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startX' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startXProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startXProperty' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startY" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="215">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startY' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startYProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startYProperty' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startZ" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="231">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startZ' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#startZProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="start" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'start' in member name 'UnnamedObjectAdorner.startZProperty' by changing it to 'Start'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#type" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="type" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\MissionScriptor\Spacemap" File="UnnamedObjectAdorner.cs" Line="135">Correct the casing of 'type' in member name 'UnnamedObjectAdorner.type' by changing it to 'Type'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#typeProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="type" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'type' in member name 'UnnamedObjectAdorner.typeProperty' by changing it to 'Type'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+     <Resources>
+      <Resource Name="MissionStudio.Properties.Resources.resources">
+       <Messages>
+        <Message Id="Dat" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+         <Issue Name="StringResource" Certainty="50" Level="CriticalWarning">In resource 'MissionStudio.Properties.Resources.resx', referenced by name 'mission_file_docs', correct the spelling of 'Dat' in string value '-----------------------------------------------------------------------------&#xD;&#xA;MISSION SCRIPT DOCS FOR ARTEMIS SBS V1.69&#xD;&#xA;12/30/2012&#xD;&#xA;rev 8&#xD;&#xA;&#xD;&#xA;-----------------------------------------------------------------------------&#xD;&#xA;GENERAL NOTES&#xD;&#xA;The mission script system is designed to let anyone create, sha...'.</Issue>
+        </Message>
+        <Message Id="Freq" TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+         <Issue Name="StringResource" Certainty="50" Level="CriticalWarning">In resource 'MissionStudio.Properties.Resources.resx', referenced by name 'mission_file_docs', correct the spelling of 'Freq' in string value '-----------------------------------------------------------------------------&#xD;&#xA;MISSION SCRIPT DOCS FOR ARTEMIS SBS V1.69&#xD;&#xA;12/30/2012&#xD;&#xA;rev 8&#xD;&#xA;&#xD;&#xA;-----------------------------------------------------------------------------&#xD;&#xA;GENERAL NOTES&#xD;&#xA;The mission script system is designed to let anyone create, sha...'.</Issue>
+        </Message>
+       </Messages>
+      </Resource>
+     </Resources>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>Avoid unused private fields</Name>
+   <Description>Private fields were detected that do not appear to be accessed within the assembly. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245042(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+   <Name>Collection properties should be read only</Name>
+   <Description>Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</Description>
+   <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182327(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>Do not pass literals as localized parameters</Name>
+   <Description>Literal strings that are embedded in source code are difficult to localize. Avoid passing literal strings as arguments in circumstances where a localized string is generally expected.</Description>
+   <Resolution Name="KnownValue">Method {0} passes a literal string as parameter '{1}' of a call to {2}. Retrieve the following string(s) from a resource table instead: {3}.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806">
+   <Name>Do not ignore method results</Name>
+   <Description>The result of methods that return new instances of strings should be assigned to a variable and subsequently used. If the result of a method that creates a new object, such as String.ToLower(), is not assigned to a variable, the call is wasted.</Description>
+   <Resolution Name="TryParse">{0} calls {1} but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182273(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065">
+   <Name>Do not raise exceptions in unexpected locations</Name>
+   <Description>Do not explicitly raise exceptions from unexpected locations. There are some methods, such as Equals and GetHashCode, which users do not expect to raise exceptions. Therefore calls to these methods are not commonly wrapped in try catch blocks.</Description>
+   <Resolution Name="PropertyGetter">{0} creates an exception of type {1}, an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386039(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error, Warning</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Resolution Name="MemberMoreMeaningfulName">Consider providing a more meaningful name than member name {0}.</Resolution>
+   <Resolution Name="Namespace">Correct the spelling of '{0}' in namespace name '{1}'.</Resolution>
+   <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264492(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>Mark members as static</Name>
+   <Description>Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</Description>
+   <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="PropertyNamesShouldNotMatchGetMethods" Category="Microsoft.Naming" CheckId="CA1721">
+   <Name>Property names should not match get methods</Name>
+   <Description>A Get method was found with the same name as a property. Get methods and properties should have names that clearly distinguish their function. See the design guidelines for information regarding choosing properties over methods.</Description>
+   <Resolution Name="BaseType">The property name {0} is confusing given the existence of inherited method {1}. Rename or remove this property.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182253(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+   <Name>Remove unused locals</Name>
+   <Description>Remove locals that are not used or are only assigned to in method implementations.</Description>
+   <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182278(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="ResourceStringsShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1703">
+   <Name>Resource strings should be spelled correctly</Name>
+   <Description>The individual words that make up a resource string should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="StringResource">In resource {0}, referenced by name '{1}', correct the spelling of '{2}' in string value '{3}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264483(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+   <Name>Review unused parameters</Name>
+   <Description>Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
+   <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182268(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+   <Name>Specify StringComparison</Name>
+   <Description>If an overload exists that takes a StringComparison argument, it should always be called in favor of an overload that does not.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386080(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

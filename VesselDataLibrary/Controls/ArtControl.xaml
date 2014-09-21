@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.ArtControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:russCtl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             xmlns:ValueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             mc:Ignorable="d" Name="uc">
+    <UserControl.Resources>
+        <ValueConvert:NullToBoolConverter x:Key="NullToBoolConverter" />
+    </UserControl.Resources>
+    <GroupBox>
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="{x:Static resx:Resources.Art}" />
+        </GroupBox.Header>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <Button
+                    Margin="2,0,2,0"
+                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                    CommandParameter="{Binding SelectedArt, Mode=OneWay ,ElementName=uc}"
+                    ToolTip="Delete Art Definition" Click="DeleteArt_Click">
+                    <Button.Content>
+                        <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                    </Button.Content>
+                </Button>
+                <russCtl:NextPreviousControl
+                    Count="{Binding Data.Art.Count, Mode=OneWay, ElementName=uc}"
+                    Index="{Binding Path=Index, Mode=TwoWay, ElementName=uc}"
+                    />
+
+
+                <Button
+                    Margin="2,0,2,0"
+                    Click="AddArt_Click" ToolTip="Add Art Definition">
+                    <Button.Content>
+                        <Image Width="24" Source="pack://application:,,,/AMLLibrary;component/Images/Actions-list-add-icon.png" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            
+            
+            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:Resources.MeshFile}" FontWeight="Bold" />
+            <russCtl:FileSelectionControl
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                DialogTitle="{x:Static resx:Resources.SelectMeshFile}"
+                InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                Grid.Row="0" Grid.Column="1" ValidExtensions=".dxs;"
+                Filter="DeleD files (*.dxs)|*.dxs|All Files (*.*)|*.*"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                FileDisplay="{Binding Path=SelectedArt.MeshFile, ElementName=uc, Mode=TwoWay}" />
+
+
+            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:Resources.DiffuseFile}" FontWeight="Bold" />
+            <russCtl:FileSelectionControl
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                DialogTitle="{x:Static resx:Resources.SelectDiffuseFile}"
+                Filter="Image files(*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga)|*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga|All Files|*.*"
+                ValidExtensions=".jpg;.gif;.jpe;.png;.bmp;.dib;.tif;.wmf;.ras;.eps;.pcx;.pcd;.tga;"
+                InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                MustBeImage="True"
+                Grid.Row="1" Grid.Column="1"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                FileDisplay="{Binding Path=SelectedArt.DiffuseFile, ElementName=uc, Mode=TwoWay}" />
+
+
+
+            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:Resources.GlowFile}" FontWeight="Bold" />
+            <russCtl:FileSelectionControl
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                DialogTitle="{x:Static resx:Resources.SelectGlowFile}"
+                Filter="Image files(*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga)|*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga|All Files|*.*"
+                ValidExtensions=".jpg;.gif;.jpe;.png;.bmp;.dib;.tif;.wmf;.ras;.eps;.pcx;.pcd;.tga;"
+                InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                MustBeImage="True"
+                Grid.Row="2" Grid.Column="1"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                FileDisplay="{Binding Path=SelectedArt.GlowFile, ElementName=uc, Mode=TwoWay}" />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:Resources.SpecularFile}" FontWeight="Bold" />
+            <russCtl:FileSelectionControl
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                DialogTitle="{x:Static resx:Resources.SelectSpecularFile}"
+                Filter="Image files(*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga)|*.jpg;*.gif;*.jpe;*.png;*.bmp;*.dib;*.tif;*.wmf;*.ras;*.eps;*.pcx;*.pcd;*.tga|All Files|*.*"
+                ValidExtensions=".jpg;.gif;.jpe;.png;.bmp;.dib;.tif;.wmf;.ras;.eps;.pcx;.pcd;.tga;"
+                InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                MustBeImage="True"
+                Grid.Row="3" Grid.Column="1"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                FileDisplay="{Binding Path=SelectedArt.SpecularFile, ElementName=uc, Mode=TwoWay}" />
+            <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold" Content="{x:Static resx:Resources.ScaleLabel}" />
+            <russCtl:DecimalBox
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                MinNumber="0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch"
+                Value="{Binding Path=SelectedArt.Scale, ElementName=uc, Mode=TwoWay}" />
+            <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold" Content="{x:Static resx:Resources.ShipSize}" />
+            <russCtl:DecimalBox
+                IsEnabled="{Binding SelectedArt, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                Grid.Row="1" Grid.Column="3" MinNumber="0" HorizontalAlignment="Stretch"
+                Value="{Binding Path=SelectedArt.ShipSize, ElementName=uc, Mode=TwoWay}"/>
+                                
+        </Grid>
+    </GroupBox>
+</UserControl>

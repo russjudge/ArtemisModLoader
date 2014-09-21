@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.VectorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Name="uc"
+             mc:Ignorable="d" >
+    <Border BorderBrush="DarkOrchid" BorderThickness="2">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="VectorLabel" />
+            <ColumnDefinition SharedSizeGroup="VectorValue" />
+        </Grid.ColumnDefinitions>
+        <Label FontWeight="Bold" Content="X:" Grid.Row="0" Grid.Column="0" />
+        <Label FontWeight="Bold" Content="Y:" Grid.Row="1" Grid.Column="0" />
+        <Label FontWeight="Bold" Content="Z:" Grid.Row="2" Grid.Column="0" />
+        
+        <ctl:DecimalBox
+            Grid.Row="0" Grid.Column="1"
+            HorizontalAlignment="Stretch" MinWidth="70"
+            Value="{Binding Path=Vector.X, Mode=TwoWay, ElementName=uc}" />
+        <ctl:DecimalBox
+            Grid.Row="1" Grid.Column="1"
+            HorizontalAlignment="Stretch" MinWidth="70"
+            Value="{Binding Path=Vector.Y, Mode=TwoWay, ElementName=uc}" />
+        <ctl:DecimalBox
+            Grid.Row="2" Grid.Column="1"
+            HorizontalAlignment="Stretch" MinWidth="70"
+            Value="{Binding Path=Vector.Z, Mode=TwoWay, ElementName=uc}" />
+
+
+    </Grid>
+    </Border>
+</UserControl>

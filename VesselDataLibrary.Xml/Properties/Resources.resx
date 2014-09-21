@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArcWidth" xml:space="preserve">
+    <value>Arc Width</value>
+  </data>
+  <data name="BackShield" xml:space="preserve">
+    <value>Back shield</value>
+  </data>
+  <data name="CycleTime" xml:space="preserve">
+    <value>Cycle Time</value>
+  </data>
+  <data name="Damage" xml:space="preserve">
+    <value>Damage</value>
+  </data>
+  <data name="DiffuseFile" xml:space="preserve">
+    <value>Diffuse File</value>
+  </data>
+  <data name="DuplicateIDFound" xml:space="preserve">
+    <value>Duplicate ID.</value>
+  </data>
+  <data name="FrontShield" xml:space="preserve">
+    <value>Front shield</value>
+  </data>
+  <data name="GlowFile" xml:space="preserve">
+    <value>Glow File</value>
+  </data>
+  <data name="GreaterThanZero" xml:space="preserve">
+    <value>{0} must be greater than zero.</value>
+  </data>
+  <data name="HullRaceIDValidation" xml:space="preserve">
+    <value>ID should probably greater than or equal to zero.</value>
+  </data>
+  <data name="HullRaceNameValidation" xml:space="preserve">
+    <value>Race name is required.</value>
+  </data>
+  <data name="InternalDataFileExtensionValidation" xml:space="preserve">
+    <value>Internal data structure file does not appear to be a proper *.snt file.</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>{0} is required.</value>
+  </data>
+  <data name="MeshFile" xml:space="preserve">
+    <value>Mesh File</value>
+  </data>
+  <data name="MeshFileExtensionValidation" xml:space="preserve">
+    <value>Mesh file does not appear to be a proper *.dxs file.</value>
+  </data>
+  <data name="NotAnImageFile" xml:space="preserve">
+    <value>Not an image file.</value>
+  </data>
+  <data name="PushRadiusValidation" xml:space="preserve">
+    <value>Ship size too small or negative.  This should be increased to avoid in-game image clipping.</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Range" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="ScaleValidation" xml:space="preserve">
+    <value>Scale is invalid.  Please increase this value.</value>
+  </data>
+  <data name="ShortRange" xml:space="preserve">
+    <value>Are you sure you want the range so short?</value>
+  </data>
+  <data name="SpecularFile" xml:space="preserve">
+    <value>Specular File</value>
+  </data>
+  <data name="TopSpeedFast" xml:space="preserve">
+    <value>Top speed is a bit fast.  Are you sure you want to allow this ship to go this fast?</value>
+  </data>
+  <data name="TopSpeedNegative" xml:space="preserve">
+    <value>Top speed must be set to a positive value.</value>
+  </data>
+  <data name="TopSpeedZero" xml:space="preserve">
+    <value>Top speed is zero--this ship will not be able to move.  Are you sure of this?</value>
+  </data>
+  <data name="TorpedoTypeValidation" xml:space="preserve">
+    <value>Torpedo Type is invalid.  Valid types are 0, 1, 2, and 3.</value>
+  </data>
+  <data name="TurnRateFast" xml:space="preserve">
+    <value>Turn rate is set mighty fast.  Are you sure you want this fast of turning?</value>
+  </data>
+  <data name="TurnRateNegative" xml:space="preserve">
+    <value>Turn rate must be set to a positive value.</value>
+  </data>
+  <data name="TurnRateZero" xml:space="preserve">
+    <value>Turn rate is set to zero--this ship will not be able to turn.  Are you sure of this?</value>
+  </data>
+  <data name="VesselDescriptionValidation" xml:space="preserve">
+    <value>A brief description of the vessel is required.</value>
+  </data>
+  <data name="VesselSideInvalid" xml:space="preserve">
+    <value>The "Side" which this vessel is on is not among the valid races.</value>
+  </data>
+</root>

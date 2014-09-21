@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="DMXCommander.Controls.EventControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             xmlns:ctl="clr-namespace:DMXCommander.Controls"
+             mc:Ignorable="d" Name="uc">
+    <GroupBox>
+        <GroupBox.Header>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Event" FontWeight="Bold" />
+                <Label Margin="4,0,0,0" Content="Cue that Fires:"  />
+                <ComboBox
+                    Margin="4,0,4,0"
+                    Width="170"
+                    SelectionChanged="OnSelectedEventTypeChanged"
+                    SelectedValue="{Binding Path=Data.EventType, Mode=TwoWay, ElementName=uc}"
+                    ItemsSource="{Binding Cues, Mode=OneWay, ElementName=uc}">
+
+                </ComboBox>
+                <CheckBox Margin="4,0,4,0" VerticalAlignment="Center" Content="Is Continuous" IsChecked="{Binding Path=Data.IsContinuous, Mode=TwoWay, ElementName=uc}" />
+            </StackPanel>
+        </GroupBox.Header>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" >
+                <Button Content="Add Time Block" Click="OnAddTimeBlock" HorizontalAlignment="Right" />
+            </StackPanel>
+            <GroupBox>
+                <GroupBox.Header>
+                    <TextBlock Text="TimeBlocks" FontWeight="Black" />
+                </GroupBox.Header>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl AlternationCount="2"
+                    ItemsSource="{Binding Data.TimeBlocks, Mode=OneWay, ElementName=uc}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Name="FooBar"  Orientation="Horizontal">
+                                    <StackPanel>
+                                        <Button VerticalAlignment="Top" ToolTip="Delete" CommandParameter="{Binding}" Click="OnDelete" >
+                                            <Button.Content>
+                                                <StackPanel>
+                                                    <TextBlock HorizontalAlignment="Center" Text="X"/>
+                                                    <TextBlock HorizontalAlignment="Center" Text="TimeBlock"/>
+                                                </StackPanel>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button VerticalAlignment="Top" ToolTip="Move Up" CommandParameter="{Binding}" Click="OnMoveUp" >
+                                            <Button.Content>
+                                                <StackPanel>
+                                                    <TextBlock HorizontalAlignment="Center" Text="↑"/>
+                                                    <TextBlock HorizontalAlignment="Center" Text="TimeBlock"/>
+                                                </StackPanel>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button VerticalAlignment="Top" ToolTip="Move Down" CommandParameter="{Binding}" Click="OnMoveDown" >
+                                            <Button.Content>
+                                                <StackPanel>
+                                                    <TextBlock HorizontalAlignment="Center" Text="↓"/>
+                                                    <TextBlock HorizontalAlignment="Center" Text="TimeBlock"/>
+                                                </StackPanel>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                    <ctl:TimeBlockControl Data="{Binding}" />
+                                </StackPanel>
+                                <DataTemplate.Triggers>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                        <Setter Property="Background" Value="#FFEEEE" TargetName="FooBar"></Setter>
+                                    </Trigger>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                        <Setter Property="Background" Value="#FFFFFF" TargetName="FooBar"></Setter>
+                                    </Trigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </GroupBox>
+        </DockPanel>
+    </GroupBox>
+</UserControl>

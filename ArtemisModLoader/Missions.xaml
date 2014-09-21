@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ArtemisModLoader.Missions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             AllowDrop="True"
+             mc:Ignorable="d" Name="uc">
+
+
+    <ItemsControl
+        ItemsSource="{Binding MissionList, Mode=OneWay, ElementName=uc}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border Margin="4,4,4,4" BorderBrush="BlueViolet" BorderThickness="3">
+                    <StackPanel Margin="4,4,4,4" Orientation="Horizontal">
+                        <Button ToolTip="{x:Static resx:Resources.RemoveMissionToolTip}" Click="Remove_click" CommandParameter="{Binding}" >
+                            <Button.Content>
+                                <Image Width="48" Source="/ArtemisModLoader;component/Images/delete.png"></Image>
+                            </Button.Content>
+                        </Button>
+                        <StackPanel>
+                            <TextBlock Padding="4,0,4,0" FontWeight="Bold" Text="{Binding title}" />
+                            <TextBlock Padding="4,0,4,0" Text="{Binding subtitle1}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center" Content="{x:Static resx:Resources.MissionFileLabel}" />
+                                <TextBlock VerticalAlignment="Center" Padding="4,0,4,0" Text="{Binding MissionFilename}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+</UserControl>

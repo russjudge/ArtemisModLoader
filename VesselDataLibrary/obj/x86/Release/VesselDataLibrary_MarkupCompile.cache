@@ -1,0 +1,20 @@
+﻿VesselDataLibrary
+
+
+library
+C#
+.cs
+E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\obj\x86\Release\
+VesselDataLibrary
+none
+false
+TRACE
+
+19-1864088711
+
+29-1570681004
+26-249422565
+Controls\ArtControl.xaml;Controls\ArtemisINIControl.xaml;Controls\BaseFileMappingControl.xaml;Controls\BeamArcMask.xaml;Controls\BeamDrawingControl.xaml;Controls\BeamPortControl.xaml;Controls\BeamPortDataEntryControl.xaml;Controls\BeamPortStack.xaml;Controls\FileMapControl.xaml;Controls\HullRaceControl.xaml;Controls\MergeWindow.xaml;Controls\ModDevelopmentManager.xaml;Controls\SelectMergeOption.xaml;Controls\TauntControl.xaml;Controls\TubeStorageControl.xaml;Controls\VariationControl.xaml;Controls\VectorControl.xaml;Controls\VesselControl.xaml;Controls\VesselDataControl.xaml;
+
+False
+

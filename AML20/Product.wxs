@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Product
+    Id="*" Name="Artemis Mod Loader" Language="1033" Version="3.0.25.0"
+    Manufacturer="Russ Judge" UpgradeCode="E4E14A4C-0629-456A-B21C-86DE619F4EFD">
+    <Package Comments="Artemis Mod Loader: Make applying mods to Artemis Spaceship Bridge Simulator easy."
+             Description="Artemis Mod Loader"
+             InstallerVersion="405"  Compressed="yes" InstallScope="perMachine"
+                           />
+
+    
+    <!--<InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallFinalize"/>
+    </InstallExecuteSequence>-->
+    
+    <!--9595A5F7-1020-493F-8782-177A2ABEBA7B-->
+    <!--InstallPrivileges="limited"-->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />
+    <WixVariable Id="WixUILicenseRtf" Value="..\ArtemisModLoader\EULA.rtf" />
+    <MajorUpgrade  DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+      
+    <Media Id="1" Cabinet="AML20.cab" EmbedCab="yes" />
+
+    <!--<MediaTemplate EmbedCab="yes" CabinetTemplate="AML20.cab"  />-->
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="RUSSJUDGE" Name="Russ Judge">
+          <Directory Id="INSTALLFOLDER" Name="Artemis Mod Loader">
+            <Directory Id="MODDEFINITIONSFOLDER" Name="ModDefinitions">
+              <!--<Component Id="ModDefinitionsFolder" DiskId="1" Guid="9DD491FD-8633-460F-A186-046A69BDC84C">
+            -->
+              <!--<RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" KeyPath="yes" Value="" />-->
+              <!--
+            <RemoveFile Id="PurgeAppFolder2" Name="*.*" On="uninstall" />
+            <RemoveFolder Id="ModDefinitions" On="uninstall" />
+          </Component>-->
+              <Component Id="ModDefinitions" Guid="5CC14EEA-5FD3-4428-95AE-4E8CDAE2826F">
+                <File Id="MOD_ST_TNG2.aml" Source="..\AMLLibrary\ModDefinitions\MOD-ST-TNG2.aml" Name="MOD-ST-TNG2.aml" />
+                <File Id="MOD_AdamsStarTrekMod.aml" Source="..\AMLLibrary\ModDefinitions\MOD_AdamsStarTrekMod.aml" Name="MOD_AdamsStarTrekMod.aml" />
+                <File Id="MOD_BattlestarGalactica.aml" Source="..\AMLLibrary\ModDefinitions\MOD_BattlestarGalactica.aml" Name="MOD_BattlestarGalactica.aml" />
+                <File Id="MOD_EpsilonSector.aml" Source="..\AMLLibrary\ModDefinitions\MOD_EpsilonSector.aml" Name="MOD_EpsilonSector.aml" />
+                <File Id="MOD_FlightOfTheArtemis.aml" Source="..\AMLLibrary\ModDefinitions\MOD_FlightOfTheArtemis.aml" Name="MOD_FlightOfTheArtemis.aml" />
+                <File Id="MOD_Generic.aml" Source="..\AMLLibrary\ModDefinitions\MOD_Generic.aml" Name="MOD_Generic.aml" />
+                <File Id="MOD_HelmUI.aml" Source="..\AMLLibrary\ModDefinitions\MOD_HelmUI.aml" Name="MOD_HelmUI.aml" />
+                <File Id="MOD_IntoTheBreach.aml" Source="..\AMLLibrary\ModDefinitions\MOD_IntoTheBreach.aml" Name="MOD_IntoTheBreach.aml" />
+                <File Id="MOD_StarTrekIntoTheBreachLookandFeel.aml" Source="..\AMLLibrary\ModDefinitions\MOD_StarTrekIntoTheBreachLookandFeel.aml" Name="MOD_StarTrekIntoTheBreachLookandFeel.aml" />
+                <File Id="MOD_StarTrekTheMotionPicture.aml" Source="..\AMLLibrary\ModDefinitions\MOD_StarTrekTheMotionPicture.aml" Name="MOD_StarTrekTheMotionPicture.aml" />
+                <File Id="MOD_StarTrekTOSSoundPack.aml" Source="..\AMLLibrary\ModDefinitions\MOD_StarTrekTOSSoundPack.aml" Name="MOD_StarTrekTOSSoundPack.aml" />
+                <File Id="MOD_Stock.aml" Source="..\AMLLibrary\ModDefinitions\MOD_Stock.aml" Name="MOD_Stock.aml" />
+                <File Id="MOD_TSNVesselOverhaul.aml" Source="..\AMLLibrary\ModDefinitions\MOD_TSNVesselOverhaul.aml" Name="MOD_TSNVesselOverhaul.aml" />
+
+
+              </Component>
+            </Directory>
+
+
+            <Component Id="ProductComponent" Guid="7794120E-AC01-4D34-BAD5-1112E942E0C9">
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ArtemisModLoader.exe"
+                Name="ArtemisModLoader.exe"
+                Id="ARTEMISMODLOADER.EXE" >
+                <Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" WorkingDirectory="INSTALLDIR" Name="Artemis Mod Loader" Icon="StartMenuIcon.exe" IconIndex="0" />
+              </File>
+              <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" KeyPath="yes" Value="" />
+            </Component>
+            <Component Id="LibraryComponent" Guid="CAFFDDA5-3672-452A-9335-A710A1C7198F">
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ArtemisModLoader.exe.config" Name="ArtemisModLoader.exe.config" Id="ARTEMISMODLOADER.EXE.CONFIG"  />
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\AMLResources.dll" Name="AMLResources.dll" Id="AMLRESOURCES.DLL"  />
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\RussLibrary.dll" Name="RussLibrary.dll" Id="RUSSLIBRARY.DLL"/>
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\AMLLibrary.dll" Name="AMLLibrary.dll" Id="AMLLIBRARY.DLL"/>
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\VesselDataLibrary.dll" Name="VesselDataLibrary.dll" Id="VESSELDATALIBRARY.DLL"/>
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\VesselDataLibrary.Xml.dll" Name="VesselDataLibrary.Xml.dll" Id="VESSELDATALIBRARY.XML.DLL"/>
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\SharpCompress.dll"
+                Name="SharpCompress.dll"
+                Id="SHARPCOMPRESS.DLL"/>
+              <File
+               Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\log4net.dll"
+               Name="log4net.dll"
+               Id="LOG4NET.DLL"/>
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\Hardcodet.Wpf.TaskbarNotification.dll"
+                Name="Hardcodet.Wpf.TaskbarNotification.dll"
+                Id="HARDCODET.WPF.TASKBARNOTIFICATION.DLL"/>
+              
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ReadMe.txt" Name="ReadMe.txt" Id="README.TXT"/>
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\DMX_ReadMe.txt" Name="DMX_ReadMe.txt" Id="DMX_README.TXT"/>
+              <File Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\EULA.rtf" Name="EULA.rtf" Id="EULA.RTF"/>
+
+              <File
+               Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\WPFToolkit.Extended.dll"
+               Name="WPFToolkit.Extended.dll"
+               Id="WPFTOOLKIT.EXTENDED.DLL"/>
+
+              
+
+              <!--<File
+               Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\Xceed.Wpf.DataGrid.dll"
+               Name="Xceed.Wpf.DataGrid.dll"
+               Id="XCEED.WPF.DATAGRID.DLL"/>-->
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\RussLibraryXmlEditor.dll"
+                Name="RussLibraryXmlEditor.dll"
+                Id="RUSSLIBRARYXMLEDITOR.DLL"/>
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\tidy.exe"
+                Name="tidy.exe"
+                Id="TIDY.EXE"/>
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\libtidy.dll"
+                Name="libtidy.dll"
+                Id="LIBTIDY.DLL"/>
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ICSharpCode.AvalonEdit.dll"
+                Name="ICSharpCode.AvalonEdit.dll"
+                Id="ICSHARPCODE.AVALONEDIT.DLL"/>
+
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ArtemisEngineeringPresets.dll"
+                Name="ArtemisEngineeringPresets.dll"
+                Id="ARTEMISENGINEERINGPRESETS.DLL"/>
+
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\RussLibrary.Audio.dll"
+                Name="RussLibrary.Audio.dll"
+                Id="RUSSLIBRARY.AUDIO.DLL"/>
+
+
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\NAudio.dll"
+                Name="NAudio.dll"
+                Id="NAUDIO.DLL"/>
+
+
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\NAudio.WindowsMediaFormat.dll"
+                Name="NAudio.WindowsMediaFormat.dll"
+                Id="NAUDIO.WINDOWSMEDIAFORMAT.DLL"/>
+
+
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\NVorbis.dll"
+                Name="NVorbis.dll"
+                Id="NVORBIS.DLL"/>
+
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\NVorbis.NAudioSupport.dll"
+                Name="NVorbis.NAudioSupport.dll"
+                Id="NVORBIS.NAUDIOSUPPORT.DLL"/>
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\MissionStudio.dll"
+                Name="MissionStudio.dll"
+                Id="MISSIONSTUDIO.DLL"/>
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ftd2xx.dll"
+                Name="ftd2xx.dll"
+                Id="FTD2XX.DLL"/>
+
+              <File
+                Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\DMXCommander.dll"
+                Name="DMXCommander.dll"
+                Id="DMXCOMMANDER.DLL"/>
+
+
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+
+
+
+      <!--<Directory Id="DesktopFolder" SourceName="Desktop">
+        <Component Id="DesktopShortcut" Guid="E02D4C64-9E3F-4308-9EC8-AA058D4867FE">
+          <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Name="DesktopSC" Value="1" Type="integer" KeyPath="yes" />
+          <Shortcut
+            Id="desktopSC" Target="ARTEMISMODLOADER.EXE" Name="Artemis Mod Loader" Icon="StartMenuIcon.exe" WorkingDirectory="INSTALLFOLDER" Advertise="no" />
+        </Component>
+      </Directory>-->
+
+
+      <Directory Id="ProgramMenuFolder">
+        
+        <Directory Id="ProgramMenuDir" Name="Artemis Mod Loader">
+          <Component Id="ApplicationShortcut" Guid="890B9BB4-6ED6-431C-B630-F711A0BC0D44">
+            <Shortcut
+              Icon="StartMenuIcon.exe" Id="ArtemisModLoader" Name="Artemis Mod Loader"
+              Description="Makes managing Mod for Artemis Spaceship Bridge Simulator easy."
+              WorkingDirectory="INSTALLFOLDER" Target="ARTEMISMODLOADER.EXE" />
+            <Shortcut
+              Id="UninstallProduct" Name="Uninstall" Description="Uninstalls Artemis Mod Loader"
+              Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+            
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+          </Component>
+         
+        </Directory>
+      </Directory>
+    </Directory>
+
+
+    <Feature Id="ProductFeature" Title="Artemis Mod Loader" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="LibraryComponent" />
+      <ComponentRef Id="ModDefinitions" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <!--<ComponentRef Id="DesktopShortcut" />-->
+
+    </Feature>
+
+
+
+
+    <Icon
+      Id="StartMenuIcon.exe" SourceFile="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\ArtemisModLoader.exe" />
+    <Property Id="ARPPRODUCTION" Value="StartMenuIcon.exe" />
+
+    <UI>
+      <!--<UIRef Id="WixUI_Minimal" />-->
+      <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <Property  Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Artemis Mod Loader" />
+    <Property Id="WixShellExecTarget" Value="[#ARTEMISMODLOADER.EXE]" />
+    <CustomAction Id="LaunchApplication"
+        BinaryKey="WixCA"
+        DllEntry="WixShellExec"
+        Impersonate="yes" />
+    
+  </Product>
+
+
+</Wix>

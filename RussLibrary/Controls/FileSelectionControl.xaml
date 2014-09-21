@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="RussLibrary.Controls.FileSelectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctl="clr-namespace:RussLibrary.Controls"
+             mc:Ignorable="d" Name="uc">
+    <DockPanel>
+        <Button DockPanel.Dock="Right" Click="Browse_Click" Padding="4,4,4,4" Content="..."></Button>
+        <ctl:ValidationBulb DockPanel.Dock="Right" Validation="{Binding Validation, ElementName=uc, Mode=OneWay}" />
+        <TextBlock VerticalAlignment="Center" Text="{Binding FileDisplay, Mode=OneWay, ElementName=uc}" />
+    </DockPanel>
+</UserControl>

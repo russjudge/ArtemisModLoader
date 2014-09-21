@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<ModConfiguration
+  ID="{47C7B96F-7777-4951-BBA7-4C26CE3F0E1F}"
+  DependsOn=""
+  Description="Sounds effects from Star Trek TOS for Artemis"
+  Title="Star Trek The Original Series Replacement Soundpack"
+  Author="Obinice">
+
+  <Download
+   Source="http://obinice.com/artemis_trek_soundpack.rar"
+   Webpage="http://px2owffng8.tal.ki/20111030/star-trek-tos-replacement-soundpack-969809/"
+    />
+
+  <BaseFiles>
+    <FileMap Source="Artemis Trek Replacement Soundpack\Star Trek Sounds\*" Target="dat"/>
+  </BaseFiles>
+</ModConfiguration>

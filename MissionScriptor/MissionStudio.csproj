@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1849B15-563B-45A7-80E3-B24CDD94505C}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MissionStudio</RootNamespace>
+    <AssemblyName>MissionStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\ReferencedFiles\Russ.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\ReferencedFiles\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ReferencedFiles\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\ReferencedFiles\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttributeElement.cs" />
+    <Compile Include="AttributeTypes.cs" />
+    <Compile Include="CommandElement.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\Locations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ScriptContextMenu.xaml.cs">
+      <DependentUpon>ScriptContextMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptControl.cs" />
+    <Compile Include="ScriptletItem.cs" />
+    <Compile Include="ScriptletManager.xaml.cs">
+      <DependentUpon>ScriptletManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spacemap\BorderAdorner.cs" />
+    <Compile Include="Spacemap\Designer.xaml.cs">
+      <DependentUpon>Designer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spacemap\IMappable.cs" />
+    <Compile Include="Spacemap\PropertiesControl.xaml.cs">
+      <DependentUpon>PropertiesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spacemap\PropertyItem.cs" />
+    <Compile Include="Spacemap\SpaceObject.xaml.cs">
+      <DependentUpon>SpaceObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spacemap\SpaceObjectType.cs" />
+    <Compile Include="Spacemap\UnmappableObject.xaml.cs">
+      <DependentUpon>UnmappableObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Spacemap\UnnamedObjectAdorner.cs" />
+    <Compile Include="XmlCompletionDataComparer.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mission-file-docs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\angular_stock_icons_export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RussLibraryXmlEditor\RussLibraryXmlEditor.csproj">
+      <Project>{A8171F8D-9BA7-45FD-98BA-DBB500B394F4}</Project>
+      <Name>RussLibraryXmlEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibrary\RussLibrary.csproj">
+      <Project>{BC5FD24E-E8E5-4522-B620-C2B56867DF5E}</Project>
+      <Name>RussLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VesselDataLibrary.Xml\VesselDataLibrary.Xml.csproj">
+      <Project>{B0CAFC3F-8146-4800-9BE8-1F0CA43FA023}</Project>
+      <Name>VesselDataLibrary.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewProjectTemplate.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ScriptContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScriptletManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spacemap\Designer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spacemap\PropertiesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spacemap\SpaceObject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Spacemap\UnmappableObject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1360035698_run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\angular_stock_icons_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-insert-horizontal-rule-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\enemy.png" />
+    <Resource Include="Images\friend.png" />
+    <Resource Include="Images\pickup.png" />
+    <Resource Include="Images\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\stationIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BlackHoleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\genericMesh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\asteroids.png" />
+    <Resource Include="Images\whale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nebula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2391_ZoomOut.png" />
+    <Resource Include="Images\2392_ZoomIn_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1385_Disable_24x24_72.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

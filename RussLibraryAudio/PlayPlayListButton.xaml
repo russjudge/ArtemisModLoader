@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="RussLibraryAudio.PlayPlayListButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Name="uc"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:server="clr-namespace:RussLibraryAudio"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+        <!--<server:AudioServer.Current x:Key="audioServer" />-->
+    </UserControl.Resources>
+
+    <Button
+        Click="PlayMusic_click"
+        HorizontalAlignment="Right" Margin="160,0,0,0" >
+        <Button.Content>
+            <StackPanel Orientation="Horizontal">
+                <Image
+                    ToolTip="Stop Music"
+                    Visibility="{Binding IsPlaying, Mode=OneWay, Source={x:Static server:AudioServer.Current}, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                    Height="32" Source="pack://application:,,,/RussLibrary.Audio;component/Images/no-music.png" />
+                <Image
+                    ToolTip="Play Music"
+                    Height="32"
+                    Source="pack://application:,,,/RussLibrary.Audio;component/Images/Music-icon.png"
+                    Visibility="{Binding IsPlaying, Mode=OneWay, Source={x:Static server:AudioServer.Current}, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}" />
+            </StackPanel>
+        </Button.Content>
+    </Button>
+</UserControl>

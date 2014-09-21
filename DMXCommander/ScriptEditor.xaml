@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="DMXCommander.ScriptEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Name="uc"
+             mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel Name="btnRun" DockPanel.Dock="Top " Orientation="Horizontal ">
+            <Button Click="OnNew" Content="New" />
+            <Button Click="OnOpen" Content="Open" />
+            <Button Click="OnSave" Content="Save" />
+            <Button Click="OnSaveAs" Content="Save As" />
+            <Button  Click="OnRun" Content="Run" />
+            <Button Click="OnReference" Content="Reference" HorizontalAlignment="Right" HorizontalContentAlignment="Right" />
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock Text="{Binding SaveFile, Mode=OneWay, ElementName=uc}" />
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox
+                  Grid.Column="0"
+                  Header="Run Progress">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding LogData, ElementName=uc, Mode=OneWay}" />
+                </ScrollViewer>
+            </GroupBox>
+            <GridSplitter HorizontalAlignment="Right" Width="5" Grid.Column="0"  />
+            <GroupBox Grid.Column="1" Header="Edit">
+                <TextBox AcceptsReturn="True"
+                     AcceptsTab="True" 
+                     ScrollViewer.CanContentScroll="True"
+                     Text="{Binding Path=ScriptData,
+                                    Mode=TwoWay,
+                                    ElementName=uc}" TextChanged="OnTextChanged" />
+
+            </GroupBox>
+        </Grid>
+        
+       
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ModConfiguration
+  DependsOn=""
+  ID="{653B3B9E-428B-4346-B6C3-2DAE47E900A5}"
+  Description="General assets (ships, planets, etc) that Mod and Mission designers can reference."
+  Title="Generic Mod for Mod Development"
+  Author="Tre Chipman">
+
+  <Download
+    Source="http://www.artemiscommand.com/media/artemis/mods/generic_mod.zip"
+    Webpage="http://www.artemiscommand.com/content/html.cgi?section=4.0.1.0&amp;linkType=Mod"
+    />
+
+  
+</ModConfiguration>

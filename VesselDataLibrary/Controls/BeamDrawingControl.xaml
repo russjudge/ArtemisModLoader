@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.BeamDrawingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ctl="clr-namespace:VesselDataLibrary.Controls"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Name="uc"
+             Loaded="uc_Loaded" MinWidth="200" MinHeight="200" Unloaded="uc_Unloaded"
+             mc:Ignorable="d" SizeChanged="OnSizeChanged" Background="Black" Drop="Canvas_Drop" >
+    <UserControl.Resources>
+        <valueConvert:MultiplierConverter x:Key="MultiplierConverter" />
+        <valueConvert:DoubleParmAdjuster x:Key="DoubleParmAdjuster" />
+        
+    </UserControl.Resources>
+    <Grid>
+        
+        <Canvas Name="canvas" AllowDrop="True" Drop="Canvas_Drop" >
+            <ctl:BeamArcMask
+                Dragger="True"
+                WallRatio="{Binding Path=WallRatio, Mode=TwoWay, ElementName=uc}"
+                x:Name="bam"
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                VerticalAlignment="Stretch" 
+                VerticalContentAlignment="Stretch" 
+                Canvas.Top="0" Canvas.Left="0"
+                LeftLineX="{Binding Path=LeftLineX, Mode=TwoWay, ElementName=uc}"
+                LeftLineY="{Binding Path=LeftLineY, Mode=TwoWay, ElementName=uc}"
+                RightLineX="{Binding Path=RightLineX, Mode=TwoWay, ElementName=uc}"
+                RightLineY="{Binding Path=RightLineY, Mode=TwoWay, ElementName=uc}"
+                CenterX="{Binding Path=CenterLineX, Mode=TwoWay, ElementName=uc}"
+                CenterY="{Binding Path=CenterLineY, Mode=TwoWay, ElementName=uc}"
+                Width="{Binding ActualWidth, Mode=OneWay, ElementName=canvas}"
+                Height="{Binding ActualHeight, Mode=OneWay, ElementName=canvas}"
+                X="{Binding Beam.X, Mode=OneWay, ElementName=uc}"
+                Z="{Binding Beam.Z, Mode=OneWay, ElementName=uc}"
+                ArcWidth="{Binding Path=Beam.ArcWidth, Mode=TwoWay, ElementName=uc}"
+                Range="{Binding Path=Beam.Range, Mode=TwoWay, ElementName=uc}"/>
+          
+        
+        <Image
+            IsEnabled="False"
+            Name="img"
+            Height="24"
+            Canvas.Top="{Binding CenterLineY, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+            ConverterParameter=-7}"
+            Canvas.Left="{Binding CenterLineX, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+            ConverterParameter=-10}"
+            Source="pack://application:,,,/VesselDataLibrary;component/Images/Triangle.png" />
+    </Canvas>
+    </Grid>
+</UserControl>

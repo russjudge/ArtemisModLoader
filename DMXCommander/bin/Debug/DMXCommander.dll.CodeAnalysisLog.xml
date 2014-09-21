@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="E:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\bin\Debug\DMXCommander.dll">
+   <Modules>
+    <Module Name="dmxcommander.dll">
+     <Namespaces>
+      <Namespace Name="DMXCommander">
+       <Types>
+        <Type Name="GeneralHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetChannelLabel(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="GeneralHelper.cs" Line="148">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'GeneralHelper.GetChannelLabel(int)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="GeneralHelper.cs" Line="158">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'GeneralHelper.GetChannelLabel(int)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetChannelList()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="GeneralHelper.cs" Line="115">Change 'GeneralHelper.GetChannelList()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetLabelToInt(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="int" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="LanguageSpecificMember" Certainty="75" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="GeneralHelper.cs" Line="162">Consider replacing the language-specific data type identifier 'Int' in member name 'GeneralHelper.GetLabelToInt(string)' with either a language-independent equivalent or a more generic term, such as 'value'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ScriptEditor" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LogData" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="ScriptEditor.xaml.cs" Line="41">Change 'ScriptEditor.LogData' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnRun(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander" File="ScriptEditor.xaml.cs" Line="160">Method 'ScriptEditor.OnRun(object, RoutedEventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Script".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="DMXCommander.Controls">
+       <Types>
+        <Type Name="ChannelDefintionControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Defintion" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Defintion' in type name 'ChannelDefintionControl'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="ChannelDefintionControl.xaml.cs" Line="47">Modify 'ChannelDefintionControl.ChannelDefintionControl()' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnAddChannel(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="ChannelDefintionControl.xaml.cs" Line="105">Method 'ChannelDefintionControl.OnAddChannel(object, RoutedEventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnAddGroup(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="RussLibrary.Windows.PromptDialog.set_Text(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="ChannelDefintionControl.xaml.cs" Line="114">Method 'ChannelDefintionControl.OnAddGroup(object, RoutedEventArgs)' passes a literal string as parameter 'value' of a call to 'PromptDialog.Text.set(string)'. Retrieve the following string(s) from a resource table instead: "Please enter group name:".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnSave(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="ChannelDefintionControl.xaml.cs" Line="127">Method 'ChannelDefintionControl.OnSave(object, RoutedEventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander Configuration".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="CueControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SortByPriority()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="CueControl.xaml.cs" Line="99">The 'this' parameter (or 'Me' in Visual Basic) of 'CueControl.SortByPriority()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DMXCommandControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Dispose(System.Boolean)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="249">Modify 'DMXCommandControl.Dispose(bool)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DoConfiguration()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="291">The 'this' parameter (or 'Me' in Visual Basic) of 'DMXCommandControl.DoConfiguration()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#fsw_Changed(System.Object,System.IO.FileSystemEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="70">Method 'DMXCommandControl.fsw_Changed(object, FileSystemEventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LoadFile(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="180">Method 'DMXCommandControl.LoadFile(string)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#New()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="82">Method 'DMXCommandControl.New()' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnLoaded(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="456">Method 'DMXCommandControl.OnLoaded(object, RoutedEventArgs)' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="450">Modify 'DMXCommandControl.OnLoaded(object, RoutedEventArgs)' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Save()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Windows.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="144">Method 'DMXCommandControl.Save()' passes a literal string as parameter 'caption' of a call to 'MessageBox.Show(string, string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "DMX Commander".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="DMXCommandControl.xaml.cs" Line="142">Modify 'DMXCommandControl.Save()' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SetValueControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#NumberList" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Controls" File="SetValueControl.xaml.cs" Line="46">Change 'SetValueControl.NumberList' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="DMXCommander.Engine">
+       <Types>
+        <Type Name="Controller" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.cctor()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="Controller.cs" Line="13">Initialize all static fields in 'Controller' when those fields are declared and remove the explicit static constructor.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DMXException" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="DMX" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">Correct the casing of 'DMX' in type name 'DMXException' by changing it to 'Dmx'.</Issue>
+          </Message>
+          <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+           <Issue Name="MissingConstructor" Certainty="95" Level="Error">Add the following constructor to 'DMXException': protected DMXException(SerializationInfo, StreamingContext).</Issue>
+           <Issue Name="MissingConstructor" Certainty="95" Level="Error">Add the following constructor to 'DMXException': public DMXException().</Issue>
+           <Issue Name="MissingConstructor" Certainty="95" Level="Error">Add the following constructor to 'DMXException': public DMXException(String).</Issue>
+           <Issue Name="MissingConstructor" Certainty="95" Level="Error">Add the following constructor to 'DMXException': public DMXException(String, Exception).</Issue>
+          </Message>
+          <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+           <Issue Certainty="95" Level="Error">Add [Serializable] to 'DMXException' as this type implements ISerializable.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="OpenDMX" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SetDmxValue(System.Int32,System.Byte)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="channel+1" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="OpenDMX.cs" Line="66">Correct the potential overflow in the operation 'channel+1' in 'OpenDMX.SetDmxValue(int, byte)'.</Issue>
+             <Issue Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="OpenDMX.cs" Line="68">Correct the potential overflow in the operation 'channel+1' in 'OpenDMX.SetDmxValue(int, byte)'.</Issue>
+             <Issue Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="OpenDMX.cs" Line="70">Correct the potential overflow in the operation 'channel+1' in 'OpenDMX.SetDmxValue(int, byte)'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ScriptEngine" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.cctor()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="20">Initialize all static fields in 'ScriptEngine' when those fields are declared and remove the explicit static constructor.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BuildErrorMessage(System.Int32,System.String,System.Boolean,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1122">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.BuildErrorMessage(int, string, bool, int)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1122">Because the behavior of 'string.Format(string, params object[])' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.BuildErrorMessage(int, string, bool, int)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BuildWarningMessage(System.Int32,System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1138">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.BuildWarningMessage(int, string, int)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1138">Because the behavior of 'string.Format(string, object, object, object)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.BuildWarningMessage(int, string, int)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DisplayImage(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="549">Modify 'ScriptEngine.DisplayImage(string)' to catch a more specific exception than 'object' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Filename" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeCompoundWord" Certainty="80" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="44">The discrete term 'Filename' in member name 'ScriptEngine.Filename' should be expressed as a compound word, 'FileName'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetCommentPosition(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="74">The 'this' parameter (or 'Me' in Visual Basic) of 'ScriptEngine.GetCommentPosition(string)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetFilename(System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="DMXCommander.Engine.ScriptEngine.BuildErrorMessage(System.Int32,System.String,System.Boolean,System.Int32)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="567">Method 'ScriptEngine.GetFilename(string)' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "File does not exist: ".</Issue>
+            </Message>
+            <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="558">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.GetFilename(string)' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProcessFirstPass(System.String[])" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="DMXCommander.Engine.ScriptEngine.BuildErrorMessage(System.Int32,System.String,System.Boolean,System.Int32)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1308">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "DMXCOMMAND_END command not found".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1243">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "File Not Found: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1282">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "File Not Found: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1193">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Unable to import DMX data: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1270">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Unable to load DMX Command File: ".</Issue>
+            </Message>
+            <Message Id="DMXCommander.Engine.ScriptEngine.LogData(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1289">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Imorting DMX Data".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1254">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Importing DMX file: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1220">Method 'ScriptEngine.ProcessFirstPass(string[])' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Importing file: ".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1185">Modify 'ScriptEngine.ProcessFirstPass(string[])' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1264">Modify 'ScriptEngine.ProcessFirstPass(string[])' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="Imorting" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1289">Correct the spelling of the unrecognized token 'Imorting' in the literal '"Imorting DMX Data"'.</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1223">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessFirstPass(string[])' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1296">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessFirstPass(string[])' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProcessRun(System.String[])" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="208">'ScriptEngine.ProcessRun(string[])' has a cyclomatic complexity of 58. Rewrite or refactor the method to reduce complexity to 25.</Issue>
+            </Message>
+            <Message Id="System.Int32.TryParse(System.String,System.Int32@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="TryParse" Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="398">'ScriptEngine.ProcessRun(string[])' calls 'int.TryParse(string, out int)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
+            </Message>
+            <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="Breaking">
+             <Issue Name="TooGeneric" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="501">'ScriptEngine.ProcessRun(string[])' creates an exception of type 'Exception', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="369">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessRun(string[])' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="396">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessRun(string[])' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="501">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessRun(string[])' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProcessSecondPass()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="807">'ScriptEngine.ProcessSecondPass()' has a cyclomatic complexity of 58. Rewrite or refactor the method to reduce complexity to 25.</Issue>
+            </Message>
+            <Message TypeName="AvoidUnmaintainableCode" Category="Microsoft.Maintainability" CheckId="CA1505" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Name="Method" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="807">'ScriptEngine.ProcessSecondPass()' has a maintainability index of 20. Rewrite or refactor the method to increase its maintainability index (MI). An MI below 10 indicates poor maintainability, an MI between 10 and 20 indicates moderate maintainability, and an MI above 20 indicates good maintainability.</Issue>
+            </Message>
+            <Message Id="DMXCommander.Engine.ScriptEngine.BuildErrorMessage(System.Int32,System.String,System.Boolean,System.Int32)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="898">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Cue Not Found in DMX Command data: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="918">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Cue not started: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="937">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "File does not exist: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="953">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "File required".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1076">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Invalid Command: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1023">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Invalid REPEAT_BEGIN parameter: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1009">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Invalid WAIT parameter: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1087">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Invalid second label without RETURN: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1046">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Label Not Found: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="983">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "No audio has been started or paused".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="962">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "No audio has been started".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="974">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "No audio has been started".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1060">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Path does not exist: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1065">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Path required".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1107">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "REPEAT_BEGIN without REPEAT_END".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1036">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "REPEAT_END without REPEAT_BEGIN".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="875">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "RETURN without routine label--unreachable code".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1003">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildErrorMessage(int, string, bool, int)'. Retrieve the following string(s) from a resource table instead: "Wait period required".</Issue>
+            </Message>
+            <Message Id="DMXCommander.Engine.ScriptEngine.BuildWarningMessage(System.Int32,System.String,System.Int32)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="905">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildWarningMessage(int, string, int)'. Retrieve the following string(s) from a resource table instead: "Cue Start already set: ".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="994">Method 'ScriptEngine.ProcessSecondPass()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.BuildWarningMessage(int, string, int)'. Retrieve the following string(s) from a resource table instead: "No audio file queued".</Issue>
+            </Message>
+            <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="838">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="841">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="849">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="929">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="941">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1072">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1072">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="1081">Because the behavior of 'string.StartsWith(string)' could vary based on the current user's locale settings, replace this call in 'ScriptEngine.ProcessSecondPass()' with a call to 'string.StartsWith(string, StringComparison)'. If the result of 'string.StartsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RaiseRunComplete()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="DMXCommander.Engine.ScriptEngine.LogData(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="690">Method 'ScriptEngine.RaiseRunComplete()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Run Complete.".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Run()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="DMXCommander.Engine.ScriptEngine.LogData(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="620">Method 'ScriptEngine.Run()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Running...".</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="630">Modify 'ScriptEngine.Run()' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidateScript()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="DMXCommander.Engine.ScriptEngine.LogData(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Engine" File="ScriptEngine.cs" Line="738">Method 'ScriptEngine.ValidateScript()' passes a literal string as parameter 'message' of a call to 'ScriptEngine.LogData(string)'. Retrieve the following string(s) from a resource table instead: "Validating Script".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="DMXCommander.Xml">
+       <Types>
+        <Type Name="SetValue" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ProcessValidation()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="RussLibrary.WPF.ValidationObjectCollection.AddValidation(System.String,RussLibrary.WPF.ValidationValue,System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:24Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Xml" File="SetValue.cs" Line="143">Method 'SetValue.ProcessValidation()' passes a literal string as parameter 'message' of a call to 'ValidationObjectCollection.AddValidation(string, ValidationValue, string)'. Retrieve the following string(s) from a resource table instead: "Change must be in range of -255 to 255".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Xml" File="SetValue.cs" Line="132">Method 'SetValue.ProcessValidation()' passes a literal string as parameter 'message' of a call to 'ValidationObjectCollection.AddValidation(string, ValidationValue, string)'. Retrieve the following string(s) from a resource table instead: "Channel must be in range of 0 - 511".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\DMXCommander\Xml" File="SetValue.cs" Line="138">Method 'SetValue.ProcessValidation()' passes a literal string as parameter 'message' of a call to 'ValidationObjectCollection.AddValidation(string, ValidationValue, string)'. Retrieve the following string(s) from a resource table instead: "ChannelValue must be in range of 0 - 255".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502">
+   <Name>Avoid excessive complexity</Name>
+   <Description>Method implementations that are exceedingly complex increase the challenge of understanding and maintaining code.</Description>
+   <Resolution Name="Default">{0} has a cyclomatic complexity of {1}. Rewrite or refactor the method to reduce complexity to {2}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182212(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnmaintainableCode" Category="Microsoft.Maintainability" CheckId="CA1505">
+   <Name>Avoid unmaintainable code</Name>
+   <Description>Types and methods with a high degree of class coupling, cyclomatic complexity and/or program length can be difficult to maintain.</Description>
+   <Resolution Name="Method">{0} has a maintainability index of {1}. Rewrite or refactor the method to increase its maintainability index (MI). An MI below {2} indicates poor maintainability, an MI between {2} and {3} indicates moderate maintainability, and an MI above {3} indicates good maintainability.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386043(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+   <Name>Collection properties should be read only</Name>
+   <Description>Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</Description>
+   <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182327(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="MemberShouldBeCompoundWord">The discrete term '{0}' in member name {1} should be expressed as a compound word, '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264474(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>Do not pass literals as localized parameters</Name>
+   <Description>Literal strings that are embedded in source code are difficult to localize. Avoid passing literal strings as arguments in circumstances where a localized string is generally expected.</Description>
+   <Resolution Name="KnownValue">Method {0} passes a literal string as parameter '{1}' of a call to {2}. Retrieve the following string(s) from a resource table instead: {3}.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>Do not catch general exception types</Name>
+   <Description>You should not catch Exception or SystemException. Catching generic exception types can hide run-time problems from the library user, and can complicate debugging. You should catch only those exceptions that you can handle gracefully.</Description>
+   <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182137(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806">
+   <Name>Do not ignore method results</Name>
+   <Description>The result of methods that return new instances of strings should be assigned to a variable and subsequently used. If the result of a method that creates a new object, such as String.ToLower(), is not assigned to a variable, the call is wasted.</Description>
+   <Resolution Name="TryParse">{0} calls {1} but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182273(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+   <Name>Do not raise reserved exception types</Name>
+   <Description>User code should not create and raise exceptions of certain types that are reserved by the runtime or which are of a too general exception type. Exception types that are too general include Exception, SystemException, and ApplicationException. Exception types that are reserved by the runtime include ThreadAbortException, OutOfMemoryException, ExecutionEngineException, and IndexOutOfRangeException.</Description>
+   <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182338(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="MemberAbbreviation">Correct the casing of '{0}' in member name {1} by changing it to '{2}'. '{2}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+   <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   <Resolution Name="Type">Correct the casing of '{0}' in type name {1} by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264492(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+   <Name>Identifiers should not contain type names</Name>
+   <Description>Avoid using language-specific types name in parameters and members and data type identifiers in parameters. Types names might not be intuitive for all developers. It is recommended that you select a generic name, such as 'value', instead. If this is not sufficient, be sure to use the type name as it is defined in the .NET Framework Library and avoid language-specific type names completely. Some examples of C#-specific type names are 'float' (use 'Single' if a generic name is not sufficient), and 'ulong' (use 'UInt64' if a generic name is not sufficient).</Description>
+   <Resolution Name="LanguageSpecificMember">Consider replacing the language-specific data type identifier '{0}' in member name {1} with either a language-independent equivalent or a more generic term, such as 'value'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb531486(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
+   <Name>Implement standard exception constructors</Name>
+   <Description>Multiple constructors are required to correctly implement a custom exception. Missing constructors can make your exception unusable in certain scenarios. For example, the serialization constructor is required for handling exceptions in XML Web services.</Description>
+   <Resolution Name="MissingConstructor">Add the following constructor to {0}: {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182151(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810">
+   <Name>Initialize reference type static fields inline</Name>
+   <Description>Static fields should be initialized when declared. Initializing static data in explicit static constructors results in less performant code.</Description>
+   <Resolution Name="Default">Initialize all static fields in {0} when those fields are declared and remove the explicit static constructor.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182275(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">CriticalWarning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204">
+   <Name>Literals should be spelled correctly</Name>
+   <Description>This rule parses the literal string into words, tokenizing compound words, and checks the spelling of each word/token.</Description>
+   <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/bb264488(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+   <Name>Mark ISerializable types with SerializableAttribute</Name>
+   <Description>The System.Runtime.Serialization.ISerializable interface allows the type to customize its serialization, while the Serializable attribute enables the runtime to recognize the type as being serializable.</Description>
+   <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182350(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>Mark members as static</Name>
+   <Description>Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</Description>
+   <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233">
+   <Name>Operations should not overflow</Name>
+   <Description>Arithmetic operations should not be done without first validating the operands to prevent overflow.</Description>
+   <Resolution Name="Default">Correct the potential overflow in the operation '{0}' in {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182354(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+   <Name>Specify StringComparison</Name>
+   <Description>If an overload exists that takes a StringComparison argument, it should always be called in favor of an overload that does not.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386080(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+   <Name>Use properties where appropriate</Name>
+   <Description>Properties should be used instead of Get/Set methods in most situations. Methods are preferable to properties in the following situations: the operation is a conversion, is expensive or has an observable side-effect; the order of execution is important; calling the member twice in succession creates different results; a member is static but returns a mutable value; or the member returns an array.</Description>
+   <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182181(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="designrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

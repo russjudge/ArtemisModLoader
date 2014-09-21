@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModConfiguration
+  DefinitionVersion="0"
+  DependsOn=""
+  ID="{F25EE576-100B-4783-A658-B100318ACC52}"
+  LastVerifiedArtemisVersion="1.661"
+  Title="Adam's Star Trek Mod: Useful for Development (does not work above v 1.6)"
+  Author="Adam Jackson">
+
+
+
+  <!--
+  
+  Location where the zip file of the MOD can be found.
+  
+  If "Source" attribute (the file download) is not found, you are redirected to the webpage to find the latest.
+  
+  -->
+  <Download
+    Source="https://dl.dropboxusercontent.com/u/14746342/ArtemisMods/dat.zip"
+    Webpage="http://tomorrownight.com/projects/artemis-star-trek-mod/"
+    />
+  
+</ModConfiguration>

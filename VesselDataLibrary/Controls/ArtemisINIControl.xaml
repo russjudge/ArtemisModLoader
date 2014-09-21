@@ -1,0 +1,2703 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.ArtemisINIControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+	    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+	    xmlns:prop="clr-namespace:ArtemisModLoader.Properties;assembly=AMLLibrary"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:ValueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             mc:Ignorable="d" Name="uc">
+    
+    <UserControl.Resources>
+        <prop:Settings x:Key="Settings" />
+        <ValueConvert:NumericConverter x:Key="NumericConverter" />
+        <ValueConvert:NullToBoolConverter x:Key="NullToBoolConverter" />
+        <ValueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ArtemisINILight}" Offset="0" />
+            <GradientStop Color="{Binding Source={StaticResource Settings}, Path=Default.ArtemisINIDark}" Offset="1" />
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <DockPanel>
+        <xctk:DropDownButton DockPanel.Dock="Top" HorizontalAlignment="Right" HorizontalContentAlignment="Right">
+            <xctk:DropDownButton.DropDownContent>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Light Gradient:" VerticalAlignment="Center" />
+                    <xctk:ColorPicker ShowRecentColors="True" SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.ArtemisINILight}"/>
+                    <Label Content="Dark Gradient:" />
+                    <xctk:ColorPicker SelectedColor="{Binding Source={StaticResource Settings}, Path=Default.ArtemisINIDark}" />
+
+                </StackPanel>
+            </xctk:DropDownButton.DropDownContent>
+        
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right"  >
+            <Button
+                Visibility="{Binding Data.Changed, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                IsEnabled="{Binding Data, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                HorizontalAlignment="Left" Content="Cancel Changes" IsCancel="True" Click="Cancel_Click" />
+            <Button
+                IsEnabled="{Binding Configuration, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                Margin="10,0,20,0"
+                ToolTip="{x:Static resx:Resources.EditArtemisINI}" Click="EditArtemisINI_Click">
+                <Button.Content>
+                    <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/Notepad-32.png" />
+                </Button.Content>
+            </Button>
+            <Button ToolTip="Open an Artemis INI File" HorizontalAlignment="Right" Click="Open_Click">
+                <Button.Content>
+                    <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/folder_open.png" />
+                </Button.Content>
+            </Button>
+            <Button
+                IsEnabled="{Binding Data, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                ToolTip="Save Artemis INI" HorizontalAlignment="Right" Click="Save_Click">
+                <Button.Content>
+                    <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/save.png" />
+                </Button.Content>
+            </Button>
+            <Button
+                IsEnabled="{Binding Data, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+                ToolTip="{x:Static resx:Resources.SaveAs}" HorizontalAlignment="Right" Click="SaveAs_Click">
+                <Button.Content>
+                    <Image Height="32" Source="pack://application:,,,/VesselDataLibrary;component/Images/document_save_as.png" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        </xctk:DropDownButton>
+        <ScrollViewer
+            IsEnabled="{Binding Data, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToBoolConverter}}"
+            DockPanel.Dock="Top"
+            VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <!-- overall settings -->
+                <GroupBox
+                BorderBrush="MediumAquamarine" BorderThickness="2"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" >
+                    <GroupBox.Header>
+                        <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="General Settings" />
+                    </GroupBox.Header>
+                    <Grid HorizontalAlignment="Stretch" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"  Content="Camera Pitch" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.05" IsSnapToTickEnabled="True"
+                            Minimum="-0.5" Maximum="0"
+                            Grid.Row="0" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CameraPitch, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            Grid.Row="0" Grid.Column="2" Width="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CameraPitch, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"  Content="Camera Distance" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="25" IsSnapToTickEnabled="True"
+                            Minimum="50" Maximum="600"
+                            Grid.Row="1" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CameraDistance, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            DisplayFormat="##0"
+                            Grid.Row="1" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch" Value="{Binding Path=Data.CameraDistance, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"  Content="Network Port" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="####0"
+                            Grid.Row="2" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.NetworkPort, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"  Content="Jump Time Coefficient" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            Minimum="0.01" Maximum="100.0"
+                            Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.JumpTimeCoeff, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox DisplayFormat="##0.00"
+                            Grid.Row="3" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.JumpTimeCoeff, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Client-side settings -->
+                <GroupBox
+                    BorderBrush="DarkOrchid"  BorderThickness="2"
+                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <GroupBox.Header>
+                        <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Client-side Settings" />
+                    </GroupBox.Header>
+
+                    <Grid HorizontalAlignment="Stretch" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                            Content="Force this Client to specific ship:" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ComboBox
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Grid.Row="0" Grid.Column="1"
+                            ItemsSource="{Binding Data.ValidShips, Mode=OneWay, ElementName=uc}"
+                            SelectedItem="{Binding Path=Data.ShipRestriction, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Key, Mode=OneWay}" />
+                                        <TextBlock VerticalAlignment="Center" Text=" - "  />
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding Value, Mode=OneWay}" />
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                            Content="Main Screen console allowed for Client" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                            IsThreeState="True"
+                            Grid.Row="1" Grid.Column="1"
+                            IsChecked="{Binding Path=Data.ClientMainScreen, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                            Content="Helm console allowed for Client" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                            IsThreeState="True"
+                            Grid.Row="2" Grid.Column="1"
+                            IsChecked="{Binding Path=Data.ClientHelm, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                        Content="Weapon console allowed for Client" FontWeight="Bold"
+                        VerticalAlignment="Center" />
+
+                        <CheckBox
+                        IsThreeState="True"
+                        Grid.Row="3" Grid.Column="1"
+                        IsChecked="{Binding Path=Data.ClientWeapon, Mode=TwoWay, ElementName=uc}"
+                        VerticalAlignment="Center" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"
+                        Content="Engineer console allowed for Client" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                        IsThreeState="True"
+                        Grid.Row="4" Grid.Column="1"
+                        IsChecked="{Binding Path=Data.ClientEngineer, Mode=TwoWay, ElementName=uc}"
+                        VerticalAlignment="Center" />
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"
+                        Content="Science console allowed for Client"
+                        FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                        IsThreeState="True"
+                        Grid.Row="5" Grid.Column="1"
+                        IsChecked="{Binding Path=Data.ClientScience, Mode=TwoWay, ElementName=uc}"
+                        VerticalAlignment="Center" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="6" Grid.Column="0"
+                        Content="Comms console allowed for Client"
+                        FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                        IsThreeState="True"
+                        Grid.Row="6" Grid.Column="1"
+                        IsChecked="{Binding Path=Data.ClientComms, Mode=TwoWay, ElementName=uc}"
+                        VerticalAlignment="Center" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="7" Grid.Column="0"
+                        Content="Observer console allowed for Client" FontWeight="Bold"
+                        VerticalAlignment="Center" />
+
+                        <CheckBox
+                        Grid.Row="7" Grid.Column="1"
+                        IsChecked="{Binding Path=Data.ClientObserver, Mode=TwoWay, ElementName=uc}"
+                        VerticalAlignment="Center" IsThreeState="True" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0"
+                        Content="Use Joystick" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox Grid.Row="8" Grid.Column="1"  IsChecked="{Binding Path=Data.UseJoystick, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"  Content="Touch Screen" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <CheckBox
+                            Grid.Row="9" Grid.Column="1"  IsChecked="{Binding Path=Data.TouchScreen, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                        HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0"
+                        Content="IP Address to force used" FontWeight="Bold"
+                        VerticalAlignment="Center" />
+
+                        <TextBox
+                            Grid.Row="10" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Text="{Binding Path=Data.ForceAddress, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+                    </Grid>
+                </GroupBox>
+                <!-- Server side settings -->
+                <GroupBox
+                BorderBrush="Peru"  BorderThickness="2"
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <GroupBox.Header>
+                        <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Server-side Settings" />
+                    </GroupBox.Header>
+
+                    <Grid HorizontalAlignment="Stretch" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                            Content="Lighting IP Address" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <TextBox
+                            Grid.Row="0" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Text="{Binding Path=Data.LightingIPAddress, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                            Content="Station Energy" FontWeight="Bold" VerticalAlignment="Center" />
+
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="25" IsSnapToTickEnabled="True"
+                            Minimum="500" Maximum="2000"
+                            Grid.Row="1" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.StationEnergy, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            DisplayFormat="###0"
+                            MinNumber="500" MaxNumber="2000"
+                            Grid.Row="1" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.StationEnergy, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                            Content="Player Shield Recharge Rate" FontWeight="Bold"
+                            VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.01" IsSnapToTickEnabled="True"
+                            Minimum="0.02" Maximum="2.0"
+                            Grid.Row="2" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.PlayerShieldRechargeRate, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="0.00"
+                            MinNumber="0.02" MaxNumber="2.0"
+                            Grid.Row="2" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.PlayerShieldRechargeRate, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                            Content="Enemy Shield Recharge Rate" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.01" IsSnapToTickEnabled="True"
+                            Minimum="0.02" Maximum="2.0"
+                            Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnemyShieldRechargeRate, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="0.00"
+                            Grid.Row="3" Grid.Column="2"
+                            MinNumber="0.02" MaxNumber="2.0"
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnemyShieldRechargeRate, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"  Content="Station Sensor Range"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="5000"
+                            Minimum="5000" Maximum="100000"
+                            Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.StationSensorRange, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#####0"
+                            MinNumber="5000" MaxNumber="100000"
+                            Grid.Row="4" Grid.Column="2"
+                            MinWidth="70"
+                            HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.StationSensorRange, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"  Content="Player Sensor Range"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="5000"
+                            Minimum="5000" Maximum="100000"
+                            Grid.Row="5" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.PlayerSensorRange, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#####0"
+                            MinNumber="5000" MaxNumber="100000"
+                            Grid.Row="5" Grid.Column="2"
+                            MinWidth="70"
+                            HorizontalAlignment="Stretch" Value="{Binding Path=Data.PlayerSensorRange, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="6" Grid.Column="0"
+                            Content="Energy Use Coefficient"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0.2" Maximum="3.0"
+                            Grid.Row="6" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyUseCoeff, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="0.0"
+                            MinNumber="0.2" MaxNumber="3.0"
+                            Grid.Row="6" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyUseCoeff, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="7" Grid.Column="0"
+                            Content="Energy Coefficient Beams" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="7" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffBeams, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="7" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffBeams, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0"
+                            Content="Energy Coefficient Tubes" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="8" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffTubes, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="8" Grid.Column="2"
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffTubes, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"
+                            Content="Energy Coefficient Tactical" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="9" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffTactical, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="9" Grid.Column="2"
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffTactical, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0"  Content="Energy Coefficient Maneuver"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="10" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffManeuver, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="10" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffManeuver, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="11" Grid.Column="0"
+                            Content="Energy Coefficient Impulse" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="11" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffImpulse, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="11" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch" Value="{Binding Path=Data.EnergyCoeffImpulse, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="12" Grid.Column="0"
+                            Content="Energy Coefficient Warp"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="12" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffWarp, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="12" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffWarp, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="13" Grid.Column="0"
+                            Content="Energy Coefficient Front Shields" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="13" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffFrontShlds, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="13" Grid.Column="2"
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffFrontShlds, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="14" Grid.Column="0"
+                            Content="Energy Coefficient Rear Shields" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.5" IsSnapToTickEnabled="True"
+                            Minimum="1.0" Maximum="10.0"
+                            Grid.Row="14" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffRearShlds, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="#0.0"
+                            MinNumber="1.0" MaxNumber="10.0"
+                            Grid.Row="14" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffRearShlds, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="15" Grid.Column="0"  Content="Energy Coefficient Jump"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            Minimum="0.01" Maximum="100.0"
+                            Grid.Row="15" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.EnergyCoeffJump, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="##0.00"
+                            MinNumber="0.01" MaxNumber="100.0"
+                            Grid.Row="15" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch" Value="{Binding Path=Data.EnergyCoeffJump, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="16" Grid.Column="0"
+                            Content="Player Beam Delay" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0.0" Maximum="1.0"
+                            Grid.Row="16" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.PlayerBeamDelay, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="0.0"
+                            MinNumber="0.0" MaxNumber="1.0"
+                            Grid.Row="16" Grid.Column="2"  MinWidth="70"
+                            HorizontalAlignment="Stretch" Value="{Binding Path=Data.PlayerBeamDelay, Mode=TwoWay, ElementName=uc}"
+                            VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="17" Grid.Column="0"
+                            Content="Overload Threshold" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="100" IsSnapToTickEnabled="True"
+                            Minimum="1000" Maximum="6000"
+                            Grid.Row="17" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.OverloadThreshold, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="###0"
+                            MinNumber="1000" MaxNumber="6000"
+                            Grid.Row="17" Grid.Column="2"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.OverloadThreshold, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="18" Grid.Column="0"
+                            Content="Overload Heat" FontWeight="Bold" VerticalAlignment="Center" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0.0" Maximum="5.0"
+                            Grid.Row="18" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.OverloadHeat, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <ctl:DecimalBox
+                            DisplayFormat="0.0"
+                            MinNumber="0.0" MaxNumber="5.0"
+                            Grid.Row="18" Grid.Column="2"
+                            MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.OverloadHeat, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <GroupBox
+                            BorderBrush="SteelBlue"  BorderThickness="2"
+                            Grid.Row="19" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                            <GroupBox.Header>
+                                <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Homing Torpedo Data" />
+                            </GroupBox.Header>
+
+                            <Grid HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                                    Content="Low Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="0" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.LowStartStationTorp1, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                                    Content="High Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="1" Grid.Column="1"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.HighStartStationTorp1, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                                    Content="Damage" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="2" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.DamageTorp1, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                                    Content="Speed" FontWeight="Bold" VerticalAlignment="Center" />
+                                <Slider
+                                    Minimum="0.01" Maximum="30"
+                                    Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp1, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0.00"
+                                    MinNumber="0.01" MaxNumber="30"
+                                    Grid.Row="3" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp1, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"
+                                    Content="Minutes To Produce"
+                                    FontWeight="Bold" VerticalAlignment="Center" />
+                                <Slider
+                                    TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Minimum="1" Maximum="30"
+                                    Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp1, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0"
+                                    MinNumber="1" MaxNumber="30"
+                                    Grid.Row="4" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp1, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+                            </Grid>
+                        </GroupBox>
+
+
+                        <GroupBox
+                            BorderBrush="Tomato"  BorderThickness="2"
+                            Grid.Row="20" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                            <GroupBox.Header>
+                                <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Nuke Torpedo Data" />
+                            </GroupBox.Header>
+
+                            <Grid HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                                    Content="Low Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="0" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.LowStartStationTorp2, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                                    Content="High Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="1" Grid.Column="1"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.HighStartStationTorp2, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                                    Content="Damage" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="2" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.DamageTorp2, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                                    Content="Speed" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <Slider
+                                    Minimum="0.01" Maximum="30"
+                                    Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp2, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0.00"
+                                    MinNumber="0.01" MaxNumber="30"
+                                    Grid.Row="3" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp2, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"
+                                    Content="Minutes To Produce"
+                                    FontWeight="Bold" VerticalAlignment="Center" />
+                                <Slider
+                                    TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Minimum="1" Maximum="30"
+                                    Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp2, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0"
+                                    MinNumber="1" MaxNumber="30"
+                                    Grid.Row="4" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp2, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox
+                            BorderBrush="SteelBlue"  BorderThickness="2"
+                            Grid.Row="21" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                            <GroupBox.Header>
+                                <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Mine Torpedo Data" />
+                            </GroupBox.Header>
+
+                            <Grid HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                                    Content="Low Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="0" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.LowStartStationTorp3, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                                    Content="High Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="1" Grid.Column="1"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.HighStartStationTorp3, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                                    Content="Damage" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    MinNumber="0"
+                                    DisplayFormat="######0"
+                                    Grid.Row="2" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.DamageTorp3, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                                    Content="Speed" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <Slider
+                                    Minimum="0.01" Maximum="30"
+                                    Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp3, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0.00"
+                                    MinNumber="0.01" MaxNumber="30"
+                                    Grid.Row="3" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp3, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"
+                                    Content="Minutes To Produce"
+                                    FontWeight="Bold" VerticalAlignment="Center" />
+                                <Slider
+                                    TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Minimum="1" Maximum="30"
+                                    Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp3, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0"
+                                    MinNumber="1" MaxNumber="30"
+                                    Grid.Row="4" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp3, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox
+                            BorderBrush="SeaShell"  BorderThickness="2"
+                            Grid.Row="22" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+                            <GroupBox.Header>
+                                <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="ECM Torpedo Data" />
+                            </GroupBox.Header>
+
+                            <Grid HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                                    Content="Low Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="0" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.LowStartStationTorp4, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"
+                                    Content="High Start at Station" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    MinNumber="0"
+                                    DisplayFormat="######0"
+                                    Grid.Row="1" Grid.Column="1"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.HighStartStationTorp4, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"
+                                    Content="Damage" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="######0"
+                                    MinNumber="0"
+                                    Grid.Row="2" Grid.Column="1"  MinWidth="70"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.DamageTorp4, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"
+                                    Content="Speed" FontWeight="Bold" VerticalAlignment="Center" />
+
+                                <Slider
+                                    Minimum="0.01" Maximum="30"
+                                    Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp4, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0.00"
+                                    MinNumber="0.01" MaxNumber="30"
+                                    Grid.Row="3" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.SpeedTorp4, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+
+                                <Label
+                                    HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"
+                                    Content="Minutes To Produce"
+                                    FontWeight="Bold" VerticalAlignment="Center" />
+                                <Slider
+                                    TickPlacement="Both" TickFrequency="1" IsSnapToTickEnabled="True"
+                                    Minimum="1" Maximum="30"
+                                    Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp4, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                                <ctl:DecimalBox
+                                    DisplayFormat="#0"
+                                    MinNumber="1" MaxNumber="30"
+                                    Grid.Row="4" Grid.Column="2"
+                                    MinWidth="70" HorizontalAlignment="Stretch"
+                                    Value="{Binding Path=Data.MinutesToProduceTorp4, Mode=TwoWay, ElementName=uc}"
+                                    VerticalAlignment="Center" />
+
+
+                            </Grid>
+                        </GroupBox>
+
+                    </Grid>
+                </GroupBox>
+
+                <!-- Sound Effects -->
+                <GroupBox
+                    BorderBrush="DodgerBlue"  BorderThickness="2"
+                    Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <GroupBox.Header>
+                        <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="Sound Effects" />
+                    </GroupBox.Header>
+
+                    <Grid HorizontalAlignment="Stretch" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
+                            Content="Cue Shields Down" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Name="CueShieldsDown"
+                            Grid.Row="0" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            FileDisplay="{Binding Path=Data.CueShieldsDown, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="0" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueShieldsDown}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0"  Content="Cue Shields Down Volume" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="1" Grid.Column="2"
+                            Text="{Binding Data.CueShieldsDownVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+                        <Slider
+                            Minimum="0" Maximum="1"
+                            HorizontalAlignment="Stretch" 
+                            Grid.Row="1" Grid.Column="1" MinWidth="70" VerticalAlignment="Center"
+                            Value="{Binding Path=Data.CueShieldsDownVol, Mode=TwoWay, ElementName=uc}"
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True" />
+
+                        <Label HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0"  Content="Cue Shields Up" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Name="CueShieldsUp"
+                            Grid.Row="2" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            FileDisplay="{Binding Path=Data.CueShieldsUp, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="2" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueShieldsUp}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0"  Content="Cue Shields Up Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="3" Grid.Column="2"
+                            Text="{Binding Data.CueShieldsUpVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="3" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueShieldsUpVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="4" Grid.Column="0"  Content="Cue AI Ship Explode" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="4" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueAIExplode"
+                            FileDisplay="{Binding Path=Data.CueAIExplode, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="4" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueAIExplode}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"  Content="Cue AI Ship Explode Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="5" Grid.Column="2"
+                            Text="{Binding Data.CueAIExplodeVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="5" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueAIExplodeVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="6" Grid.Column="0"  Content="Cue Red Alert" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="6" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Name="CueRedAlert"
+                            FileDisplay="{Binding Path=Data.CueRedAlert, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="6" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueRedAlert}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="7" Grid.Column="0"  Content="Cue Red Alert Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="7" Grid.Column="2"
+                            Text="{Binding Data.CueRedAlertVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="7" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueRedAlertVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0"  Content="Cue Internal Damage Alarm" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="8" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueInternalDamageAlarm"
+                            FileDisplay="{Binding Path=Data.CueInternalDamageAlarm, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="8" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueInternalDamageAlarm}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0"  Content="Cue Internal Damage Alarm Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="9" Grid.Column="2"
+                            Text="{Binding Data.CueInternalDamageAlarmVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="9" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueInternalDamageAlarmVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0"  Content="Cue Hull Hit" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="10" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueHullHit"
+                            FileDisplay="{Binding Path=Data.CueHullHit, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="10" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueHullHit}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="11" Grid.Column="0"  Content="Cue Hull Hit Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="11" Grid.Column="2"
+                            Text="{Binding Data.CueHullHitVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="11" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueHullHitVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="12" Grid.Column="0"  Content="Cue Shield Hit" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="12" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueShieldHit"
+                            FileDisplay="{Binding Path=Data.CueShieldHit, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="12" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueShieldHit}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="13" Grid.Column="0"  Content="Cue Shield Hit Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="13" Grid.Column="2"
+                            Text="{Binding Data.CueShieldHitVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="13" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueShieldHitVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="14" Grid.Column="0"  Content="Cue Player Beam" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="14" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CuePlayerBeam"
+                            FileDisplay="{Binding Path=Data.CuePlayerBeam, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="14" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CuePlayerBeam}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="15" Grid.Column="0"  Content="Cue Player Beam Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="15" Grid.Column="2"
+                            Text="{Binding Data.CuePlayerBeamVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="15" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CuePlayerBeamVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="16" Grid.Column="0"  Content="Cue Player Torpedo" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="16" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CuePlayerTorpedo"
+                            FileDisplay="{Binding Path=Data.CuePlayerTorpedo, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="16" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CuePlayerTorpedo}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="17" Grid.Column="0"  Content="Cue Player Torpedo Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="17" Grid.Column="2"
+                            Text="{Binding Data.CuePlayerTorpedoVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="17" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CuePlayerTorpedoVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="18" Grid.Column="0"  Content="Cue Station Dock" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="18" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueStationDock"
+                            FileDisplay="{Binding Path=Data.CueStationDock, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="18" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueStationDock}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="19" Grid.Column="0"  Content="Cue Station Dock Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="19" Grid.Column="2"
+                            Text="{Binding Data.CueStationDockVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="19" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueStationDockVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="20" Grid.Column="0"  Content="Cue Engine Loop" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="20" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueEngineLoop"
+                            FileDisplay="{Binding Path=Data.CueEngineLoop, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="20" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueEngineLoop}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="21" Grid.Column="0"  Content="Cue Engine Loop Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="21" Grid.Column="2"
+                            Text="{Binding Data.CueEngineLoopVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="21" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueEngineLoopVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!-- begin cueUI## -->
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="22" Grid.Column="0"  Content="Select Server option" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI00 sound--made when Server Select Option made." />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="22" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI00"
+                            FileDisplay="{Binding Path=Data.CueUI00, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="22" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI00}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="23" Grid.Column="0"  Content="Volume for Server Select Option" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI00 sound--made when Server Select Option made." />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="23" Grid.Column="2"
+                            Text="{Binding Data.CueUI00Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="23" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI00Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+                        <Label HorizontalAlignment="Right" Grid.Row="24" Grid.Column="0"  Content="Client Option back to Console Select" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI01 sound--made when client option goes back to Console Select Screen" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="24" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI01"
+                            FileDisplay="{Binding Path=Data.CueUI01, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="24" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI01}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="25" Grid.Column="0"  Content="Client Option back to Console Select Volume" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI01 sound--made when client option goes back to Console Select Screen" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="25" Grid.Column="2"
+                            Text="{Binding Data.CueUI01Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="25" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI01Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="26" Grid.Column="0" ToolTip="cueUI02"  Content="Client Option Weapon Arc Select" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="26" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI02"
+                            FileDisplay="{Binding Path=Data.CueUI02, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="26" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI02}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="27" Grid.Column="0" ToolTip="cueUI02" Content="Client Option Weapon Arc Select Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="27" Grid.Column="2"
+                            Text="{Binding Data.CueUI02Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="27" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI02Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="28" Grid.Column="0" ToolTip="cueUI03" Content="Select Client Option" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="28" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI03"
+                            FileDisplay="{Binding Path=Data.CueUI03, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="28" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI03}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="29" Grid.Column="0" ToolTip="cueUI03" Content="Select Client Option Volume" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="29" Grid.Column="2"
+                            Text="{Binding Data.CueUI03Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="29" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI03Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+                        <Label HorizontalAlignment="Right" Grid.Row="30" Grid.Column="0" ToolTip="cueUI04" Content="Comm Red Alert" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="30" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI04"
+                            FileDisplay="{Binding Path=Data.CueUI04, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="30" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI04}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="31" Grid.Column="0" ToolTip="cueUI04" Content="Comm Red Alert Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="31" Grid.Column="2"
+                            Text="{Binding Data.CueUI04Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="31" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI04Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="32" Grid.Column="0" ToolTip="cueUI05" Content="Helm Request Dock" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="32" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI05"
+                            FileDisplay="{Binding Path=Data.CueUI05, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="32" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI05}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="33" Grid.Column="0" ToolTip="cueUI05" Content="Helm Request Dock Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="33" Grid.Column="2"
+                            Text="{Binding Data.CueUI05Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="33" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI05Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="34" Grid.Column="0" ToolTip="cueUI06" Content="Weapons Auto Beam" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="34" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI06"
+                            FileDisplay="{Binding Path=Data.CueUI06, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="34" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI06}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="35" Grid.Column="0" ToolTip="cueUI06" Content="Weapons Auto Beam Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="35" Grid.Column="2"
+                            Text="{Binding Data.CueUI06Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="35" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI06Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="36" Grid.Column="0" ToolTip="cueUI07" Content="Weapons Shields" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="36" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI07"
+                            FileDisplay="{Binding Path=Data.CueUI07, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="36" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI07}" />
+                        
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="37" Grid.Column="0" ToolTip="cueUI07" Content="Weapons Shields Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="37" Grid.Column="2"
+                            Text="{Binding Data.CueUI07Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="37" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI07Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="38" Grid.Column="0" ToolTip="cueUI08" Content="Torp to Engine Convert" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="38" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI08"
+                            FileDisplay="{Binding Path=Data.CueUI08, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="38" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI08}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="39" Grid.Column="0" ToolTip="cueUI08" Content="Torp to Engine Convert Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="39" Grid.Column="2"
+                            Text="{Binding Data.CueUI08Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="39" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI08Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="40" Grid.Column="0" ToolTip="cueUI09" Content="Client Station Select Screen" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="40" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI09"
+                            FileDisplay="{Binding Path=Data.CueUI09, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="40" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI09}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="41" Grid.Column="0" ToolTip="cueUI09" Content="Client Station Select Screen Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="41" Grid.Column="2"
+                            Text="{Binding Data.CueUI09Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="41" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI09Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="42" Grid.Column="0" ToolTip="cueUI10" Content="Helm Reverse" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="42" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI10"
+                            FileDisplay="{Binding Path=Data.CueUI10, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="42" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI10}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="43" Grid.Column="0" ToolTip="cueUI10" Content="Helm Reverse Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="43" Grid.Column="2"
+                            Text="{Binding Data.CueUI10Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="43" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI10Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="44" Grid.Column="0" ToolTip="cueUI11" Content="Helm/Weap Zoom in" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="44" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI11"
+                            FileDisplay="{Binding Path=Data.CueUI11, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="44" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI11}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="45" Grid.Column="0" ToolTip="cueUI11" Content="Helm/Weap Zoom in Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="45" Grid.Column="2"
+                            Text="{Binding Data.CueUI11Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="45" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI11Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        
+                        <!-- -->
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="46" Grid.Column="0"  Content="Helm/Weap Zoom out" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI12" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="46" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI12"
+                            FileDisplay="{Binding Path=Data.CueUI12, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="46" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI12}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="47" Grid.Column="0" Content="Helm/Weap Zoom out Volume" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI12" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="47" Grid.Column="2"
+                            Text="{Binding Data.CueUI12Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="47" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI12Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+                        <Label HorizontalAlignment="Right" Grid.Row="48" Grid.Column="0"  Content="Science Zoom/Comm Cancel" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI13" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="48" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI13"
+                            FileDisplay="{Binding Path=Data.CueUI13, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="48" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI13}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="49" Grid.Column="0"  Content="Science Zoom/Comm Cancel Volume" FontWeight="Bold" VerticalAlignment="Center" ToolTip="cueUI13" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="49" Grid.Column="2"
+                            Text="{Binding Data.CueUI13Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="49" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI13Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="50" Grid.Column="0" ToolTip="cueUI14"  Content="Weapons Torpedo Select" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="50" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI14"
+                            FileDisplay="{Binding Path=Data.CueUI14, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="50" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI14}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="51" Grid.Column="0" ToolTip="cueUI14" Content="Weapons Torpedo Select Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="51" Grid.Column="2"
+                            Text="{Binding Data.CueUI14Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="51" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI14Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="52" Grid.Column="0" ToolTip="cueUI15" Content="Comm Command" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="52" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI15"
+                            FileDisplay="{Binding Path=Data.CueUI15, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="52" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI15}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="53" Grid.Column="0" ToolTip="cueUI15" Content="Comm Command Volume" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="53" Grid.Column="2"
+                            Text="{Binding Data.CueUI15Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="53" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI15Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+                        <Label HorizontalAlignment="Right" Grid.Row="54" Grid.Column="0" ToolTip="cueUI16" Content="Weapons Torpedo Fire" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="54" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI16"
+                            FileDisplay="{Binding Path=Data.CueUI16, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="54" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI04}" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="55" Grid.Column="0" ToolTip="cueUI04" Content="Weapons Torpedo Fire Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="55" Grid.Column="2"
+                            Text="{Binding Data.CueUI16Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="55" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" Value="{Binding Path=Data.CueUI16Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="56" Grid.Column="0" ToolTip="cueUI17" Content="Weapons Torpedo Load/Unload" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="56" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI17"
+                            FileDisplay="{Binding Path=Data.CueUI17, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="56" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI17}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="57" Grid.Column="0" ToolTip="cueUI17" Content="Weapons Torpedo Load/Unload Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="57" Grid.Column="2"
+                            Text="{Binding Data.CueUI17Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="57" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI17Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="58" Grid.Column="0" ToolTip="cueUI18" Content="Science Scan" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="58" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI18"
+                            FileDisplay="{Binding Path=Data.CueUI18, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="58" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI18}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="59" Grid.Column="0" ToolTip="cueUI18" Content="Science Scan Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="59" Grid.Column="2"
+                            Text="{Binding Data.CueUI18Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="59" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI18Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="60" Grid.Column="0" ToolTip="cueUI19" Content="Engineering DamCom" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="60" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI19"
+                            FileDisplay="{Binding Path=Data.CueUI19, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="60" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI19}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="61" Grid.Column="0" ToolTip="cueUI19" Content="Engineering DamCom Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="61" Grid.Column="2"
+                            Text="{Binding Data.CueUI19Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="61" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI19Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="62" Grid.Column="0" ToolTip="cueUI20" Content="Engineering Store" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="62" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI20"
+                            FileDisplay="{Binding Path=Data.CueUI20, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="62" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI20}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="63" Grid.Column="0" ToolTip="cueUI20" Content="Engineering Store Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="63" Grid.Column="2"
+                            Text="{Binding Data.CueUI20Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="63" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI20Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="64" Grid.Column="0" ToolTip="cueUI21" Content="Helm/Weapons View Change" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="64" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI21"
+                            FileDisplay="{Binding Path=Data.CueUI21, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="64" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI21}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="65" Grid.Column="0" ToolTip="cueUI21" Content="Helm/Weapons View Change Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="65" Grid.Column="2"
+                            Text="{Binding Data.CueUI21Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="65" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI21Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="66" Grid.Column="0" ToolTip="cueUI22" Content="Button presses" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="66" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI22"
+                            FileDisplay="{Binding Path=Data.CueUI22, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="66" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI22}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="67" Grid.Column="0" ToolTip="cueUI22" Content="Button presses Volume (cueUI22)" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="67" Grid.Column="2"
+                            Text="{Binding Data.CueUI22Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="67" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI22Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="68" Grid.Column="0" ToolTip="cueUI23" Content="Science Target Select" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="68" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI23"
+                            FileDisplay="{Binding Path=Data.CueUI23, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="68" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI23}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="69" Grid.Column="0" ToolTip="cueUI23" Content="Science Target Select Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="69" Grid.Column="2"
+                            Text="{Binding Data.CueUI23Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="69" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI23Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="70" Grid.Column="0" ToolTip="cueUI24" Content="Engineering Recall" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="70" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI24"
+                            FileDisplay="{Binding Path=Data.CueUI24, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="70" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI24}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="71" Grid.Column="0" ToolTip="cueUI24" Content="Engineering Recall Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="71" Grid.Column="2"
+                            Text="{Binding Data.CueUI24Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="71" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI24Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="72" Grid.Column="0" ToolTip="cueUI25" Content="Pop-up acknowledge" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="72" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI25"
+                            FileDisplay="{Binding Path=Data.CueUI25, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="72" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI25}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="73" Grid.Column="0" ToolTip="cueUI25" Content="Pop-up acknowledge Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="73" Grid.Column="2"
+                            Text="{Binding Data.CueUI25Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="73" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI25Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        <!--        Start of new cueUI##    -->
+
+                        <Label HorizontalAlignment="Right" Grid.Row="74" Grid.Column="0" ToolTip="cueUI26" Content="Alternate Button Presses (cueUI26)" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="74" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Name="CueUI26"
+                            FileDisplay="{Binding Path=Data.CueUI26, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="74" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueUI26}" />
+
+                        <!-- next row -->
+                        <Label HorizontalAlignment="Right" Grid.Row="75" Grid.Column="0" ToolTip="cueUI26" Content="Alternate Button Presses Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="75" Grid.Column="2"
+                            Text="{Binding Data.CueUI26Vol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="75" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            Value="{Binding Path=Data.CueUI26Vol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                      
+
+
+
+
+                        <!-- end cueUI## -->
+                        
+                        
+                        
+                        <Label HorizontalAlignment="Right" Grid.Row="90" Grid.Column="0"  Content="Cue Warp Fail" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Name="CueWarpFail"
+                            Grid.Row="90" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch" 
+                            FileDisplay="{Binding Path=Data.CueWarpFail, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="90" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueWarpFail}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="91" Grid.Column="0"  Content="Cue Warp Fail Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="91" Grid.Column="2"
+                            Text="{Binding Data.CueWarpFailVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="91" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CueWarpFailVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+                        
+                        
+
+                        <Label HorizontalAlignment="Right" Grid.Row="92" Grid.Column="0"  Content="Cue Warp Travel" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            Name="CueWarpTravel"
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="92" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            FileDisplay="{Binding Path=Data.CueWarpTravel, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="92" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueWarpTravel}" />
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="93" Grid.Column="0"  Content="Cue Warp Travel Volume" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="93" Grid.Column="2"
+                            Text="{Binding Data.CueWarpTravelVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="93" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CueWarpTravelVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+
+
+                        <Label HorizontalAlignment="Right" Grid.Row="94" Grid.Column="0"  Content="Cue Jump Warmup" FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <ctl:FileSelectionControl
+                            Name="CueJumpWarmup"
+                            SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                            Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+                            ValidExtensions=".wav"
+                            Filter="WAV files (*.wav)|*.wav|All Files (*.*)|*.*"
+                            InvalidFilePath="FileSelectionControl_InvalidFilePath"
+                            Grid.Row="94" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            FileDisplay="{Binding Path=Data.CueJumpWarmup, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+                        <ctl:PlayButton
+                            Grid.Row="94" Grid.Column="2"
+                            Filename="{Binding FullName, Mode=OneWay, ElementName=CueJumpWarmup}" />
+
+
+                        <Label
+                            HorizontalAlignment="Right" Grid.Row="95" Grid.Column="0"  Content="Cue Jump Warmup Volume"
+                            FontWeight="Bold" VerticalAlignment="Center" />
+
+                        <TextBlock
+                            Width="40"
+                            Grid.Row="95" Grid.Column="2"
+                            Text="{Binding Data.CueJumpWarmupVol, Mode=OneWay, ElementName=uc, Converter={StaticResource NumericConverter}, ConverterParameter='0.0'}"
+                            HorizontalAlignment="Left" />
+                        <Slider
+                            TickPlacement="Both" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="1"
+                            Grid.Row="95" Grid.Column="1"  MinWidth="70" HorizontalAlignment="Stretch"
+                            Value="{Binding Path=Data.CueJumpWarmupVol, Mode=TwoWay, ElementName=uc}" VerticalAlignment="Center" />
+
+                    </Grid>
+                </GroupBox>
+
+
+            </Grid>
+        </ScrollViewer>
+
+
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{16D95EC2-7F1F-44C9-882F-A32BF67D7EF4}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VesselDataLibrary</RootNamespace>
+    <AssemblyName>VesselDataLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\ReferencedFiles\Russ.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisLogFile>bin\Debug\VesselDataLibrary.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Russ.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\VesselDataLibrary.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>..\ReferencedFiles\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\ReferencedFiles\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ReferencedFiles\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress">
+      <HintPath>..\ReferencedFiles\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\ReferencedFiles\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ArtControl.xaml.cs">
+      <DependentUpon>ArtControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ArtemisINIControl.xaml.cs">
+      <DependentUpon>ArtemisINIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseFileMappingControl.xaml.cs">
+      <DependentUpon>BaseFileMappingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeamArcMask.xaml.cs">
+      <DependentUpon>BeamArcMask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeamDrawingControl.xaml.cs">
+      <DependentUpon>BeamDrawingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeamPortControl.xaml.cs">
+      <DependentUpon>BeamPortControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeamPortDataEntryControl.xaml.cs">
+      <DependentUpon>BeamPortDataEntryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeamPortStack.xaml.cs">
+      <DependentUpon>BeamPortStack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileMapControl.xaml.cs">
+      <DependentUpon>FileMapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MergeWindow.xaml.cs">
+      <DependentUpon>MergeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectMergeOption.xaml.cs">
+      <DependentUpon>SelectMergeOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TauntControl.xaml.cs">
+      <DependentUpon>TauntControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TubeStorageControl.xaml.cs">
+      <DependentUpon>TubeStorageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VariationControl.xaml.cs">
+      <DependentUpon>VariationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VectorControl.xaml.cs">
+      <DependentUpon>VectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VesselControl.xaml.cs">
+      <DependentUpon>VesselControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileGroup.cs" />
+    <Compile Include="Text\ArtemisINI.cs" />
+    <Compile Include="ValueConverters\HullRaceFilterConverter.cs" />
+    <Compile Include="ValueConverters\ItemIndexMatchToBrush.cs" />
+    <Compile Include="ValueConverters\SideToRaceConverter.cs" />
+    <Compile Include="ValueConverters\TorpedoTypeToNameConverter.cs" />
+    <Compile Include="ValueConverters\TypeMatchToVisibilityConverter.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Controls\HullRaceControl.xaml.cs">
+      <DependentUpon>HullRaceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModDevelopmentManager.xaml.cs">
+      <DependentUpon>ModDevelopmentManager.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\ArtControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ArtemisINIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BaseFileMappingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeamArcMask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeamDrawingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeamPortControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeamPortDataEntryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BeamPortStack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileMapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\HullRaceControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MergeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ModDevelopmentManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SelectMergeOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TauntControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TubeStorageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VariationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VesselControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VesselDataControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Controls\VesselDataControl.xaml.cs">
+      <DependentUpon>VesselDataControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AMLLibrary\AMLLibrary.csproj">
+      <Project>{89BFBD29-A9F6-497A-8B4D-9B25AA25AF08}</Project>
+      <Name>AMLLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{B9456D65-735B-4537-A64A-795BF787F523}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibraryAudio\RussLibraryAudio.csproj">
+      <Project>{E4B2BBDC-514E-43A8-88BD-91F784CA19F8}</Project>
+      <Name>RussLibraryAudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibraryXmlEditor\RussLibraryXmlEditor.csproj">
+      <Project>{A8171F8D-9BA7-45FD-98BA-DBB500B394F4}</Project>
+      <Name>RussLibraryXmlEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibrary\RussLibrary.csproj">
+      <Project>{BC5FD24E-E8E5-4522-B620-C2B56867DF5E}</Project>
+      <Name>RussLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VesselDataLibrary.Xml\VesselDataLibrary.Xml.csproj">
+      <Project>{B0CAFC3F-8146-4800-9BE8-1F0CA43FA023}</Project>
+      <Name>VesselDataLibrary.Xml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folder_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gnome_document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Merge-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\document_save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-list-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1357183826_alienblaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\artemis1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PackageIcon - Zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Notepad-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1532_Flag_system_Green.png" />
+    <Resource Include="Images\1532_Flag_system_red.png" />
+    <Resource Include="Images\1532_Flag_system_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\treasure-map-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\variations.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\112_DownArrowLong_Green_24x24_72.png" />
+    <Resource Include="Images\112_UpArrowLong_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Stuffed_Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Music-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\no-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\text_xml.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

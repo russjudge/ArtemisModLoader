@@ -1,0 +1,36 @@
+﻿<Window x:Class="RussLibrary.Windows.FindReplaceDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Loaded="uc_Loaded"
+        xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters" WindowStyle="ToolWindow"
+        Title="Find and Replace" SizeToContent="Height" Width="300" Name="uc">
+    <Window.Resources>
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </Window.Resources>
+    <StackPanel>
+        <Label FontWeight="Bold" Content="Find What:" />
+        <TextBox Name="txStart" Text="{Binding Path=SearchText, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" />
+        <Label
+            Visibility="{Binding EnableReplace, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+            FontWeight="Bold" Content="Replace With:" />
+        <TextBox
+            Visibility="{Binding EnableReplace, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+            Text="{Binding Path=ReplaceText, Mode=TwoWay, ElementName=uc, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Width="100" HorizontalAlignment="Right" IsDefault="True" Click="FindNext_Click" >
+                <AccessText Text="_Find Next" />
+            </Button>
+            <Button
+                Visibility="{Binding EnableReplace, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                Width="100" HorizontalAlignment="Right" Click="ReplaceNext_Click">
+                <AccessText Text="_Replace" />
+            </Button>
+            
+        </StackPanel>
+        <Button
+            Visibility="{Binding EnableReplace, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+            HorizontalAlignment="Right" Width="100" Click="ReplaceAll_Click">
+            <AccessText Text="Replace _All" />
+        </Button>
+
+    </StackPanel>
+</Window>

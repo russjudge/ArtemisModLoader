@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutLabel" xml:space="preserve">
+    <value>About Artemis Mod Loader</value>
+  </data>
+  <data name="AboutToolTip" xml:space="preserve">
+    <value>Click here for information about the program and author and how to check for updates.</value>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="ActivatedModsHeader" xml:space="preserve">
+    <value>Activated Mods</value>
+  </data>
+  <data name="ActivateModToolTip" xml:space="preserve">
+    <value>Click to activate the Mod onto Artemis</value>
+  </data>
+  <data name="AddMission" xml:space="preserve">
+    <value>Add Mission</value>
+  </data>
+  <data name="AllFiles" xml:space="preserve">
+    <value>All Files</value>
+  </data>
+  <data name="AllFilesInstalled" xml:space="preserve">
+    <value>All files installed successfully.</value>
+  </data>
+  <data name="AlreadyInstalled" xml:space="preserve">
+    <value>{0} is already installed.  Cannot install.</value>
+  </data>
+  <data name="AML" xml:space="preserve">
+    <value>Artemis Mod Loader Definition Files</value>
+  </data>
+  <data name="ApplyToAndroid" xml:space="preserve">
+    <value>In order to apply to the Unofficial Android Client, go into the Artemis Android Client Settings, Advanced settings and set the "Artemis/dat" location.   Note:  Official Android Client cannot currently be modded.</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="ArtemisCopyPath" xml:space="preserve">
+    <value>Path used for running Artemis from {0}:</value>
+  </data>
+  <data name="ArtemisExtenderToolTip" xml:space="preserve">
+    <value>Warning: The Artemis Extender requires running with Administrative privilege AND only one copy of Artemis should be run at a time.</value>
+  </data>
+  <data name="AttachAndroid" xml:space="preserve">
+    <value>Attach your Android to a USB port so that the files can be copied.</value>
+  </data>
+  <data name="AuthorLabel" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="BadMissionName" xml:space="preserve">
+    <value>Mission name indeterminate.  Unable to install.</value>
+  </data>
+  <data name="BlowUp1" xml:space="preserve">
+    <value>We have blown up with the following information.</value>
+  </data>
+  <data name="BlowUp2" xml:space="preserve">
+    <value>If this problem persists, email the log file located at "{0}\{1}"</value>
+  </data>
+  <data name="BlowUp3" xml:space="preserve">
+    <value>to the programmer at {0}</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="BrowseToFolder" xml:space="preserve">
+    <value>Browse to folder to copy files to.</value>
+  </data>
+  <data name="BrowseToolTip" xml:space="preserve">
+    <value>Click to open a browser to the web page for this Mod</value>
+  </data>
+  <data name="bytes" xml:space="preserve">
+    <value>bytes.</value>
+  </data>
+  <data name="CannotLocateArtemisInstall" xml:space="preserve">
+    <value>Unable to locate the install folder for Artemis Spaceship Bridge Simulator.</value>
+  </data>
+  <data name="CannotProcess" xml:space="preserve">
+    <value>Cannot process.</value>
+  </data>
+  <data name="CheckForLatest" xml:space="preserve">
+    <value>Check for latest version</value>
+  </data>
+  <data name="CopyComplete" xml:space="preserve">
+    <value>Copy Complete.</value>
+  </data>
+  <data name="Copying" xml:space="preserve">
+    <value>Copying "{0}" to "{1}".</value>
+  </data>
+  <data name="CopyingToModInstallation" xml:space="preserve">
+    <value>Copying files to Mod Installation.</value>
+  </data>
+  <data name="CopyToAndroidTip" xml:space="preserve">
+    <value>Copy Critical files to Unofficial Android Client (only from active variation).  Note:  Official Android Client cannot currently be modded.</value>
+  </data>
+  <data name="CorruptedMod" xml:space="preserve">
+    <value>This could mean the mod is corrupted.</value>
+  </data>
+  <data name="CorruptZipMessage" xml:space="preserve">
+    <value>The compressed file may be corrupt--this can sometimes happen when the host for the file does not allow direct links.</value>
+  </data>
+  <data name="CorruptZipMessage2" xml:space="preserve">
+    <value>Error processing file.  Compressed file may be corrupt.</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="DeactivateToolTip" xml:space="preserve">
+    <value>Click to deactivate this Mod</value>
+  </data>
+  <data name="DefaultBrowser" xml:space="preserve">
+    <value>Your default browser will open to the web site if the web site is available.</value>
+  </data>
+  <data name="DependsOn" xml:space="preserve">
+    <value>Depends on {0}</value>
+  </data>
+  <data name="DependsOnAPredefined" xml:space="preserve">
+    <value>This Mod depends on Mod {0}, which is not currently installed.  Please install and activate {0} before activating this Mod.</value>
+  </data>
+  <data name="DependsOnIsInstalled" xml:space="preserve">
+    <value>This Mod depends on Mod {0}, which is not currently active.  Please activate {0} before activating this Mod.</value>
+  </data>
+  <data name="DependsOnLabel" xml:space="preserve">
+    <value>List of Mod IDs that this Mod requires:</value>
+  </data>
+  <data name="DependsOnNotInstalled" xml:space="preserve">
+    <value>This Mod depends on another Mod, which is not currently installed.  If you are unable to determine where to find the dependent Mod, please contact the creator of this Mod to locate it.</value>
+  </data>
+  <data name="DependsOnToolTip" xml:space="preserve">
+    <value>If this  Mod requires another mod be activated, put the ID of that other Mod here.</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="DownloadAndInstallToolTip" xml:space="preserve">
+    <value>Click to download the package and install</value>
+  </data>
+  <data name="DownloadFailedLabel" xml:space="preserve">
+    <value>Download Failed:</value>
+  </data>
+  <data name="DownloadFileNotFound" xml:space="preserve">
+    <value>Download file not found.</value>
+  </data>
+  <data name="DownloadQuestion" xml:space="preserve">
+    <value>Do you wish to download the package from the web?</value>
+  </data>
+  <data name="ErrorLabel" xml:space="preserve">
+    <value>Error:</value>
+  </data>
+  <data name="EXEInstallWarning" xml:space="preserve">
+    <value>Warning--Installing this Mod will affect your original Artemis configuration.</value>
+  </data>
+  <data name="FilenameIDButton" xml:space="preserve">
+    <value>Use Package filename</value>
+  </data>
+  <data name="FilenameIDToolTip" xml:space="preserve">
+    <value>Use Filename for ID.  It is the next best thing for setting a globally unique ID, when you are NOT the Mod Developer.  The file name will probably be created by the Mod developer and be unique.</value>
+  </data>
+  <data name="FullRestoreWarning" xml:space="preserve">
+    <value>Full restoration of your original Artemis configuration will be attempted, but will require Administrative privilege.</value>
+  </data>
+  <data name="GetAndroid" xml:space="preserve">
+    <value>Get Unofficial Android Client</value>
+  </data>
+  <data name="GetListOfResources" xml:space="preserve">
+    <value>Get List of Resource Properties for Translating</value>
+  </data>
+  <data name="GUIDButton" xml:space="preserve">
+    <value>Generate New GUID</value>
+  </data>
+  <data name="GUIDToolTip" xml:space="preserve">
+    <value>Guarantees a globally unique ID.  Only use if you are the Mod developer.</value>
+  </data>
+  <data name="IncompatibleVesselDataMessage" xml:space="preserve">
+    <value>Detected vesselData.xml file is an older version and may not be compatible with the current version of Artemis</value>
+  </data>
+  <data name="InstallAnyhowQuestion" xml:space="preserve">
+    <value>Install anyhow?</value>
+  </data>
+  <data name="Installed" xml:space="preserve">
+    <value>{0} installed.</value>
+  </data>
+  <data name="InstalledMods" xml:space="preserve">
+    <value>Installed Mods</value>
+  </data>
+  <data name="InstallFromPC" xml:space="preserve">
+    <value>Install from PC</value>
+  </data>
+  <data name="InstallFromPCToolTip" xml:space="preserve">
+    <value>Click to install the already downloaded package.</value>
+  </data>
+  <data name="InstallFromWeb" xml:space="preserve">
+    <value>Install From Web</value>
+  </data>
+  <data name="InstallingMod" xml:space="preserve">
+    <value>Installing Mod.</value>
+  </data>
+  <data name="InstallingModMessage" xml:space="preserve">
+    <value>Installing Mod to current Artemis configuration.</value>
+  </data>
+  <data name="InstallLabel" xml:space="preserve">
+    <value>Install Mod or Mission</value>
+  </data>
+  <data name="InstallLocationLabel" xml:space="preserve">
+    <value>Artemis Spaceship Bridge Simulator Install Location:</value>
+  </data>
+  <data name="IPToolTip" xml:space="preserve">
+    <value>Allows you to present the server IP address for Artemis.</value>
+  </data>
+  <data name="LeaveBlankToolTip" xml:space="preserve">
+    <value>Leave blank if not known.</value>
+  </data>
+  <data name="LoadingListAddedByMod" xml:space="preserve">
+    <value>Loading list of files added by Mod.</value>
+  </data>
+  <data name="LoadingListOfFiles" xml:space="preserve">
+    <value>Loading current list of Artemis files.</value>
+  </data>
+  <data name="ManuallyDownload" xml:space="preserve">
+    <value>If this is the case, please manually download the package file and specify it next.</value>
+  </data>
+  <data name="ManuallyDownload2" xml:space="preserve">
+    <value>Please manually download the file and select it.</value>
+  </data>
+  <data name="MissingFileLabel" xml:space="preserve">
+    <value>Missing file: "{0}"</value>
+  </data>
+  <data name="MissionFileLabel" xml:space="preserve">
+    <value>Mission File:</value>
+  </data>
+  <data name="MissionFileStartWith" xml:space="preserve">
+    <value>Mission files must start with "{0}" and end with "{1}".</value>
+  </data>
+  <data name="MissionModeOnly" xml:space="preserve">
+    <value>Mission Mode ONLY</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Missions</value>
+  </data>
+  <data name="ModDefinitionTitle" xml:space="preserve">
+    <value>Mod Definition File Creation</value>
+  </data>
+  <data name="Mods" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="NotAllRemoved" xml:space="preserve">
+    <value>Not all files could be removed.  Manual removal required.</value>
+  </data>
+  <data name="NotMissionFile" xml:space="preserve">
+    <value>File is not a mission file.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PackageDownloadLabel" xml:space="preserve">
+    <value>Package download URL:</value>
+  </data>
+  <data name="PackageWebpageLabel" xml:space="preserve">
+    <value>Mod Web Page:</value>
+  </data>
+  <data name="PathToArtemisExtenderLabel" xml:space="preserve">
+    <value>Path to Artemis Extender:</value>
+  </data>
+  <data name="PlayAnotherArtemis" xml:space="preserve">
+    <value>Click here to Play another Artemis!</value>
+  </data>
+  <data name="PlayArtemis" xml:space="preserve">
+    <value>Play Artemis!</value>
+  </data>
+  <data name="PleaseRunUninstaller" xml:space="preserve">
+    <value>Please run the uninstaller now for this Mod, then press OK.</value>
+  </data>
+  <data name="PleaseSpecifyLocation" xml:space="preserve">
+    <value>Please specify this location.</value>
+  </data>
+  <data name="PredefinedMods" xml:space="preserve">
+    <value>Pre-defined Mods</value>
+  </data>
+  <data name="ProblemInstalling" xml:space="preserve">
+    <value>Problem installing</value>
+  </data>
+  <data name="ProcessingContinue" xml:space="preserve">
+    <value>Processing will continue, but you may want to deactivate this mod and re-install.</value>
+  </data>
+  <data name="ProcessingPleaseStandBy" xml:space="preserve">
+    <value>Processing...Please Stand by...</value>
+  </data>
+  <data name="ProcessingTitle" xml:space="preserve">
+    <value>Artemis Mod Loader is processing.</value>
+  </data>
+  <data name="ProgressLabel" xml:space="preserve">
+    <value>Progress:</value>
+  </data>
+  <data name="RemoveAllUserFilesQuestion" xml:space="preserve">
+    <value>Do you wish to remove all user files, too?</value>
+  </data>
+  <data name="RemoveIPEntry" xml:space="preserve">
+    <value>Remove IP Address Entry</value>
+  </data>
+  <data name="RemoveMissionToolTip" xml:space="preserve">
+    <value>Remove Mission</value>
+  </data>
+  <data name="RemoveModToolTip" xml:space="preserve">
+    <value>Click to completely remove this Mod</value>
+  </data>
+  <data name="ResetComplete" xml:space="preserve">
+    <value>Reset complete.</value>
+  </data>
+  <data name="ResetToBaseStock" xml:space="preserve">
+    <value>Reset Artemis to base stock</value>
+  </data>
+  <data name="RestartRequired" xml:space="preserve">
+    <value>{0} must now be restarted.</value>
+  </data>
+  <data name="RestoringOriginalArtemis" xml:space="preserve">
+    <value>Restoring original Artemis configuration.</value>
+  </data>
+  <data name="RetryDownload" xml:space="preserve">
+    <value>Try downloading directly from the web site if you have not already done so.</value>
+  </data>
+  <data name="SaveModDefinitionFile" xml:space="preserve">
+    <value>Save Mod Definition File</value>
+  </data>
+  <data name="ServerIPLabel" xml:space="preserve">
+    <value>Server IP Address:</value>
+  </data>
+  <data name="SessionCountLabel" xml:space="preserve">
+    <value>Current Session Count: </value>
+  </data>
+  <data name="SessionMonitorTitle" xml:space="preserve">
+    <value>Session Monitor</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Artemis Mod Loader Settings</value>
+  </data>
+  <data name="SourceNotFoundPrefix" xml:space="preserve">
+    <value>A source file from Mod "{0}" is missing.</value>
+  </data>
+  <data name="SuccessfullyInstalled" xml:space="preserve">
+    <value>Successfully installed.</value>
+  </data>
+  <data name="SupportedCompressedFiles" xml:space="preserve">
+    <value>Compressed Files</value>
+  </data>
+  <data name="SupportsInvasionMode" xml:space="preserve">
+    <value>Supports Invasion Mode</value>
+  </data>
+  <data name="ThisIsNotRecoverable" xml:space="preserve">
+    <value>This is NOT a recoverable act!!!</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Artemis Mod Loader</value>
+  </data>
+  <data name="TitleLabel" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="TotalLabel" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="UninstallingEXEMod" xml:space="preserve">
+    <value>Uninstalling Mod from configuration.</value>
+  </data>
+  <data name="Unpackaging" xml:space="preserve">
+    <value>Unpackaging "{0}", writing to "{1}".</value>
+  </data>
+  <data name="UnpackagingMod" xml:space="preserve">
+    <value>Unpackaging compressed file.</value>
+  </data>
+  <data name="UseArtemisExtender" xml:space="preserve">
+    <value>Use Artemis Extender</value>
+  </data>
+  <data name="VariationActivate" xml:space="preserve">
+    <value>Click to deactivate the active variation and activate this variation.</value>
+  </data>
+  <data name="Variations" xml:space="preserve">
+    <value>Variations</value>
+  </data>
+  <data name="VersionLabel" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="ViewReadMe" xml:space="preserve">
+    <value>View Readme.txt file</value>
+  </data>
+  <data name="WTFLabel" xml:space="preserve">
+    <value>Well, it works on my machine. Must be something wrong with yours. Seal of Approval from</value>
+  </data>
+  <data name="XML" xml:space="preserve">
+    <value>XML Files</value>
+  </data>
+  <data name="Elite" xml:space="preserve">
+    <value>Elite</value>
+  </data>
+  <data name="Enemy" xml:space="preserve">
+    <value>Enemy</value>
+  </data>
+  <data name="Friendly" xml:space="preserve">
+    <value>Friendly</value>
+  </data>
+  <data name="HullRacesHeader" xml:space="preserve">
+    <value>Races</value>
+  </data>
+  <data name="IDLabel" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="KeysHeader" xml:space="preserve">
+    <value>Modifiers</value>
+  </data>
+  <data name="Loner" xml:space="preserve">
+    <value>Loner</value>
+  </data>
+  <data name="Merge" xml:space="preserve">
+    <value>Merge</value>
+  </data>
+  <data name="MergeToolTip" xml:space="preserve">
+    <value>Merge vessels and races from another vesselData.xml file.</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="RaceNameLabel" xml:space="preserve">
+    <value>Race Name:</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="VesselsHeader" xml:space="preserve">
+    <value>Vessels</value>
+  </data>
+  <data name="WhaleHater" xml:space="preserve">
+    <value>Whale Hater</value>
+  </data>
+  <data name="WhaleIndifferent" xml:space="preserve">
+    <value>Indifferent to Whales</value>
+  </data>
+  <data name="WhaleLover" xml:space="preserve">
+    <value>Whale Lover</value>
+  </data>
+  <data name="AddRace" xml:space="preserve">
+    <value>Add Race</value>
+  </data>
+  <data name="AddVessel" xml:space="preserve">
+    <value>Add Vessel</value>
+  </data>
+  <data name="DeleteRace" xml:space="preserve">
+    <value>Delete Race</value>
+  </data>
+  <data name="DeleteVessel" xml:space="preserve">
+    <value>Delete Vessel</value>
+  </data>
+  <data name="ModDevHeader" xml:space="preserve">
+    <value>Mod Development Management</value>
+  </data>
+  <data name="VesselDataEdit" xml:space="preserve">
+    <value>Vessel Data</value>
+  </data>
+  <data name="IsProcessing" xml:space="preserve">
+    <value>{0} is processing...</value>
+  </data>
+  <data name="ModDefinition" xml:space="preserve">
+    <value>Mod Definition</value>
+  </data>
+  <data name="ArcWidth" xml:space="preserve">
+    <value>Arc Width</value>
+  </data>
+  <data name="AuthorValidation" xml:space="preserve">
+    <value>Give credit where credit is due.</value>
+  </data>
+  <data name="BackShield" xml:space="preserve">
+    <value>Back shield</value>
+  </data>
+  <data name="CycleTime" xml:space="preserve">
+    <value>Cycle Time</value>
+  </data>
+  <data name="Damage" xml:space="preserve">
+    <value>Damage</value>
+  </data>
+  <data name="DependsOnValidation" xml:space="preserve">
+    <value>The depended-on Mod does not appear to be installed.</value>
+  </data>
+  <data name="DescriptionValidation" xml:space="preserve">
+    <value>A description would be useful to add.</value>
+  </data>
+  <data name="DiffuseFile" xml:space="preserve">
+    <value>Diffuse File</value>
+  </data>
+  <data name="DownloadSourceValidation" xml:space="preserve">
+    <value>A download source would be useful for other users to obtain your Mod.</value>
+  </data>
+  <data name="DownloadWebpageValidation" xml:space="preserve">
+    <value>A web page where users could find information about your Mod would be helpful.</value>
+  </data>
+  <data name="DuplicateIDFound" xml:space="preserve">
+    <value>Duplicate ID.</value>
+  </data>
+  <data name="FrontShield" xml:space="preserve">
+    <value>Front shield</value>
+  </data>
+  <data name="GlowFile" xml:space="preserve">
+    <value>Glow File</value>
+  </data>
+  <data name="GreaterThanZero" xml:space="preserve">
+    <value>{0} must be greater than zero.</value>
+  </data>
+  <data name="HullRaceIDValidation" xml:space="preserve">
+    <value>ID should probably greater than or equal to zero.</value>
+  </data>
+  <data name="HullRaceNameValidation" xml:space="preserve">
+    <value>Race name is required.</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="InternalDataFileExtensionValidation" xml:space="preserve">
+    <value>Internal data structure file does not appear to be a proper *.snt file.</value>
+  </data>
+  <data name="InternalDataFileRequired" xml:space="preserve">
+    <value>Internal data structure file required.</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>{0} is required.</value>
+  </data>
+  <data name="MeshFile" xml:space="preserve">
+    <value>Mesh File</value>
+  </data>
+  <data name="MeshFileExtensionValidation" xml:space="preserve">
+    <value>Mesh file does not appear to be a proper *.dxs file.</value>
+  </data>
+  <data name="NotAnImageFile" xml:space="preserve">
+    <value>Not an image file.</value>
+  </data>
+  <data name="PushRadiusValidation" xml:space="preserve">
+    <value>Ship size too small or negative.  This should be increased to avoid in-game image clipping.</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Range" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="ScaleValidation" xml:space="preserve">
+    <value>Scale is invalid.  Please increase this value.</value>
+  </data>
+  <data name="ShortRange" xml:space="preserve">
+    <value>Are you sure you want the range so short?</value>
+  </data>
+  <data name="SourceValidation" xml:space="preserve">
+    <value>Source of file is required.</value>
+  </data>
+  <data name="SpecularFile" xml:space="preserve">
+    <value>Specular File</value>
+  </data>
+  <data name="TargetValidation" xml:space="preserve">
+    <value>Target destination of file is required.</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TitleVariationValidation" xml:space="preserve">
+    <value>A title for your variation is required.</value>
+  </data>
+  <data name="TopSpeedFast" xml:space="preserve">
+    <value>Top speed is a bit fast.  Are you sure you want to allow this ship to go this fast?</value>
+  </data>
+  <data name="TopSpeedNegative" xml:space="preserve">
+    <value>Top speed must be set to a positive value.</value>
+  </data>
+  <data name="TopSpeedZero" xml:space="preserve">
+    <value>Top speed is zero--this ship will not be able to move.  Are you sure of this?</value>
+  </data>
+  <data name="TorpedoTypeValidation" xml:space="preserve">
+    <value>Torpedo Type is invalid.  Valid types are 0, 1, 2, and 3.</value>
+  </data>
+  <data name="TurnRateFast" xml:space="preserve">
+    <value>Turn rate is set mighty fast.  Are you sure you want this fast of turning?</value>
+  </data>
+  <data name="TurnRateNegative" xml:space="preserve">
+    <value>Turn rate must be set to a positive value.</value>
+  </data>
+  <data name="TurnRateZero" xml:space="preserve">
+    <value>Turn rate is set to zero--this ship will not be able to turn.  Are you sure of this?</value>
+  </data>
+  <data name="VesselDescriptionValidation" xml:space="preserve">
+    <value>A brief description of the vessel is required.</value>
+  </data>
+  <data name="VesselSideInvalid" xml:space="preserve">
+    <value>The "Side" which this vessel is on is not among the valid races.</value>
+  </data>
+  <data name="AddDependsOnToolTip" xml:space="preserve">
+    <value>Add Mod that this Mod depends on.</value>
+  </data>
+  <data name="NewMod" xml:space="preserve">
+    <value>New Mod</value>
+  </data>
+  <data name="OpenMod" xml:space="preserve">
+    <value>Open Mod</value>
+  </data>
+  <data name="SaveMod" xml:space="preserve">
+    <value>Save Mod</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>You must make a selection.</value>
+  </data>
+  <data name="AddBroadType" xml:space="preserve">
+    <value>Add Broad Type</value>
+  </data>
+  <data name="Art" xml:space="preserve">
+    <value>Art</value>
+  </data>
+  <data name="BroadTypeLabel" xml:space="preserve">
+    <value>Broad Type:</value>
+  </data>
+  <data name="ClassnameLabel" xml:space="preserve">
+    <value>Class Name:</value>
+  </data>
+  <data name="DeployMod" xml:space="preserve">
+    <value>Deploy Mod</value>
+  </data>
+  <data name="EditArtemisINI" xml:space="preserve">
+    <value>Edit in default INI Editor.</value>
+  </data>
+  <data name="Explorer" xml:space="preserve">
+    <value>Open Windows Explorer to Mod's Install folder.</value>
+  </data>
+  <data name="SelectDiffuseFile" xml:space="preserve">
+    <value>Select Diffuse File</value>
+  </data>
+  <data name="SelectGlowFile" xml:space="preserve">
+    <value>Select Glow File</value>
+  </data>
+  <data name="SelectMeshFile" xml:space="preserve">
+    <value>Select Mesh File</value>
+  </data>
+  <data name="SelectMod" xml:space="preserve">
+    <value>Select Mod</value>
+  </data>
+  <data name="SelectSpecularFile" xml:space="preserve">
+    <value>Select Specular File</value>
+  </data>
+  <data name="SideLabel" xml:space="preserve">
+    <value>Side:</value>
+  </data>
+  <data name="AddBeamPort" xml:space="preserve">
+    <value>Add Beam Port</value>
+  </data>
+  <data name="AddEnginePort" xml:space="preserve">
+    <value>Add Engine Port</value>
+  </data>
+  <data name="AddImpulsePoint" xml:space="preserve">
+    <value>Add Impulse Point</value>
+  </data>
+  <data name="AddManeuverPoint" xml:space="preserve">
+    <value>Add Maneuver Point</value>
+  </data>
+  <data name="AddTubePort" xml:space="preserve">
+    <value>Add Torpedo Tube Port</value>
+  </data>
+  <data name="BackLabel" xml:space="preserve">
+    <value>Back:</value>
+  </data>
+  <data name="Beams" xml:space="preserve">
+    <value>Beams Ports</value>
+  </data>
+  <data name="CommonalityInvalid" xml:space="preserve">
+    <value>Commonality should be zero or greater.</value>
+  </data>
+  <data name="DeleteBeamPort" xml:space="preserve">
+    <value>Delete Beam Port</value>
+  </data>
+  <data name="DeleteEnginePort" xml:space="preserve">
+    <value>Delete Engine Port</value>
+  </data>
+  <data name="DeleteImpulsePoint" xml:space="preserve">
+    <value>Delete Impulse Point</value>
+  </data>
+  <data name="DeleteManeuverPoint" xml:space="preserve">
+    <value>Delete Maneuver Point</value>
+  </data>
+  <data name="DeleteTubePort" xml:space="preserve">
+    <value>Delete Torpedo Tube Port</value>
+  </data>
+  <data name="EnginePorts" xml:space="preserve">
+    <value>Engine Ports</value>
+  </data>
+  <data name="FleetAILabel" xml:space="preserve">
+    <value>Fleet AI Commonality:</value>
+  </data>
+  <data name="FrontLabel" xml:space="preserve">
+    <value>Front:</value>
+  </data>
+  <data name="ImpulsePoints" xml:space="preserve">
+    <value>Impulse Points</value>
+  </data>
+  <data name="InternalDataLabel" xml:space="preserve">
+    <value>Internal Data File:</value>
+  </data>
+  <data name="ManeuverPoints" xml:space="preserve">
+    <value>Maneuver Points</value>
+  </data>
+  <data name="NotInModPath" xml:space="preserve">
+    <value>File is not located in the correct path--it needs to be in the directory of the Mod.</value>
+  </data>
+  <data name="ScaleLabel" xml:space="preserve">
+    <value>Scale:</value>
+  </data>
+  <data name="SelectTarget" xml:space="preserve">
+    <value>Please select target to copy the file to.</value>
+  </data>
+  <data name="ShieldsAndPerformance" xml:space="preserve">
+    <value>Shields and Performance</value>
+  </data>
+  <data name="ShipSize" xml:space="preserve">
+    <value>Ship Size:</value>
+  </data>
+  <data name="TopSpeedLabel" xml:space="preserve">
+    <value>Top Speed:</value>
+  </data>
+  <data name="TorpedoStorage" xml:space="preserve">
+    <value>Torpedo Storage</value>
+  </data>
+  <data name="TorpedoTubes" xml:space="preserve">
+    <value>Torpedo Tube Ports</value>
+  </data>
+  <data name="TurnRateLabel" xml:space="preserve">
+    <value>Turn Rate:</value>
+  </data>
+  <data name="OpenVesselData" xml:space="preserve">
+    <value>Open a vesselData.xml file.</value>
+  </data>
+  <data name="SaveAsVesselData" xml:space="preserve">
+    <value>Save this vesselData.xml file in a new location or with a new name.</value>
+  </data>
+  <data name="SaveVesselData" xml:space="preserve">
+    <value>Save this vesselData.xml file</value>
+  </data>
+  <data name="ModManager" xml:space="preserve">
+    <value>Mod Developer</value>
+  </data>
+  <data name="NoModsInstalled" xml:space="preserve">
+    <value>No Mods are currently installed.  Please first install the Mod you wish to work on.</value>
+  </data>
+  <data name="Merge1" xml:space="preserve">
+    <value>Keep source, discard target.</value>
+  </data>
+  <data name="Merge2" xml:space="preserve">
+    <value>Keep target, discard source.</value>
+  </data>
+  <data name="Merge3" xml:space="preserve">
+    <value>Prompt.</value>
+  </data>
+  <data name="MergeInstruction" xml:space="preserve">
+    <value>What should be done when a conflict between vessels or races is encountered?</value>
+  </data>
+  <data name="SelectMergeOption" xml:space="preserve">
+    <value>Select Merge Option</value>
+  </data>
+  <data name="ControlsINI" xml:space="preserve">
+    <value>Edit Controls.ini</value>
+  </data>
+  <data name="SetDependsOnActivated" xml:space="preserve">
+    <value>Other Mods are currently active.  
+
+Should this Mod be dependent on those active Mods?</value>
+  </data>
+  <data name="ArtemisINIHeader" xml:space="preserve">
+    <value>Artemis configuration (Artemis.INI)</value>
+  </data>
+  <data name="TestMod" xml:space="preserve">
+    <value>Test Mod</value>
+  </data>
+</root>

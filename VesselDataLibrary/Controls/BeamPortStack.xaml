@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.BeamPortStack"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:valueConvert="clr-namespace:VesselDataLibrary.ValueConverters"
+             xmlns:russConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:ctl="clr-namespace:VesselDataLibrary.Controls" Name="uc" 
+             mc:Ignorable="d" Loaded="uc_Loaded" HorizontalAlignment="Left" >
+    <UserControl.Resources>
+        <valueConvert:ItemIndexMatchToBrush x:Key="ItemIndexMatchToBrush" />
+        <russConvert:IndexToObject x:Key="IndexToObject" />
+        <russConvert:ItemIndexMatchToParm x:Key="ItemIndexMatchToParm" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+           
+        </Grid.RowDefinitions>
+        <ItemsControl
+            Name="ic" Background="Black" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding BeamPorts, ElementName=uc, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid Name="canvas" IsItemsHost="True" >
+                       
+
+                    </Grid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="220" BorderBrush="Chartreuse" BorderThickness="1,1,1,1" Name="parentborder" >
+                        <!--<Panel.ZIndex>
+                            <MultiBinding Converter="{StaticResource ItemIndexMatchToParm}" ConverterParameter="999">
+                                <Binding />
+                                <Binding Path="SelectedIndex" Mode="OneWay" ElementName="uc" />
+                                <Binding Path="BeamPorts" Mode="OneWay" ElementName="uc" />
+
+                            </MultiBinding>
+                        </Panel.ZIndex>-->
+                        <ctl:BeamArcMask
+                            
+                            WallRatio="{Binding WallRatio, Mode=OneWay, ElementName=uc}"
+                            Width="{Binding ActualWidth, Mode=OneWay, ElementName=canvas}"
+                            Height="{Binding ActualHeight, Mode=OneWay, ElementName=canvas}"
+                            X="{Binding X, Mode=OneWay}"
+                            Z="{Binding Z, Mode=OneWay}"
+                            ArcWidth="{Binding ArcWidth, Mode=OneWay}"
+                            Range="{Binding Range, Mode=OneWay}" SideLinesBrush="Cyan" CenterLineBrush="Yellow">
+                           
+                          
+                            <!--<ctl:BeamArcMask.SideLinesBrush>
+                                <MultiBinding Converter="{StaticResource ItemIndexMatchToBrush}" ConverterParameter="Magenta|Cyan">
+                                    <Binding />
+                                    <Binding Path="SelectedIndex" Mode="OneWay" ElementName="uc" />
+                                    <Binding Path="BeamPorts" Mode="OneWay" ElementName="uc" />
+                                    
+                                </MultiBinding>
+                            </ctl:BeamArcMask.SideLinesBrush>
+                            <ctl:BeamArcMask.CenterLineBrush>
+                                <MultiBinding Converter="{StaticResource ItemIndexMatchToBrush}" ConverterParameter="Crimson|Yellow">
+                                    <Binding />
+                                    <Binding Path="SelectedIndex" Mode="OneWay" ElementName="uc" />
+                                    <Binding Path="BeamPorts" Mode="OneWay" ElementName="uc" />
+
+                                </MultiBinding>
+                            </ctl:BeamArcMask.CenterLineBrush>-->
+                        </ctl:BeamArcMask>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+       
+         
+            <ctl:BeamArcMask
+                x:Name="SelectedItemMask"
+                Highlighter="True"
+                Grid.Row="0" Grid.Column="1"
+                WallRatio="{Binding WallRatio, Mode=OneWay, ElementName=uc}"
+                Width="{Binding ActualWidth, Mode=OneWay, ElementName=canvas}"
+                Height="{Binding ActualHeight, Mode=OneWay, ElementName=canvas}"
+                SideLinesBrush="Magenta" CenterLineBrush="#FF04FF00">
+
+
+            </ctl:BeamArcMask>
+     
+        <Image Margin="9,0,0,0" Grid.Row="0" Grid.Column="1"
+            Source="pack://application:,,,/VesselDataLibrary;component/Images/Triangle.png"
+            VerticalAlignment="Center" HorizontalAlignment="Center" Height="24" />
+        <Slider 
+            Minimum="-1" Grid.Column="0" Orientation="Vertical"
+            Maximum="{Binding BeamPorts.Count, Mode=OneWay, ElementName=uc}"
+            TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            Value="{Binding Path=SelectedIndex, Mode=TwoWay, ElementName=uc}"
+            Grid.Row="1" IsDirectionReversed="True" />
+        <ctl:BeamPortDataEntryControl 
+            Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" >
+            <ctl:BeamPortDataEntryControl.Beam>
+                <MultiBinding Converter="{StaticResource IndexToObject}" ConverterParameter="Crimson|Yellow">
+                    <Binding Path="SelectedIndex" Mode="OneWay" ElementName="uc" />
+                    <Binding Path="BeamPorts" Mode="OneWay" ElementName="uc" />
+
+                </MultiBinding>
+            </ctl:BeamPortDataEntryControl.Beam>
+        </ctl:BeamPortDataEntryControl>
+    </Grid>
+    
+</UserControl>

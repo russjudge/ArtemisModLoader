@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="ArtemisModLoader.Controls.Missions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:aml="clr-namespace:ArtemisModLoader"
+             AllowDrop="True"
+             mc:Ignorable="d" Name="uc">
+    <UserControl.Resources>
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+
+
+    <ItemsControl
+        ItemsSource="{Binding MissionList, Mode=OneWay, ElementName=uc}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border Margin="4,4,4,4" BorderBrush="BlueViolet" BorderThickness="3">
+                    <DockPanel Margin="4,4,4,4">
+                        <Button
+                            DockPanel.Dock="Left"
+                            ToolTip="{x:Static resx:Resources.RemoveMissionToolTip}" Click="Remove_click" CommandParameter="{Binding}" >
+                            <Button.Content>
+                                <Image Width="48" Source="pack://application:,,,/ArtemisModLoader;component/Images/delete.png"></Image>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            ToolTip="Edit in Artemis Mission Editor Tool"
+                            DockPanel.Dock="Right" 
+                            HorizontalAlignment="Right"
+                            CommandParameter="{Binding}"
+                            Click="MissionEditor_Click"
+                            Visibility="{Binding UseMissionEditor, Source={x:Static aml:UserConfiguration.Current}, Mode=OneWay,
+                            Converter={StaticResource BoolToVisibilityParameterConverter},
+                            ConverterParameter='Visible|Collapsed'}">
+                            <Button.Content>
+                                <StackPanel>
+                                    <Image Height="48" Source="pack://application:,,,/AMLLibrary;component/Images/ArtemisMissionEditor.png" />
+                                    <!--<TextBlock VerticalAlignment="Bottom" Text="Edit in Mission Editor" />-->
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            CommandParameter="{Binding}"
+                            DockPanel.Dock="Right" 
+                            HorizontalAlignment="Right"
+                            Click="MissionStudio_Click" ToolTip="Mission Studio" >
+                           
+                            <Button.Content>
+                                <StackPanel>
+                                    <Image Width="48" Source="pack://application:,,,/ArtemisModLoader;component/Images/1360035698_run.png" />
+                                    <!--<TextBlock Text="Mission Studio" VerticalAlignment="Bottom" HorizontalAlignment="Center" />-->
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <StackPanel>
+                            <TextBlock Padding="4,0,4,0" FontWeight="Bold" Text="{Binding title}" />
+                            <TextBlock Foreground="Navy"  Padding="4,0,4,0" Text="{Binding subtitle1}" />
+                            <StackPanel Orientation="Horizontal">
+                                <Label FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center" Content="{x:Static resx:Resources.MissionFileLabel}" />
+                                <TextBlock VerticalAlignment="Center" Padding="4,0,4,0" Text="{Binding MissionFilename}" />
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </DockPanel>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+</UserControl>

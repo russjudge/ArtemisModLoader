@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.BeamArcMask"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             VerticalAlignment="Stretch" 
+             VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+             HorizontalAlignment="Stretch" Unloaded="uc_Unloaded"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" SizeChanged="uc_SizeChanged"
+             mc:Ignorable="d" Background="Transparent" Name="uc" Loaded="uc_Loaded">
+    <UserControl.Resources>
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+        <valueConvert:DoubleParmAdjuster x:Key="DoubleParmAdjuster" />
+    </UserControl.Resources>
+    <Border BorderBrush="Blue" BorderThickness="3">
+        <Canvas Name="canvas" Width="{Binding Width, Mode=OneWay, ElementName=uc}" Height="{Binding Height, Mode=OneWay, ElementName=uc}">
+            <Path Name="myArc">
+
+            </Path>
+            
+            <!--Visibility="{Binding Dragger, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"-->
+            <Image
+                Visibility="Collapsed"
+                Name="LeftPointer"
+                 MouseUp="Image_MouseUp"
+                Tag="Left"
+                PreviewMouseMove="Image_MouseMove"
+                MouseLeave="RightPointer_MouseLeave"
+                PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"
+                Canvas.Top="{Binding LeftPointY, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+                ConverterParameter=-7}"
+                Canvas.Left="{Binding LeftPointX, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+                ConverterParameter=-7}"
+                Height="10" Source="pack://application:,,,/VesselDataLibrary;component/Images/Marker.png" />
+            <Image
+                Visibility="Collapsed"
+                
+                Name="RightPointer"
+                PreviewMouseMove="Image_MouseMove"
+                MouseLeave="RightPointer_MouseLeave"
+                PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"
+                Tag="Right"
+                MouseUp="Image_MouseUp"
+                Canvas.Top="{Binding RightPointY, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+                ConverterParameter=-7}"
+                Canvas.Left="{Binding RightPointX, Mode=OneWay, ElementName=uc, Converter={StaticResource DoubleParmAdjuster},
+                ConverterParameter=-7}"
+                Height="12" Source="pack://application:,,,/VesselDataLibrary;component/Images/Marker.png" />
+
+            <Polygon Name="myTriangle" />
+            <Line
+                
+                Canvas.Top="{Binding CenterY, Mode=OneWay, ElementName=uc}" 
+                Canvas.Left="{Binding CenterX, Mode=OneWay, ElementName=uc}"
+                Name="LeftLine" Fill="{Binding SideLinesBrush, Mode=OneWay, ElementName=uc}"
+                StrokeThickness="1" Stroke="{Binding SideLinesBrush, Mode=OneWay, ElementName=uc}"
+                Stretch="None" X1="0" Y1="0" X2="{Binding LeftLineX, Mode=OneWay, ElementName=uc}"
+                Y2="{Binding LeftLineY, Mode=OneWay, ElementName=uc}" />
+            <Line
+                Canvas.Top="{Binding CenterY, Mode=OneWay, ElementName=uc}"
+                Canvas.Left="{Binding CenterX, Mode=OneWay, ElementName=uc}"
+                Name="RightLine" Fill="{Binding SideLinesBrush, Mode=OneWay, ElementName=uc}"
+                StrokeThickness="1" Stroke="{Binding SideLinesBrush, Mode=OneWay, ElementName=uc}"
+                Stretch="None" X1="0" Y1="0" X2="{Binding RightLineX, Mode=OneWay, ElementName=uc}"
+                Y2="{Binding RightLineY, Mode=OneWay, ElementName=uc}" />
+            <Line
+                Canvas.Top="{Binding CenterY, Mode=OneWay, ElementName=uc}"
+                Canvas.Left="{Binding CenterX, Mode=OneWay, ElementName=uc}"
+                Name="CenterLine" Fill="{Binding CenterLineBrush, Mode=OneWay, ElementName=uc}"
+                StrokeThickness="1" Stroke="{Binding CenterLineBrush, Mode=OneWay, ElementName=uc}"  Stretch="None"
+                X1="0" Y1="0"
+                X2="{Binding CenterWallX, Mode=OneWay, ElementName=uc}"
+                Y2="{Binding CenterWallY, Mode=OneWay, ElementName=uc}" />
+
+        </Canvas>
+    </Border>
+</UserControl>

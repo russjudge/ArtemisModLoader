@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModConfiguration
+  ID="{5E0D29F0-DEC1-440F-B7A0-F16C520394B1}"
+  DependsOn=""
+  Description="Base unmodified Artemis Spaceship Bridge Simulator"
+  Title="Base unmodified Artemis"
+  Author="Thom Robertson">
+
+  <Download
+   Webpage="http://www.artemis.eochu.com/"
+    />
+</ModConfiguration>

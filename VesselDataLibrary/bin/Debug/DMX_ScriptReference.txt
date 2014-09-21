@@ -1,0 +1,59 @@
+﻿APPEND_DMXCOMMANDFILE <filename>
+	Merge DMX Command file
+	<filename> = the DMX file to append
+DMXCOMMAND_BEGIN
+	Starts XML DMX command data
+DMXCOMMAND_END
+	Ends XML DMX Command data
+INCLUDE <filename>
+	Includes a DMX command script file.
+	<filename> = file of script to include.
+;
+	comment
+:<routine>
+	Label
+	<routine> = Label name.  used iwth "CALL".
+CUE_START <EventName>
+	Cue events that match parameter
+	<EventName> = name of event to cue
+CUE_END <EventName>
+	Stops the cue
+	<EventName> = name of event to stop.
+WAIT <milliseconds>
+	pause
+	<milliseconds> = number of milliseconds to pause.
+SET_WORKPATH <path>
+	Defines the current path for importing files.
+	<path> = path to define
+CALL :<routine>
+	branches to a subroutine
+	<routine> = label to branch to
+END
+	Ends script
+RETURN
+	Marks end of a subroutine
+REPEAT_BEGIN <NumberTimes>
+	starts a loop
+	<NumberTimes> = number of times to repeat the loop.  Zero or no parameter means it is repeated forever.
+REPEAT_END
+	ends loop
+AUDIO_QUEUE <audioFile>
+	 Queues an audio file for playing
+	 <audioFile> = audio file to play.
+AUDIO_START <audioFile>
+	starts playing an audio file.
+	<audioFile> = audio file to play.
+AUDIO_NEXTFILE
+	stops playing current file and moves to next file inqueue.
+AUDIO_STOP
+	stops playing audio.
+AUDIO_PAUSE
+	pauses audio
+AUDIO_RESUME
+	resumes paused audio
+IMAGE_DISPLAY <filename>
+	displays an image full screen.
+	<filename> = the image to display
+
+
+

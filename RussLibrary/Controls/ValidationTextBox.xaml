@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="RussLibrary.Controls.ValidationTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:ctl="clr-namespace:RussLibrary.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" Name="uc"
+             mc:Ignorable="d" >
+    <DockPanel  HorizontalAlignment="Stretch" >
+
+        <ctl:ValidationBulb DockPanel.Dock="Right" Validation="{Binding Validation, ElementName=uc, Mode=OneWay}" />
+        <TextBox Text="{Binding Path=Text, Mode=TwoWay, ElementName=uc}" />
+    </DockPanel>
+</UserControl>

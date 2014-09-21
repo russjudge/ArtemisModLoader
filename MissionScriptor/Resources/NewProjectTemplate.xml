@@ -1,0 +1,19 @@
+<mission_data version="1.69">
+	<start>
+		<create type="player" x="50000" y="0" z="50000" name="Artemis" />
+		<big_message title="mission title" subtitle1="by author" subtitle2="adventure for Artemis 1.7" />
+	</start>
+  
+	<event>
+	</event>
+
+	<event>
+		<if_fleet_count comparator="LESS_EQUAL" value="0"/>
+		<end_mission />
+	</event>
+  
+	<event>
+		<if_not_exists name="Artemis"/>
+		<end_mission/>
+	</event>
+</mission_data>

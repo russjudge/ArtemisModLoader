@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.FileMapControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+             mc:Ignorable="d" Name="uc">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="fmc1" />
+            <ColumnDefinition SharedSizeGroup="fmc2" />
+        </Grid.ColumnDefinitions>
+
+        <!-- On source, if file selected is not within Mod (prefix match), then copy file in.-->
+        <GroupBox
+            Grid.Column="0"
+            Header="Source">
+            <DockPanel>
+                <CheckBox
+                    Margin="3,0,3,0"
+                    IsChecked="{Binding Path=UseWildcard, Mode=TwoWay, ElementName=uc}"
+                    DockPanel.Dock="Right"
+                    VerticalAlignment="Center"
+                    Content="Wildcard"
+                    Padding="1,0,4,0"/>
+            <ctl:FileSelectionControl
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                FileChanged="OnFileChanged"
+                InvalidFilePath="OnInvalidFilePath"
+                FileDisplay="{Binding Path=FileMapping.Source, Mode=TwoWay, ElementName=uc}"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}"
+             />
+            </DockPanel>
+        </GroupBox>
+        <!-- on target if selected file mapping does not match Mod (prefix), then error. -->
+        <GroupBox
+            Grid.Column="1"
+            Header="Target">
+            <ctl:FileSelectionControl
+                SearchPrefixes="{Binding SearchPrefixes, Mode=OneWay, ElementName=uc}"
+                CheckFileExists="False"
+                InvalidFilePath="OnInvalidTargetPath"
+                FileDisplay="{Binding Path=FileMapping.Target, Mode=TwoWay, ElementName=uc}"
+                Prefix="{Binding Configuration.InstalledPath, Mode=OneWay, ElementName=uc}" />
+        </GroupBox>
+    </Grid>
+</UserControl>

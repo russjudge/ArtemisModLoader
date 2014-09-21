@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="E:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\bin\Debug\VesselDataLibrary.dll">
+   <Modules>
+    <Module Name="vesseldatalibrary.dll">
+     <Namespaces>
+      <Namespace Name="VesselDataLibrary.Controls">
+       <Types>
+        <Type Name="ArtemisINIControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#fsw_Changed(System.Object,System.IO.FileSystemEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ArtemisINIControl.xaml.cs" Line="39">Method 'ArtemisINIControl.fsw_Changed(object, FileSystemEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Something else has changed the artemis.ini file.\r\n\r\nDo you wish to reload?".</Issue>
+            </Message>
+            <Message Id="ini" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ArtemisINIControl.xaml.cs" Line="39">Correct the spelling of the unrecognized token 'ini' in the literal '"Something else has changed the artemis.ini file.\r\n\r\nDo you wish to reload?"'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BeamArcMask" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CenterLineBrush" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="897">The compound word 'CenterLine' in member name 'BeamArcMask.CenterLineBrush' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CenterLineBrushProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'CenterLine' in member name 'BeamArcMask.CenterLineBrushProperty' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DrawArc()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.ComponentModel.TypeConverter.ConvertFromString(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="407">Method 'BeamArcMask.DrawArc()' passes a literal string as parameter 'text' of a call to 'TypeConverter.ConvertFromString(string)'. Retrieve the following string(s) from a resource table instead: "#70".</Issue>
+            </Message>
+            <Message Id="log4net.ILog.InfoFormat(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="379">Because the behavior of 'ILog.InfoFormat(string, params object[])' could vary based on the current user's locale settings, replace this call in 'BeamArcMask.DrawArc()' with a call to 'ILog.InfoFormat(IFormatProvider, string, params object[])'. If the result of 'ILog.InfoFormat(IFormatProvider, string, params object[])' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="383">Because the behavior of 'ILog.InfoFormat(string, params object[])' could vary based on the current user's locale settings, replace this call in 'BeamArcMask.DrawArc()' with a call to 'ILog.InfoFormat(IFormatProvider, string, params object[])'. If the result of 'ILog.InfoFormat(IFormatProvider, string, params object[])' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Image_MouseMove(System.Object,System.Windows.Input.MouseEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="diff" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="918">'BeamArcMask.Image_MouseMove(object, MouseEventArgs)' declares a variable, 'diff', of type 'Vector', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetDragging(System.Windows.UIElement)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="elem" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="822">Parameter 'elem' of 'BeamArcMask.SetDragging(UIElement)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SideLinesBrush" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="SideLines" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="877">The compound word 'SideLines' in member name 'BeamArcMask.SideLinesBrush' exists as a discrete term. If your usage is intended to be single word, case it as 'Sidelines' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#X" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="X" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberMoreMeaningfulName" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="562">Consider providing a more meaningful name than member name 'BeamArcMask.X'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Z" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Z" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberMoreMeaningfulName" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamArcMask.xaml.cs" Line="580">Consider providing a more meaningful name than member name 'BeamArcMask.Z'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BeamDrawingControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CenterLineX" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamDrawingControl.xaml.cs" Line="210">The compound word 'CenterLine' in member name 'BeamDrawingControl.CenterLineX' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CenterLineXProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'CenterLine' in member name 'BeamDrawingControl.CenterLineXProperty' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CenterLineY" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamDrawingControl.xaml.cs" Line="246">The compound word 'CenterLine' in member name 'BeamDrawingControl.CenterLineY' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CenterLineYProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CenterLine" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'CenterLine' in member name 'BeamDrawingControl.CenterLineYProperty' exists as a discrete term. If your usage is intended to be single word, case it as 'Centerline' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnDataChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="e" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamDrawingControl.xaml.cs" Line="56">Parameter 'e' of 'BeamDrawingControl.OnDataChanged(DependencyObject, DependencyPropertyChangedEventArgs)' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BeamPortStack" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+           <Issue Name="TypeNoAlternate" Certainty="95" Level="CriticalError">Rename type name 'BeamPortStack' so that it does not end in 'Stack'.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#BeamPorts" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="BeamPortStack.xaml.cs" Line="60">Change 'BeamPortStack.BeamPorts' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FileMapControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#OnFileChanged(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.String.EndsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="FileMapControl.xaml.cs" Line="152">Because the behavior of 'string.EndsWith(string)' could vary based on the current user's locale settings, replace this call in 'FileMapControl.OnFileChanged(object, RoutedEventArgs)' with a call to 'string.EndsWith(string, StringComparison)'. If the result of 'string.EndsWith(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnInvalidTargetPath(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="FileMapControl.xaml.cs" Line="142">Method 'FileMapControl.OnInvalidTargetPath(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Invalid target destination.\r\nPlease select a new location.".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SearchPrefixes" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="FileMapControl.xaml.cs" Line="39">Change 'FileMapControl.SearchPrefixes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HullRaceControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#IsEnemyBiomech" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Biomech" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="HullRaceControl.xaml.cs" Line="369">Correct the spelling of 'Biomech' in member name 'HullRaceControl.IsEnemyBiomech' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#IsEnemyBiomechProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Biomech" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Biomech' in member name 'HullRaceControl.IsEnemyBiomechProperty' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MergeWindow" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Done_Click(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="234">Method 'MergeWindow.Done_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Some conflicts remain unresolved.  Please resolve them.".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RaceConflicts" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="102">Change 'MergeWindow.RaceConflicts' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RaceResolved" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="120">Change 'MergeWindow.RaceResolved' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SourceHullRaces" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="65">Change 'MergeWindow.SourceHullRaces' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TargetHullRaces" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="84">Change 'MergeWindow.TargetHullRaces' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#VesselConflicts" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="139">Change 'MergeWindow.VesselConflicts' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#VesselResolved" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="MergeWindow.xaml.cs" Line="157">Change 'MergeWindow.VesselResolved' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ModDevelopmentManager" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Deploy_Click(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="273">Method 'ModDevelopmentManager.Deploy_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Package saved.".</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="228">Because the behavior of 'string.Format(string, params object[])' could vary based on the current user's locale settings, replace this call in 'ModDevelopmentManager.Deploy_Click(object, RoutedEventArgs)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Save_click(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="202">Method 'ModDevelopmentManager.Save_click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: " saved.".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Test_Click(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="361">Method 'ModDevelopmentManager.Test_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Active Mods differ from what this Mod depends on.\r\n\r\nDo you want to deactiva...".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="382">Method 'ModDevelopmentManager.Test_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Test canceled.  Please change Mod dependencies to match the list of Activated Mo...".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="355">Method 'ModDevelopmentManager.Test_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Test canceled.".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="345">Method 'ModDevelopmentManager.Test_Click(object, RoutedEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "This Mod is currently active.  In order to apply your changes, the Mod must firs...".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#uc_Closing(System.Object,System.ComponentModel.CancelEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="ModDevelopmentManager.xaml.cs" Line="469">Method 'ModDevelopmentManager.uc_Closing(object, CancelEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Do you wish to save your changes?".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TauntControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Taunts" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="TauntControl.xaml.cs" Line="36">Change 'TauntControl.Taunts' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TubeStorageControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Torpedos" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="TubeStorageControl.xaml.cs" Line="46">Change 'TubeStorageControl.Torpedos' to be read-only by removing the property setter.</Issue>
+            </Message>
+            <Message Id="Torpedos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="TubeStorageControl.xaml.cs" Line="46">Correct the spelling of 'Torpedos' in member name 'TubeStorageControl.Torpedos' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TorpedosProperty" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Torpedos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Torpedos' in member name 'TubeStorageControl.TorpedosProperty' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="VesselControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#HullRaces" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselControl.xaml.cs" Line="60">Change 'VesselControl.HullRaces' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SearchPrefixes" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselControl.xaml.cs" Line="41">Change 'VesselControl.SearchPrefixes' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="VesselDataControl" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DoPrompt()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="360">Method 'VesselDataControl.DoPrompt()' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Do you wish to save?".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DoSave()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="386">Method 'VesselDataControl.DoSave()' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Some vessels have invalid data. Please review the data.\r\n\r\nDo you continue s...".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#fsw_Changed(System.Object,System.IO.FileSystemEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="91">Method 'VesselDataControl.fsw_Changed(object, FileSystemEventArgs)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Something else has changed the vesselData file.\r\n\r\nDo you wish to reload?".</Issue>
+            </Message>
+            <Message Id="vesselData" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="91">Correct the spelling of the unrecognized token 'vesselData' in the literal '"Something else has changed the vesselData file.\r\n\r\nDo you wish to reload?"'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#HullRaceFilter" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="268">Change 'VesselDataControl.HullRaceFilter' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MergeRacesAndVessels(VesselDataLibrary.Xml.VesselDataObject,System.Boolean,System.Boolean,System.Boolean)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="445">'VesselDataControl.MergeRacesAndVessels(VesselDataObject, bool, bool, bool)' has a cyclomatic complexity of 34. Rewrite or refactor the method to reduce complexity to 25.</Issue>
+            </Message>
+            <Message Id="ArtemisModLoader.Locations.MessageBoxShow(System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2014-01-31 11:41:37Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="569">Method 'VesselDataControl.MergeRacesAndVessels(VesselDataObject, bool, bool, bool)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Conflicts not resolved.  Current mod races and vessels kept.\r\n\r\nVessels and ...".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="e:\Development Projects\Source Control\ArtemisModLoader\VesselDataLibrary\Controls" File="VesselDataControl.xaml.cs" Line="575">Method 'VesselDataControl.MergeRacesAndVessels(VesselDataObject, bool, bool, bool)' passes a literal string as parameter 'message' of a call to 'Locations.MessageBoxShow(string, MessageBoxButton, MessageBoxImage)'. Retrieve the following string(s) from a resource table instead: "Files merged.".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidExcessiveComplexity" Category="Microsoft.Maintainability" CheckId="CA1502">
+   <Name>Avoid excessive complexity</Name>
+   <Description>Method implementations that are exceedingly complex increase the challenge of understanding and maintaining code.</Description>
+   <Resolution Name="Default">{0} has a cyclomatic complexity of {1}. Rewrite or refactor the method to reduce complexity to {2}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182212(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="maintainabilityrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+   <Name>Collection properties should be read only</Name>
+   <Description>Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</Description>
+   <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182327(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264474(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>Do not pass literals as localized parameters</Name>
+   <Description>Literal strings that are embedded in source code are difficult to localize. Avoid passing literal strings as arguments in circumstances where a localized string is generally expected.</Description>
+   <Resolution Name="KnownValue">Method {0} passes a literal string as parameter '{1}' of a call to {2}. Retrieve the following string(s) from a resource table instead: {3}.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Resolution Name="MemberMoreMeaningfulName">Consider providing a more meaningful name than member name {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264492(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+   <Name>Identifiers should not have incorrect suffix</Name>
+   <Description>Types that do not extend certain base types should not use reserved name suffixes. Types and members should not use 'Ex' or 'New' to distinguish them from an earlier version of the same API, instead, use a numeric suffix such as '2' or provide a more meaningful suffix. Concrete type implementations and members should not end 'Impl'. Members instead, should either consider using the suggested alternate 'Core' in replacement of 'Impl' or avoid any suffix at all.</Description>
+   <Resolution Name="TypeNoAlternate">Rename type name {0} so that it does not end in '{1}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182247(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="namingrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204">
+   <Name>Literals should be spelled correctly</Name>
+   <Description>This rule parses the literal string into words, tokenizing compound words, and checks the spelling of each word/token.</Description>
+   <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/bb264488(VS.100).aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+   <Name>Remove unused locals</Name>
+   <Description>Remove locals that are not used or are only assigned to in method implementations.</Description>
+   <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182278(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+   <Name>Review unused parameters</Name>
+   <Description>Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
+   <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182268(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternate">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be based on input from the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify {4}.</Resolution>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+   <Name>Specify StringComparison</Name>
+   <Description>If an overload exists that takes a StringComparison argument, it should always be called in favor of an overload that does not.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386080(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="11.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

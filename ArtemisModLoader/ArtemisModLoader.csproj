@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7503F00A-B0D9-4FCF-A6A2-666F6E096E5B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtemisModLoader</RootNamespace>
+    <AssemblyName>ArtemisModLoader</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\ReferencedFiles\Russ.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>..\ReferencedFiles\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\ReferencedFiles\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\ReferencedFiles\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress">
+      <HintPath>..\ReferencedFiles\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\ReferencedFiles\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ActionWindow.xaml.cs">
+      <DependentUpon>ActionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Page Include="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ActionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="TODO.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <SplashScreen Include="SplashScreen.png" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="EULA.rtf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <AppDesigner Include="Properties\" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SplashScreen.pdn" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\artemis1.ico" />
+    <Resource Include="Images\Android SH.png" />
+    <Resource Include="Images\uninstall.png" />
+    <Resource Include="Images\artemis1.jpg" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\download.png" />
+    <Resource Include="Images\Explorer.png" />
+    <Resource Include="Images\icon_activate.png" />
+    <Resource Include="Images\Info_icon_002.svg.png" />
+    <Resource Include="Images\Mission.jpg" />
+    <Resource Include="Images\network.png" />
+    <Resource Include="Images\package-install.png" />
+    <Resource Include="Images\shutdown.png" />
+    <Resource Include="Images\starburst.png" />
+    <Resource Include="Images\MainIcon.png" />
+    <Resource Include="MainIcon.ico" />
+    <Resource Include="Images\305_Close_48x48_72.png" />
+    <Resource Include="Images\icon11_0.png" />
+    <Resource Include="Images\ModManager.png" />
+    <Resource Include="Images\paypal-donate-feature.jpg" />
+    <Resource Include="Images\1360035698_run.png" />
+    <Content Include="ReadMe.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AMLLibrary\AMLLibrary.csproj">
+      <Project>{89BFBD29-A9F6-497A-8B4D-9B25AA25AF08}</Project>
+      <Name>AMLLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtemisEngineeringPresets\ArtemisEngineeringPresets.csproj">
+      <Project>{B276F921-9406-4A84-BDAD-9E841194C3BE}</Project>
+      <Name>ArtemisEngineeringPresets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MissionScriptor\MissionStudio.csproj">
+      <Project>{D1849B15-563B-45A7-80E3-B24CDD94505C}</Project>
+      <Name>MissionStudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{B9456D65-735B-4537-A64A-795BF787F523}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibraryAudio\RussLibraryAudio.csproj">
+      <Project>{E4B2BBDC-514E-43A8-88BD-91F784CA19F8}</Project>
+      <Name>RussLibraryAudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibraryXmlEditor\RussLibraryXmlEditor.csproj">
+      <Project>{A8171F8D-9BA7-45FD-98BA-DBB500B394F4}</Project>
+      <Name>RussLibraryXmlEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RussLibrary\RussLibrary.csproj">
+      <Project>{BC5FD24E-E8E5-4522-B620-C2B56867DF5E}</Project>
+      <Name>RussLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VesselDataLibrary\VesselDataLibrary.csproj">
+      <Project>{16D95EC2-7F1F-44C9-882F-A32BF67D7EF4}</Project>
+      <Name>VesselDataLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Future Enhancement Notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y "$(ProjectDir)..\RussLibraryXmlEditor\tidy.exe" "$(ProjectDir)$(OutDir)"
+xcopy /y "$(ProjectDir)..\RussLibraryXmlEditor\libtidy.dll" "$(ProjectDir)$(OutDir)"
+xcopy /y "$(ProjectDir)..\DMXCommander\ftd2xx.dll" "$(ProjectDir)$(OutDir)"
+xcopy /y "$(ProjectDir)..\DMXCommander\DMX_ReadMe.txt" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

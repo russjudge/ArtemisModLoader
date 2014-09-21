@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="VesselDataLibrary.Controls.TauntControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Name="uc" >
+    <GroupBox HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="Taunts" />
+        </GroupBox.Header>
+
+        <StackPanel>
+            <Button HorizontalAlignment="Right" Click="OnAdd" ToolTip="Add Taunt">
+                <Button.Content>
+                    <Image Width="24" Source="pack://application:,,,/AMLLibrary;component/Images/Actions-list-add-icon.png" />
+                </Button.Content>
+            </Button>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                <ItemsControl
+                    MaxWidth="{Binding ActualWidth, Mode=OneWay, ElementName=uc}"
+                    HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                    ItemsSource="{Binding Taunts, Mode=OneWay, ElementName=uc}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="TauntButton" Width="*"/>
+                                    <ColumnDefinition SharedSizeGroup="TauntImmunityLabel" Width="*" />
+                                    <ColumnDefinition SharedSizeGroup="TauntImmunity" Width="2*"/>
+                                    <ColumnDefinition SharedSizeGroup="TauntTextLabel" Width="*" />
+                                    <ColumnDefinition SharedSizeGroup="TauntText" Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" ToolTip="Delete Taunt" CommandParameter="{Binding}" Click="OnDelete">
+                                    <Button.Content>
+                                        <Image Height="24" Source="pack://application:,,,/VesselDataLibrary;component/Images/delete.png" />
+                                    </Button.Content>
+                                </Button>
+                                <Label VerticalAlignment="Center" Grid.Column="1" Content="Immunity:" />
+                                
+                                <TextBox VerticalAlignment="Center" TextWrapping="Wrap"  Grid.Column="2" Text="{Binding Path=Immunity, Mode=TwoWay}" />
+                                <Label VerticalAlignment="Center" Grid.Column="3" Content="Text:" />
+                                <TextBox VerticalAlignment="Center" TextWrapping="Wrap" Grid.Column="4" Text="{Binding Path=Text, Mode=TwoWay}" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+    </GroupBox>
+</UserControl>

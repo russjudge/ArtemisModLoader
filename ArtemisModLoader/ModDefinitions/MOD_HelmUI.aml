@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ModConfiguration
+  DependsOn=""
+  ID="{E32D5B35-8D19-4F09-ACE4-377AC3C0F950}"
+  Description="Graphics components changes for Artemis to improve the Helm Station visibility."
+  Title="Improved Visibility UI for Helm"
+  Author="David Holley">
+  
+  <!-- due to unable to directly download file (due to host site), Cannot fill in the "Source" attribute. -->
+  <Download
+    Source="http://www.2shared.com/file/akWcjchI/Helm_UI_Mod.html" 
+    Webpage="http://www.artemis.eochu.com/?page_id=28#/20120322/improved-visibility-helm-ui-mod-1410698/"
+    />
+
+  <!-- with alllowing combining Mods in multi sequence (order is important), this makes sense to NOT be permanent. -->
+  <BaseFiles>
+    <FileMap Source="Helm UI Mod\New UI Image Files\*" Target="dat"/>
+  </BaseFiles>
+</ModConfiguration>

@@ -1,0 +1,6 @@
+obj\Debug\Product.wixobj
+E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Debug\DMXCommanderInstaller.msi
+E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Debug\DMXCommanderInstaller.wixpdb
+obj\Debug\DMXCommanderInstaller.wixproj.BindContentsFileListnull.txt
+obj\Debug\DMXCommanderInstaller.wixproj.BindOutputsFileListnull.txt
+obj\Debug\DMXCommanderInstaller.wixproj.BindBuiltOutputsFileListnull.txt

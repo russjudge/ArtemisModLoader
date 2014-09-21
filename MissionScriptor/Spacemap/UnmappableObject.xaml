@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="MissionStudio.Spacemap.UnmappableObject"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             mc:Ignorable="d" Name="uc">
+    <UserControl.Resources>
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+    </UserControl.Resources>
+    <Border Background="Beige" BorderBrush="BurlyWood" BorderThickness="1">
+        <StackPanel>
+            <ContentControl
+                Visibility="{Binding MappableObject, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}, ConverterParameter=COLLAPSED}"
+                Content="{Binding MappableObject, Mode=OneWay, ElementName=uc}"></ContentControl>
+            <TextBlock
+                Visibility="{Binding MappableObject, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}, ConverterParameter=VISIBLE}"
+                Padding="4,4,4,4" Text="{Binding CommandName, Mode=OneWay, ElementName=uc}" />
+        </StackPanel>
+    </Border>
+
+</UserControl>

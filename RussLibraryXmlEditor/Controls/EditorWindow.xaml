@@ -1,0 +1,143 @@
+﻿<Window x:Class="RussLibrary.Controls.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:russCtl="clr-namespace:RussLibrary.Controls;assembly=RussLibrary"
+        xmlns:ValueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+        xmlns:prop="clr-namespace:RussLibrary.Properties" Closing="uc_Closing"
+        xmlns:local="clr-namespace:RussLibrary.Controls" Name="uc"
+        Title="XML Editor Window" Loaded="Window_Loaded" Closed="uc_Closed"
+        Width="{Binding Source={x:Static prop:Settings.Default}, Path=XMLEditorWindowWidth, Mode=TwoWay}"
+        Height="{Binding Source={x:Static prop:Settings.Default}, Path=XMLEditorWindowHeight, Mode=TwoWay}">
+
+    <Window.Resources>
+        <ValueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <ValueConvert:NullToParmConverter x:Key="NullToParmConverter" />
+    </Window.Resources>
+        <DockPanel >
+        <Menu DockPanel.Dock="Top" >
+            <MenuItem Header="File">
+                <MenuItem  Command="ApplicationCommands.New" Header="New">
+                    <MenuItem.Icon>
+                        <Image VerticalAlignment="Center" Height="24" Source="pack://application:,,,/RussLibrary;component/Images/gnome_document_new.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="ApplicationCommands.Open" Header="Open">
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/folder_open.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="ApplicationCommands.Save" Header="Save" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/save.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="ApplicationCommands.SaveAs" Header="Save As" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/document_save_as.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="ApplicationCommands.Close" Header="Close" />
+            </MenuItem>
+            <MenuItem Header="Edit" >
+                <MenuItem Command="Undo" Header="Undo" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/undo.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Redo" Header="Redo" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/redo.png"  />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="Cut" Header="Cut" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/scissors.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Copy" Header="Copy" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/copy.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Paste" Header="Paste" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/paste.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Delete" Header="Delete" >
+                    <MenuItem.Icon>
+                        <Image Height="24" Source="pack://application:,,,/RussLibrary;component/Images/erase.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="SelectAll" Header="Select All" >
+                    <MenuItem.Icon>
+                        <Image Height="24"  Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/edit_select_all.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="Find" Header="Find" >
+                    <MenuItem.Icon>
+                        <Image Height="24"  Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/search.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Replace" Header="Replace" >
+                    <MenuItem.Icon>
+                        <Image Height="24"  Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/new_edit_find_replace.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--<MenuItem Command="GoToPage" Header="Go To..." >
+                    <MenuItem.Icon>
+                        <Image Height="24"  />
+                    </MenuItem.Icon>
+                </MenuItem>-->
+                <Separator />
+                <MenuItem Command="EditingCommands.AlignCenter"  Header="Format &amp; Validate" >
+                    <MenuItem.Icon>
+                        <Image Height="24"  Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/gnome_format_indent_more.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <russCtl:NewOpenSaveButtons /> <!--{Binding RelativeSource={RelativeSource TemplatedParent}}-->
+            <!--<russCtl:EditButtons
+                Padding="8,0,0,0"
+                CommandTarget="{Binding Editor, Mode=OneWay, ElementName=uc}" />-->
+            <Button
+                Margin="30,0,0,0"
+                ToolTip="Format &amp; Validate" Command="AlignCenter" >
+                <Button.Content>
+                    <Image Height="32" Source="pack://application:,,,/RussLibraryXmlEditor;component/Images/gnome_format_indent_more.png" />
+                </Button.Content>
+            </Button>
+            <ContentControl
+                Content="{Binding AdditionalButtons, ElementName=uc, Mode=OneWay}" />
+
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+       
+              <ContentControl AllowDrop="True"
+                  Grid.ColumnSpan="{Binding SideElement, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToParmConverter}, ConverterParameter='2|1'}"
+                  Grid.Column="0" Content="{Binding Editor, Mode=OneWay, ElementName=uc}" />
+            <GridSplitter
+                
+                Visibility="{Binding SideElement, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}}"
+                VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="5" Grid.Column="1" ResizeDirection="Columns" />
+            <ContentControl
+                Visibility="{Binding SideElement, Mode=OneWay, ElementName=uc, Converter={StaticResource NullToHiddenConverter}}"
+                Width="{Binding SideElement.Width, Mode=OneWay, ElementName=uc}"
+                Grid.Column="2" Content="{Binding SideElement, Mode=OneWay, ElementName=uc}" />
+            <!---->
+        </Grid>
+
+    </DockPanel>
+</Window>

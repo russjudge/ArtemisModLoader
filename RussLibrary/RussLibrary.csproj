@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC5FD24E-E8E5-4522-B620-C2B56867DF5E}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RussLibrary</RootNamespace>
+    <AssemblyName>RussLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\ReferencedFiles\Russ.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisLogFile>bin\Debug\RussLibrary.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Russ.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\RussLibrary.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\ReferencedFiles\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="SharpCompress">
+      <HintPath>..\ReferencedFiles\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\ReferencedFiles\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrowserViewModel.cs" />
+    <Compile Include="Controls\DecimalBox.xaml.cs">
+      <DependentUpon>DecimalBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditButtons.xaml.cs">
+      <DependentUpon>EditButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileExplorerControl.xaml.cs">
+      <DependentUpon>FileExplorerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileSelectionControl.xaml.cs">
+      <DependentUpon>FileSelectionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FolderBrowserControl.xaml.cs">
+      <DependentUpon>FolderBrowserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewOpenSaveButtons.xaml.cs">
+      <DependentUpon>NewOpenSaveButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NextPreviousControl.xaml.cs">
+      <DependentUpon>NextPreviousControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlayButton.xaml.cs">
+      <DependentUpon>PlayButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProgressIndicator.xaml.cs">
+      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValidationBulb.xaml.cs">
+      <DependentUpon>ValidationBulb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValidationControl.xaml.cs">
+      <DependentUpon>ValidationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValidationTextBox.xaml.cs">
+      <DependentUpon>ValidationTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventArguments\MessageEventArgs.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="FolderViewModel.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\DragAdorner.cs" />
+    <Compile Include="Helpers\DragHelper.cs" />
+    <Compile Include="Helpers\DragStartedEventArgs.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\FocusHelper.cs" />
+    <Compile Include="Helpers\GeneralHelper.cs" />
+    <Compile Include="Helpers\GridViewColumnHeaderSorter.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\LogFilePatternConverter.cs" />
+    <Compile Include="Helpers\PrintHelper.cs" />
+    <Compile Include="Helpers\ProcessHelper.cs" />
+    <Compile Include="Helpers\SortAdorner.cs" />
+    <Compile Include="Helpers\WatermarkAdorner.cs" />
+    <Compile Include="Helpers\WatermarkService.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ShellContextMenu.cs" />
+    <Compile Include="Text\INIContainer.cs" />
+    <Compile Include="Text\INIConversionAttribute.cs" />
+    <Compile Include="Text\INIConverter.cs" />
+    <Compile Include="Text\INIKeyValueItem.cs" />
+    <Compile Include="ValueConverters\BoolToDecimalConverter.cs" />
+    <Compile Include="ValueConverters\BoolToVisibilityParameterConverter.cs" />
+    <Compile Include="ValueConverters\DecimalToBoolConverter.cs" />
+    <Compile Include="ValueConverters\DoubleParmAdjuster.cs" />
+    <Compile Include="ValueConverters\EnumNameMatchToVisibility.cs" />
+    <Compile Include="ValueConverters\FilenameToImage.cs" />
+    <Compile Include="ValueConverters\GreaterThanParmVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\IndexToObject.cs" />
+    <Compile Include="ValueConverters\ItemIndexMatchToParm.cs" />
+    <Compile Include="ValueConverters\LessThanParmVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\MultiDoubleParmAdjuster.cs" />
+    <Compile Include="ValueConverters\MultiplierConverter.cs" />
+    <Compile Include="ValueConverters\NullToBoolConverter.cs" />
+    <Compile Include="ValueConverters\NullToHiddenConverter.cs" />
+    <Compile Include="ValueConverters\NullToParmConverter.cs" />
+    <Compile Include="ValueConverters\NumericConverter.cs" />
+    <Compile Include="ValueConverters\OppositeBoolConverter.cs" />
+    <Compile Include="ValueConverters\ParmMatchToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\PropertyToValidationConverter.cs" />
+    <Compile Include="ValueConverters\TrueOnlyIfLastOne.cs" />
+    <Compile Include="ValueConverters\ValidationToBrush.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="Windows\FindReplaceDialog.xaml.cs">
+      <DependentUpon>FindReplaceDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ISettingsPanel.cs" />
+    <Compile Include="Windows\MessageBoxWithDontShowAgain.xaml.cs">
+      <DependentUpon>MessageBoxWithDontShowAgain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PromptDialog.xaml.cs">
+      <DependentUpon>PromptDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StandBy.xaml.cs">
+      <DependentUpon>StandBy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\ChangeDependencyObject.cs" />
+    <Compile Include="WPF\ChangeDependentCollection.cs" />
+    <Compile Include="WPF\ExtensionMethods.cs" />
+    <Compile Include="WPF\ValidationObject.cs" />
+    <Compile Include="WPF\ValidationObjectCollection.cs" />
+    <Compile Include="WPF\ValidationValue.cs" />
+    <Compile Include="Xml\IXmlStorage.cs" />
+    <Compile Include="Xml\XmlCommentAttribute.cs" />
+    <Compile Include="Xml\XmlConversionAttribute.cs" />
+    <Compile Include="Xml\XmlConversionException.cs" />
+    <Compile Include="Xml\XmlConversionRootAttribute.cs" />
+    <Compile Include="Xml\XmlConverter.cs" />
+    <Compile Include="Xml\XmlSanitizer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\DecimalBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EditButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileExplorerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FileSelectionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FolderBrowserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NewOpenSaveButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NextPreviousControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlayButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProgressIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ValidationBulb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ValidationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ValidationTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Images\ErrorBall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Images\Warning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\FindReplaceDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MessageBoxWithDontShowAgain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PromptDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StandBy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PlayHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FolderClosed.png" />
+    <Resource Include="Images\FolderOpen.png" />
+    <Resource Include="Images\HardDisk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-go-first-view-icon.png" />
+    <Resource Include="Images\Actions-go-last-view-icon.png" />
+    <Resource Include="Images\Actions-go-next-view-icon.png" />
+    <Resource Include="Images\Actions-go-previous-view-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\folder_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\document_save_as.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gnome_document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scissors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\erase.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

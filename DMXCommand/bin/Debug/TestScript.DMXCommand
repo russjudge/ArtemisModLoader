@@ -1,0 +1,31 @@
+;This is a demonstration of what is possible with the DMX Commander script language
+APPEND_DMXCOMMANDFILE "C:\Program Files (x86)\Artemis\dat\DMXCommands.xml"
+;(commentted out)IMAGE_DISPLAY "E:\Development Projects\ArtemisModLoader\DMXCommand\bin\Debug\BlackDot.png"
+IMAGE_DISPLAY "C:\Program Files (x86)\Russ Judge\DMX Commander\BlackDot.png"
+WAIT 5000
+CUE_START RED_ALERT
+AUDIO_START "C:\Program Files (x86)\Artemis\dat\Desperate Measures Main - A - D.ogg"
+IMAGE_DISPLAY "C:\Program Files (x86)\Artemis\art\sb10\skybox_BK.jpg"
+WAIT 2000
+CUE_START TRACTORED_FOR_DOCKED
+REPEAT_BEGIN 4
+CALL :THUMPING
+REPEAT_END
+IMAGE_DISPLAY "C:\Program Files (x86)\Artemis\art\sb10\skybox_FR.jpg"
+
+REPEAT_BEGIN 4
+CALL :THUMPING
+REPEAT_END
+
+IMAGE_DISPLAY "C:\Program Files (x86)\Artemis\art\sb10\skybox_UP.jpg"
+WAIT 5000
+;(commentted out)IMAGE_DISPLAY "E:\Development Projects\ArtemisModLoader\DMXCommand\bin\Debug\BlackDot.png"
+IMAGE_DISPLAY "C:\Program Files (x86)\Russ Judge\DMX Commander\BlackDot.png"
+WAIT 2000
+END
+
+:THUMPING
+CUE_START SOMETHING_HITS_PLAYER
+WAIT 1600
+CUE_END SOMETHING_HITS_PLAYER
+RETURN

@@ -1,0 +1,35 @@
+﻿List of things to do for Artemis Mod Loader:
+
+- Code completion on name for timers
+
+- Spacemap (designer) on Mission Studio
+
+- Add DependsOn for missions.
+ 
+- Meta information for missions.
+
+- merging two different vesselData files and artemis.ini files (especially for handling updates).
+
+- Get the Drag-drop functionality for setting Beam range and arcwidth working.
+ The silly thing is just driving me nuts--can't seem to get the math right (too 
+ many things interacting with each other when something changes).  I'll get it working sooner or later.
+
+- find any text strings not in resource and move to resource.  This is to prepare for possible multi-lingual support.
+
+- Dress up credits in About to look nicer, including providing links to source of API tools included.
+
+- Re-examine EULA and make sure it covers everything needed.
+
+- Anything else???
+
+Maybe:
+- Thom's ship editor integrated with the vesselData editor.  Need Thom's source code to even consider.
+
+- a "simulator" in the Mission Studio.  Not sure if this will even be possible without massive coding,
+	but if it can be done, the concept is to simulate the Artemis game on the spacemap to test mission
+	scripts.  It will not play the game, but will offer the mission developer a means for triggering various
+	events to test what happens and make sure what happens is what the mission developer expected.
+
+- Tooltip over mission commands to show the plain English translation. May be complex to code, so this might
+	not get done.
+

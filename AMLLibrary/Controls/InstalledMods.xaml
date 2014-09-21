@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="ArtemisModLoader.Controls.InstalledMods"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctl="clr-namespace:ArtemisModLoader.Xml;assembly=AMLLibrary"
+             xmlns:usrctl="clr-namespace:ArtemisModLoader.Controls"
+             xmlns:valueConvert="clr-namespace:RussLibrary.ValueConverters;assembly=RussLibrary"
+             xmlns:AMLConverter="clr-namespace:ArtemisModLoader.ValueConverters"
+             xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+             Name="uc"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <valueConvert:GreaterThanParmVisibilityConverter x:Key="GreaterThanParmVisibilityConverter" />
+        <AMLConverter:BoolAndStringMatchToVisibility x:Key="BoolAndStringMatchToVisibility"/>
+        <valueConvert:OppositeBoolConverter x:Key="OppositeBoolConverter" />
+        <valueConvert:ParmMatchToVisibilityConverter x:Key="ParmMatchToVisibilityConverter" />
+        <valueConvert:NullToHiddenConverter x:Key="NullToHiddenConverter" />
+        <AMLConverter:IDToTitleConverter x:Key="IDToTitleConverter" />
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </UserControl.Resources>
+    <GroupBox HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <GroupBox.Header>
+            <TextBlock FontWeight="Bold" Text="{x:Static resx:Resources.InstalledMods}" />
+        </GroupBox.Header>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <ItemsControl
+            HorizontalContentAlignment="Stretch"
+            Background="Transparent" HorizontalAlignment="Stretch"
+            ItemsSource="{Binding Source={x:Static ctl:InstalledModConfigurations.Current},
+            Path=Configurations.Configurations, Mode=OneWay}" >
+                <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    
+                    <Border
+                        HorizontalAlignment="Stretch"
+                        BorderBrush="BurlyWood" BorderThickness="2" Margin="4,4,4,4">
+                        <Border.Visibility>
+                            <MultiBinding Converter="{StaticResource BoolAndStringMatchToVisibility}" ConverterParameter="5E0D29F0-DEC1-440F-B7A0-F16C520394B1">
+                                <Binding Path="ShowStock" ElementName="uc" Mode="OneWay" />
+                                <Binding Path="ID"></Binding>
+                            </MultiBinding>
+                        </Border.Visibility>
+                        <DockPanel HorizontalAlignment="Stretch" >
+                          
+                            <AdornerDecorator
+                                Visibility="{Binding ShowStock, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                                DockPanel.Dock="Bottom">
+                                <TextBlock
+                                    Visibility="{Binding DependsOn, Mode=OneWay,
+                                    Converter={StaticResource GreaterThanParmVisibilityConverter}, ConverterParameter=0}"
+                                    Foreground="Red"
+                                    Text="{Binding DependsOn, Mode=OneWay, Converter={StaticResource IDToTitleConverter}}" />
+                            </AdornerDecorator>
+                            <AdornerDecorator
+                                Visibility="{Binding ShowStock, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                                DockPanel.Dock="Left">
+                                <Button
+                                    Visibility="{Binding ID, Mode=OneWay, Converter={StaticResource ParmMatchToVisibilityConverter}, ConverterParameter='5E0D29F0-DEC1-440F-B7A0-F16C520394B1|Collapsed'}"
+                                    ToolTip="{x:Static resx:Resources.ActivateModToolTip}"
+                                    IsEnabled="{Binding IsActive, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}"
+                                    CommandParameter="{Binding}" Click="Activate_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48" Source="pack://application:,,,/ArtemisModLoader;component/Images/icon_activate.png" />
+                                            <TextBlock
+                                                Text="{x:Static resx:Resources.Activate}"
+                                                VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </AdornerDecorator>
+                            <AdornerDecorator
+                                Visibility="{Binding ShowStock, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}"
+                                DockPanel.Dock="Left" >
+
+                                <Button
+                                    Visibility="{Binding ID, Mode=OneWay, Converter={StaticResource ParmMatchToVisibilityConverter}, ConverterParameter='5E0D29F0-DEC1-440F-B7A0-F16C520394B1|Collapsed'}"
+                                    ToolTip="{x:Static resx:Resources.RemoveModToolTip}"
+                                    IsEnabled="{Binding IsActive, Mode=OneWay, Converter={StaticResource OppositeBoolConverter}}"
+                                    CommandParameter="{Binding}"
+                                    Click="Uninstall_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48" Source="pack://application:,,,/ArtemisModLoader;component/Images/uninstall.png" />
+                                            <TextBlock Text="{x:Static resx:Resources.Uninstall}" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </AdornerDecorator>
+
+                            <usrctl:ModDescriptorControl DockPanel.Dock="Left"
+                                    Configuration="{Binding}" />
+                            <AdornerDecorator
+                                DockPanel.Dock="Right"
+                                Visibility="{Binding ShowStock, Mode=OneWay, ElementName=uc, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}">
+
+                                <Button
+                                    Visibility="{Binding Download.Webpage, Mode=OneWay, Converter={StaticResource NullToHiddenConverter}}"
+                                    ToolTip="{x:Static resx:Resources.BrowseToolTip}"
+                                    CommandParameter="{Binding}" Click="Browse_Click" >
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Width="48"  Source="pack://application:,,,/ArtemisModLoader;component/Images/Explorer.png" />
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </AdornerDecorator>
+                            <TextBlock />
+                        </DockPanel>
+                    </Border>
+                </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+    </GroupBox>
+</UserControl>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="DMX Commander" Language="1033" Version="0.7.0.0" Manufacturer="Russ Judge" UpgradeCode="DA13CEB7-7088-4741-8741-3BEF4275DE73">
+    <Package Comments="Tool to configure DMX Command File" Description="DMX Commander" InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <!--<InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallFinalize"/>
+    </InstallExecuteSequence>-->
+
+    <!--9595A5F7-1020-493F-8782-177A2ABEBA7B-->
+    <!--InstallPrivileges="limited"-->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <!--<WixVariable Id="WixUIBannerBmp" Value="Bitmaps\bannrbmp.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Bitmaps\dlgbmp.bmp" />-->
+    <!--<WixVariable Id="WixUILicenseRtf" Value="..\DMXCommander\EULA.rtf" />-->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <!--<MediaTemplate />-->
+    <Media Id="1" Cabinet="DMXCommand.cab" EmbedCab="yes" />
+
+    <!--<Feature Id="ProductFeature" Title="DMX Commander" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>-->
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="RUSSJUDGE" Name="Russ Judge">
+          <Directory Id="INSTALLFOLDER" Name="DMX Commander">
+
+            <Component Id="ProductComponent" Guid="BA790231-7644-47D4-B79A-60A518DDBA50">
+              <File
+                Source="..\DMXCommand\bin\Debug\DMXCommand.exe"
+                Name="DMXCommand.exe"
+                Id="DMXCOMMAND.EXE" >
+                <Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" WorkingDirectory="INSTALLDIR" Name="DMX Commander" Icon="StartMenuIcon.exe" IconIndex="0" />
+              </File>
+              <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" KeyPath="yes" Value="" />
+            </Component>
+            <Component Id="LibraryComponent" Guid="CAFFDDA5-3672-452A-9335-A710A1C7198F">
+              <File Source="..\DMXCommand\bin\Debug\DMXCommand.exe.config" Name="DMXCommand.exe.config" Id="DMXCOMMAND.EXE.CONFIG"  />
+              <File Source="..\DMXCommand\bin\Debug\RussLibrary.dll" Name="RussLibrary.dll" Id="RUSSLIBRARY.DLL"/>
+              <File
+               Source="..\DMXCommand\bin\Debug\log4net.dll"
+               Name="log4net.dll"
+               Id="LOG4NET.DLL"/>
+
+
+              <File Source="..\DMXCommander\DMX_ReadMe.txt" Name="DMX_ReadMe.txt" Id="DMX_README.TXT"/>
+              <File Source="..\DMXCommander\DMX_ScriptReference.txt" Name="DMX_ScriptReference.TXT" Id="DMX_SCRIPTREFERENCE.TXT" />
+              <File Source="..\ArtemisModLoader\EULA.rtf" Name="EULA.rtf" Id="EULA.RTF"/>
+
+              <File
+                Source="..\DMXCommand\bin\Debug\ftd2xx.dll"
+                Name="ftd2xx.dll"
+                Id="FTD2XX.DLL"/>
+
+              <File
+                Source="..\DMXCommand\bin\Debug\DMXCommander.dll"
+                Name="DMXCommander.dll"
+                Id="DMXCOMMANDER.DLL"/>
+
+
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+
+        <Directory Id="ProgramMenuDir" Name="DMX Commander">
+          <Component Id="ApplicationShortcut" Guid="3262FE77-99C9-4555-A50C-363382271F6B">
+            <Shortcut
+              Icon="StartMenuIcon.exe" Id="DMXCommander" Name="DMX Commander"
+              Description="Tool to configure DMX Command File."
+              WorkingDirectory="INSTALLFOLDER" Target="DMXCOMMMAND.EXE" />
+            <Shortcut
+              Id="UninstallProduct" Name="Uninstall" Description="Uninstalls DMX Commander"
+              Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" />
+
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+          </Component>
+
+        </Directory>
+      </Directory>
+    </Directory>
+
+
+    <Feature Id="ProductFeature" Title="DMX Commander" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="LibraryComponent" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <!--<ComponentRef Id="DesktopShortcut" />-->
+
+    </Feature>
+
+
+
+
+    <Icon
+      Id="StartMenuIcon.exe" SourceFile="..\DMXCommand\bin\Debug\DMXCommand.exe" />
+    <Property Id="ARPPRODUCTION" Value="StartMenuIcon.exe" />
+
+    <UI>
+      <!--<UIRef Id="WixUI_Minimal" />-->
+      <Publish Dialog="ExitDialog"
+            Control="Finish"
+            Event="DoAction"
+            Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <Property  Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch DMX Commander" />
+    <Property Id="WixShellExecTarget" Value="[#DMXCOMMAND.EXE]" />
+    <CustomAction Id="LaunchApplication"
+        BinaryKey="WixCA"
+        DllEntry="WixShellExec"
+        Impersonate="yes" />
+  </Product>
+
+</Wix>

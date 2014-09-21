@@ -1,0 +1,821 @@
+-----------------------------------------------------------------------------
+MISSION SCRIPT DOCS FOR ARTEMIS SBS V1.69
+12/30/2012
+rev 8
+
+-----------------------------------------------------------------------------
+GENERAL NOTES
+The mission script system is designed to let anyone create, share, and play
+game missions for Artemis.  In the Artemis install folder, there's a subfolder
+called 'Dat'.  Inside that is another folder called 'Missions'.
+
+Inside the Missions folder, each mission needs to have its own unique folder.
+Each mission folder name must start with 'MISS_'.
+Inside a mission folder must be 1 XML file.  It must share the same exact name
+as the folder it's inside, except for the .xml suffix.  This file will contain
+all the commands that make the mission happen.  There may be other files in the
+same folder.  As a general rule, any sound, video, or image files that the
+mission uses must be in the same folder as the XML file that references it.
+
+When the Artemis game starts up, choose "Start Server".  At that point, the
+game will look inside the Missions subfolder and make a list of every folder
+that starts with 'MISS_'.  On the Server control screen you can select one of
+those missions.  If you do, you can still set the game difficulty.  The diff
+setting won't control the amount and type of enemies (the mission will do that),
+but it will still control the enemy beam damage and the efficiency of the
+Artemis' systems.
+
+When you've chosen your mission (and other settings), click the 'Start Game'
+button.  As the game is initialized, the Artemis app will attempt to
+open the chosen folder and read the XML file inside.  It will read the entire
+XML script into memory, and keep it in memory for the entire game.
+
+The XML script should contain a single <start> block.  At the start of 
+the mission, the commands in the start block will be immediately followed.
+
+The XML script should also contain <event> blocks.  These blocks should
+contain both COMMAND and CONDITION blocks.  For each event block, all
+of its CONDITION blocks are checked.  If they are all TRUE, then
+all of the event's COMMAND blocks are immediately followed. 
+
+So, when you make a mission XML file, use one start block to create all
+the initial conditions of the mission.  Then use event blocks to trigger
+parts of the story when they are supposed to occur.
+
+
+-----------------------------------------------------------------------------
+THE BRAIN STACK
+
+Now, all enemies and neutrals have a "Brain Stack".  AI blocks get appended to the stack (using the add_ai command), and 
+the AI resolves each block from top (first) to bottom (last), so each AI block can supersede the AI blocks above it.
+
+    {L"TRY_TO_BECOME_LEADER"},
+if your fleet value is 0 to 99, you belong to a fleet (IF you're an enemy).  The fleet doesn't have a chosen leader; instead, if there's no leader, each member tries to claim the role.  This block does that.
+
+    {L"CHASE_PLAYER"},
+if a player ship is closer than value1 (value2 if the player is in a nebula), this enemy turns to attack it.  If this enemy is a fleet leader, the fleet follows.
+
+    {L"CHASE_NEUTRAL"},
+if a neutralship is closer than value1 (value2 if the neutralship is in a nebula), this enemy turns to attack it.  If this enemy is a fleet leader, the fleet follows.
+
+    {L"CHASE_ENEMY"},
+if an enemy is closer than value1 (value2 if the enemy is in a nebula), this neutral turns to attack it.
+
+    {L"CHASE_STATION"},
+if a station is closer than value1, this enemy turns to attack it.  If this enemy is a fleet leader, the fleet follows.
+
+    {L"CHASE_WHALE"},
+if a whale is closer than value1, this enemy turns to attack it.  If this enemy is a fleet leader, the fleet follows.
+
+    {L"AVOID_WHALE"},
+if a whale is closer than value1, this enemy turns to left to avoid it.
+
+    {L"AVOID_BLACK_HOLE"},
+if a black hole is closer than value1, this enemy turns to left to avoid it.
+
+    {L"CHASE_ANGER"},
+If this enemy or fleet is smarting from a recent attack, turn to attack the source.
+
+    {L"CHASE_FLEET"},
+if an enemy fleet is closer than value1, this enemy turns to follow it.  If this enemy is a fleet leader, the fleet follows.  This block is usually used to make an enemy "shadow" another enemy fleet.
+
+    {L"FOLLOW_LEADER"},
+if your fleet value is 0 to 99, you belong to a fleet (IF you're an enemy).  This block makes you follow its commands.
+
+    {L"FOLLOW_COMMS_ORDERS"},
+without this block, a neutral will ignore comms.
+
+    {L"LEADER_LEADS"},
+if your fleet value is 0 to 99, you belong to a fleet (IF you're an enemy).  If you're the leader, you need to do a little housekeeping with this block.
+
+    {L"ELITE_AI"},
+IF the enemy wants to behave like an elite, using special abilities like cloaking and warping, it needs this block.
+
+    {L"DIR_THROTTLE"},
+The script can add this block to force an AI brain to a specific heading (value1) and throttle(value2).
+
+    {L"POINT_THROTTLE"},
+The script can add this block to force an AI brain to a specific location (value1=x, value2=y, value3=z) and throttle(value4).
+
+    {L"TARGET_THROTTLE"},
+The script can add this block to force an AI brain to move towards a specific unit (targetName) and throttle(value1).
+
+    {L"ATTACK"},
+The script can add this block to force a brain to move toward and act on a named object (targetName), moving at throttle (value1).
+
+    {L"DEFEND"},
+Add this block to make a neutral that is "defending" another object attack enemies that get within (value2), as long as the neutral is closer than (value1) to whatever it's defending.
+
+    {L"PROCEED_TO_EXIT"},
+All neutrals start out with a position (off the map) that they are trying to go to.  This block guides them there.
+
+	{L"FIGHTER_BINGO"},
+This block (for fighters only) makes the fighter go back to its carrier when fuel is low.
+
+	{L"LAUNCH_FIGHTERS"}
+This block (for carriers only) launches all of the fighters that are refueled when a player ship is closer than (value1).
+
+
+-----------------------------------------------------------------------------
+RACEKEYS and HULLKEYS
+Creating ships and assigning 3D hulls to them is now more flexible.  The old way was to use the hullID attribute to specify
+the exact ID of the hull (from the vesselData.xml file).  That way is still active, but no longer recommended.
+
+<create type ="enemy" hullID="4001" x="50000" y="0" z="40000" angle="45" name="TB1"/>
+
+	ATTRIBUTE: raceKeys
+			VALID: text (corresponds to hullRace name and keys in vesselData.xml)
+	ATTRIBUTE: hullKeys
+			VALID: text (corresponds to vessel className and broadType in vesselData.xml)
+
+Instead, when you create a ship using the 'create' command, use the raceKeys and hullKeys to pick the best hull indirectly.  For instance
+(using vesselData.xml 1.60 as a reference), if you want to create an enemy that's a Torgoth Battleship, you use
+
+<create type ="enemy" raceKeys="Torgoth" hullKeys="Battleship" x="50000" y="0" z="40000" angle="45" name="TB1"/>
+
+This will make an enemy Torgoth Battleship.  BUT, what if your script is being played by someone who's modified the vesselData.xml, or
+a later version of the game has changed vesselData.xml, or the player is playing a modded game?  Your script might not find the Torgoth race
+or its Battleship hull.  So let's broaden the keys to allow for alternatives:
+
+<create type ="enemy" raceKeys="Torgoth enemy" hullKeys="Battleship medium" x="50000" y="0" z="40000" angle="45" name="TB1"/>
+
+NOW, if the Torgoth race isn't found, a race with the "enemy" key will be.  If a Battleship isn't found, the "medium" broadtype will be.  Now
+your script stands a much better chance of working, no matter what changes have happened to the vesselData.xml file.
+
+
+-----------------------------------------------------------------------------
+Starting with Version 1.69, literal number values have been replaced by an expression evaluator.  Put simply,
+anywhere you can type in a number, you can also type in a math expression (like 5 * 2 / 6.554).  Most importantly,
+you can use variable names in the expressions, too.
+
+These are all valid commands:
+    <set_variable name="ds38ZVAL" value="93000"/>
+    <set_variable name="ds38ZVAL" value="9300*20 / 2"/>
+    <set_variable name="ds38ZVAL" value="targetRange * (3000/2.55)"/>
+
+
+-----------------------------------------------------------------------------
+COMMAND: create (the command that creates named objects in the game)
+	ATTRIBUTE: type
+			VALID: station, player, enemy, neutral, anomaly, blackHole, monster, genericMesh, whale
+	ATTRIBUTE: x
+			VALID: 0 to 100000
+	ATTRIBUTE: y
+			VALID: -100000 to 100000
+	ATTRIBUTE: z
+			VALID: 0 to 100000
+	ATTRIBUTE: use_gm_position
+			VALID: anything, just use this attribute to cause the x,y,z to be at the game master's selected position
+
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: hullID
+			VALID: 0-?  (corresponds to the unique hull ID in vesselData.xml)
+	ATTRIBUTE: raceKeys
+			VALID: text (corresponds to hullRace name and keys in vesselData.xml)
+	ATTRIBUTE: hullKeys
+			VALID: text (corresponds to vessel className and broadType in vesselData.xml)
+	ATTRIBUTE: angle
+			VALID: 0-360
+	ATTRIBUTE: fleetnumber
+			VALID: 1-99
+
+	-- for genericMeshs
+	ATTRIBUTE: meshFileName
+			VALID: text
+	ATTRIBUTE: textureFileName
+			VALID: text
+
+	ATTRIBUTE: hullType
+			VALID: text
+
+	ATTRIBUTE: hullRace
+			VALID: text
+
+	ATTRIBUTE: fakeShieldsFront
+			VALID: 1-1000
+	ATTRIBUTE: fakeShieldsRear
+			VALID: 1-1000
+				NOTE: the fake shields default to -1, which means no fake shields
+				      if only the fakeShieldsFront is positive, the generic looks like a station
+
+	ATTRIBUTE: hasFakeShldFreq
+			VALID: 0 or 1
+
+	ATTRIBUTE: ColorRed
+			VALID: 0.0-1.0
+	ATTRIBUTE: ColorGreen
+			VALID: 0.0-1.0
+	ATTRIBUTE: ColorBlue
+			VALID: 0.0-1.0
+
+	-- for whales
+	ATTRIBUTE: podnumber
+			VALID: 0-9
+			
+	If you use a fleet number that's illegal, crashes and wierd graphical glitches will occur.
+			
+
+-----------------------------------------------------------------------------
+COMMAND: create (the command that creates UNnamed objects in the game)
+	ATTRIBUTE: type
+			VALID: nebulas, asteroids, mines
+			
+	ATTRIBUTE: count
+			VALID: 	0 to 500
+	ATTRIBUTE: radius
+			VALID: 	0 to 100000
+	ATTRIBUTE: randomRange
+			VALID: 	0 to 100000
+	ATTRIBUTE: startX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: startY
+			VALID:  -100000 to 100000	
+	ATTRIBUTE: startZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: use_gm_position
+			VALID: anything, just use this attribute to cause the startX,startY,startZ to be at the game master's selected position
+			
+	ATTRIBUTE: endX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: endY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: endZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: randomSeed
+			VALID: 	0 to big number
+	ATTRIBUTE: startAngle
+			VALID: 	0 to 360
+	ATTRIBUTE: endAngle
+			VALID: 	0 to 360
+
+
+-----------------------------------------------------------------------------
+COMMAND: destroy (the command that removes something named from the game)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+
+	you only need to use one, either name OR use_gm_selection
+
+			
+-----------------------------------------------------------------------------
+COMMAND: destroy_near (the command that removes unnamed objects from the game, if near a point)
+	ATTRIBUTE: type
+			VALID: nebulas, asteroids, mines
+	ATTRIBUTE: centerX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: centerY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: centerZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: radius
+			VALID: 	 0 to 100000
+	ATTRIBUTE: name
+			VALID: text
+		
+	ATTRIBUTE: use_gm_position
+			VALID: anything, just use this attribute to cause the center to be at the game master's selected position
+
+	use the "name" attribute to destroy things close to a named object. the "name" attribute will
+	override the "center" attributes with the location of the named object
+			
+
+-----------------------------------------------------------------------------
+COMMAND: add_ai (the command that adds an AI decision to a neutral or enemy's brain stack)
+	ATTRIBUTE: name
+			VALID: text, the name of the object
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+
+	you only need to use one, either name OR use_gm_selection
+
+	ATTRIBUTE: targetName
+			VALID:  ATTACK,TARGET_THROTTLE
+
+	ATTRIBUTE: type
+			VALID: TRY_TO_BECOME_LEADER,CHASE_PLAYER,CHASE_NEUTRAL,CHASE_ENEMY,CHASE_STATION,CHASE_WHALE,AVOID_WHALE,AVOID_BLACK_HOLE,CHASE_ANGER,CHASE_FLEET,FOLLOW_LEADER,FOLLOW_COMMS_ORDERS,LEADER_LEADS,ELITE_AI,DIR_THROTTLE,POINT_THROTTLE,TARGET_THROTTLE,ATTACK,DEFEND,PROCEED_TO_EXIT,FIGHTER_BINGO,LAUNCH_FIGHTERS,
+			
+	ATTRIBUTE: value1
+			VALID: 	-100000 to 100000, contextual to the type of the AI block
+	ATTRIBUTE: value2
+			VALID: 	-100000 to 100000, contextual to the type of the AI block
+	ATTRIBUTE: value3
+			VALID: 	-100000 to 100000, contextual to the type of the AI block
+	ATTRIBUTE: value4
+			VALID: 	-100000 to 100000, contextual to the type of the AI block
+
+			
+-----------------------------------------------------------------------------
+COMMAND: clear_ai (removes all AI decision blocks from a neutral or enemy's brain stack)
+	ATTRIBUTE: name
+			VALID: text, the name of the object
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+
+	you only need to use one, either name OR use_gm_selection
+
+
+-----------------------------------------------------------------------------
+COMMAND: direct (the command that tells a neutral or enemy to go somewhere or fight something)
+                (also tells generics where to go)
+	ATTRIBUTE: name
+			VALID: text
+
+	ATTRIBUTE: targetName
+			VALID: text
+
+	ATTRIBUTE: pointX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: pointY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: pointZ
+			VALID: 	 0 to 100000
+
+	ATTRIBUTE: scriptThrottle
+			VALID: 	 0.0 to 1.0
+			(for generics this is an absolute speed)
+
+			
+-----------------------------------------------------------------------------
+COMMAND: set_variable (makes or sets a named value)
+	ATTRIBUTE: name
+			VALID: text
+			
+	-EITHER-		
+	ATTRIBUTE: value
+			VALID: 	0 to big number
+			
+	-OR-		
+	ATTRIBUTE: randomIntHigh
+			VALID: 	number
+	ATTRIBUTE: randomIntLow
+			VALID: 	number lower than randomIntHigh
+			
+	-OR-		
+	ATTRIBUTE: randomFloatHigh
+			VALID: 	number
+	ATTRIBUTE: randomFloatLow
+			VALID: 	number lower than randomFloatHigh
+
+-----------------------------------------------------------------------------
+COMMAND: set_timer (makes or sets a named timer)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: seconds
+			VALID: 	0 to big number
+
+
+-----------------------------------------------------------------------------
+COMMAND: incoming_message (creates a Comms button to play a media file on the main screen)
+	ATTRIBUTE: from
+			VALID: text
+	ATTRIBUTE: fileName (all media files belong in the mission subdirectory, alongside the mission script XML file)
+			VALID: text
+	ATTRIBUTE: mediaType
+			VALID: 	0 (for OGG audio files)
+
+
+-----------------------------------------------------------------------------
+COMMAND: big_message (creates a chapter title on the main screen)
+	ATTRIBUTE: title
+			VALID: text
+	ATTRIBUTE: subtitle1
+			VALID: text
+	ATTRIBUTE: subtitle2
+			VALID: text
+
+-----------------------------------------------------------------------------
+COMMAND: end_mission (stops the mission)
+
+
+
+-----------------------------------------------------------------------------
+COMMAND: incoming_comms_text (sends a block of text to the Comms station)
+	ATTRIBUTE: from
+			VALID: text
+	BODY:
+			VALID: multiple lines of text
+
+-----------------------------------------------------------------------------
+COMMAND: log (sends text to the mission's log file)
+	ATTRIBUTE: text
+			VALID: text
+			
+			
+-----------------------------------------------------------------------------
+COMMAND: set_object_property (sets a named space object's named property to a value)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: property
+			VALID: text (check the big list at the bottom of this file)
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+-----------------------------------------------------------------------------
+COMMAND: set_fleet_property (sets a numbered enemy fleet's named property to a value)
+	ATTRIBUTE: fleetIndex
+			VALID: 0-99
+	ATTRIBUTE: property
+			VALID: fleetSpacing, fleetMaxRadius
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+			
+	fleetSpacing is normally 150 - 600
+	fleetMaxRadius is normally 1000
+
+
+-----------------------------------------------------------------------------
+COMMAND: addto_object_property (adds a value to a named space object's named property)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: property
+			VALID: text (check the big list at the bottom of this file)
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+-----------------------------------------------------------------------------
+COMMAND: copy_object_property (copies a named property from one named space object to another, name1 to name2)
+	ATTRIBUTE: name1
+			VALID: text
+	ATTRIBUTE: name2
+			VALID: text
+	ATTRIBUTE: property
+			VALID: text (check the big list at the bottom of this file)
+
+
+-----------------------------------------------------------------------------
+COMMAND: set_relative_position (moves one named space object (name2) to a point near another (name1), relative to name1's heading)
+	ATTRIBUTE: name1
+			VALID: text
+	ATTRIBUTE: name2
+			VALID: text
+	ATTRIBUTE: angle
+			VALID: 	0 to 360
+	ATTRIBUTE: distance
+			VALID: 	0 100000
+
+-----------------------------------------------------------------------------
+COMMAND: set_to_gm_position (moves one named space object (name) to the point specified by clicking on the game master console screen)
+	ATTRIBUTE: name
+			VALID: text, the name of the object
+	ATTRIBUTE: use_gm_selection
+			VALID: anything, just use this attribute to use the game master's selected object
+
+	you only need to use one, either name OR use_gm_selection
+	
+	ATTRIBUTE: angle
+			VALID: 	0 to 360
+	ATTRIBUTE: distance
+			VALID: 	0 100000
+
+
+-----------------------------------------------------------------------------
+COMMAND: set_skybox_index (sets the skybox of the main screen to 0-9)
+	ATTRIBUTE: index
+			VALID: 0-9
+
+
+-----------------------------------------------------------------------------
+COMMAND: warning_popup_message (sends a very short message to the screens specified)
+	ATTRIBUTE: message
+			VALID: text
+	ATTRIBUTE: consoles
+			VALID: text, a collection of the letters MHWESCO, defining which console the message appears on
+
+
+-----------------------------------------------------------------------------
+COMMAND: set_difficulty_level (overrides the difficulty level set on the server control screen)
+	ATTRIBUTE: value
+			VALID: 1-10
+
+-----------------------------------------------------------------------------
+COMMAND: set_player_grid_damage (changes the damage value of a ship system in the 3D grid)
+	ATTRIBUTE: systemType
+			VALID: systemBeam, systemTorpedo, systemTactical, systemTurning, systemImpulse,	systemWarp,	systemFrontShield, systemBackShield
+
+	ATTRIBUTE: value
+			VALID: 0.0-1.0 ( 0.0 is no damage, 1.0 is full damage)
+
+	ATTRIBUTE: countFrom
+			VALID: left, top, front
+
+	ATTRIBUTE: index
+			VALID: 0-100 (you can't damage more systems than the ship has)
+
+
+-----------------------------------------------------------------------------
+COMMAND: play_sound_now
+	ATTRIBUTE: filename
+			VALID: text (name of the WAV file in the mission's directory)
+
+
+-----------------------------------------------------------------------------
+COMMAND: set_damcon_members (changes the count of team members in a specific damcon team)
+	ATTRIBUTE: team_index
+			VALID: 0-2
+	ATTRIBUTE: value
+			VALID: 0-6
+
+-----------------------------------------------------------------------------
+COMMAND: start_getting_kepresses_from (start getting keypresses from the selected consoles)
+	ATTRIBUTE: consoles
+			VALID: text, a collection of the letters MHWESCO, defining which console the message appears on
+
+-----------------------------------------------------------------------------
+COMMAND: end_getting_keypresses_from (stop getting keypresses from the selected consoles)
+	ATTRIBUTE: consoles
+			VALID: text, a collection of the letters MHWESCO, defining which console the message appears on
+
+-----------------------------------------------------------------------------
+COMMAND: set_ship_text (sets custom text fields for science)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: newname
+			VALID: text
+	ATTRIBUTE: race
+			VALID: text
+	ATTRIBUTE: class
+			VALID: text
+	ATTRIBUTE: desc
+			VALID: text (text will appear if science targets the ship)
+	ATTRIBUTE: scan_desc
+			VALID: text (appears if science scans the ship twice)
+
+-----------------------------------------------------------------------------
+CONDITION: if_client_key
+	ATTRIBUTE: keyText
+			VALID: text, single letter (usually upper case)
+	ATTRIBUTE: value
+			VALID: 	 0-128 (raw key scan code)
+	you only need to use one, either keyText OR value
+
+-----------------------------------------------------------------------------
+CONDITION: if_inside_box (tests if named object is inside a rectangle in space)
+	ATTRIBUTE: name
+			VALID: text
+
+	ATTRIBUTE: leastX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: leastZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: mostX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: mostZ
+			VALID: 	 0 to 100000
+
+-----------------------------------------------------------------------------
+CONDITION: if_outside_box (tests if named object is outside a rectangle in space)
+	ATTRIBUTE: name
+			VALID: text
+
+	ATTRIBUTE: leastX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: leastZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: mostX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: mostZ
+			VALID: 	 0 to 100000
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_inside_sphere (tests if named object is inside a sphere in space)
+	ATTRIBUTE: name
+			VALID: text
+
+	ATTRIBUTE: centerX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: centerY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: centerZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: radius
+			VALID: 	 0 to 100000
+
+-----------------------------------------------------------------------------
+CONDITION: if_outside_sphere (tests if named object is outside a sphere in space)
+	ATTRIBUTE: name
+			VALID: text
+
+	ATTRIBUTE: centerX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: centerY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: centerZ
+			VALID: 	 0 to 100000
+	ATTRIBUTE: radius
+			VALID: 	 0 to 100000
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_distance (tests the distance between two named objects against a condition)
+	ATTRIBUTE: name1
+			VALID: text
+
+	ATTRIBUTE: name2
+			VALID: text
+
+	ATTRIBUTE: pointX
+			VALID: 	 0 to 100000
+	ATTRIBUTE: pointY
+			VALID: 	-100000 to 100000
+	ATTRIBUTE: pointZ
+			VALID: 	 0 to 100000
+
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_variable (tests a named variable against a condition)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_damcon_members (tests the count of team members in a specific damcon team against a condition)
+	ATTRIBUTE: team_index
+			VALID: 	 0, 1, or 2
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_fleet_count (tests an indexed fleet's membership count against a condition)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+	ATTRIBUTE: fleetnumber
+			VALID: 	 0-99
+
+	if you omit the fleetnumber, this command will count every enemy in the game
+
+-----------------------------------------------------------------------------
+CONDITION: if_difficulty (tests the current game's difficulty level against a condition)
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_docked (tests if a player is docked with a named station)
+	ATTRIBUTE: name
+			VALID: text
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_player_is_targeting (tests if the Artemis's weapons officer has a lock on the named object)
+	ATTRIBUTE: name
+			VALID: text
+
+-----------------------------------------------------------------------------
+CONDITION: if_timer_finished (tests if a timer has counted down to zero yet)
+	ATTRIBUTE: name
+			VALID: text
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_exists (tests if named object exists right now)
+	ATTRIBUTE: name
+			VALID: text
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_not_exists (tests if named object does NOT exist right now)
+	ATTRIBUTE: name
+			VALID: text
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_object_property (tests a named space object's named property against a condition)
+	ATTRIBUTE: name
+			VALID: text
+	ATTRIBUTE: name
+			VALID: property (check the big list at the bottom of this file)
+	ATTRIBUTE: comparator
+			VALID: 	 EQUALS, NOT, GREATER, LESS, GREATER_EQUAL, LESS_EQUAL
+	ATTRIBUTE: value
+			VALID: 	 signed floating point value
+
+
+-----------------------------------------------------------------------------
+CONDITION: if_gm_key (triggers when a key is pressed on a game master console)
+	ATTRIBUTE: keyText
+			VALID: text, single letter (usually upper case)
+	ATTRIBUTE: value
+			VALID: 	 0-128 (raw key scan code)
+	you only need to use one, either keyText OR value
+
+-----------------------------------------------------------------------------
+	NOTE: Properties you can set, add, or test against:
+			// values for everything
+			positionX
+			positionY
+			positionZ
+			deltaX
+			deltaY
+			deltaZ
+			angle    --these 3 values will be in radians (0-2*PI), NOT degrees like every other angle in the scripting parser
+			pitch 
+			roll  
+
+			// values for GenericMeshs
+				blocksShotFlag
+				pushRadius 
+				pitchDelta    
+				rollDelta    
+				angleDelta
+				artScale
+			
+			// values for Stations
+				shieldState
+				canBuild
+				missileStoresHoming
+				missileStoresNuke
+				missileStoresMine
+				missileStoresECM
+
+			// values for ShieldedShips
+				throttle
+				steering
+				topSpeed
+				turnRate
+				shieldStateFront
+				shieldMaxStateFront
+				shieldStateBack
+				shieldMaxStateBack
+				shieldsOn
+				triggersMines
+				systemDamageBeam
+				systemDamageTorpedo
+				systemDamageTactical
+				systemDamageTurning
+				systemDamageImpulse
+				systemDamageWarp
+				systemDamageFrontShield
+				systemDamageBackShield
+				shieldBandStrength0
+				shieldBandStrength1
+				shieldBandStrength2
+				shieldBandStrength3
+				shieldBandStrength4
+
+			// values for Enemys
+				targetPointX
+				targetPointY
+				targetPointZ
+				hasSurrendered
+				eliteAIType
+				eliteAbilityBits
+				eliteAbilityState
+				surrenderChance (0-100)
+
+			// values for Neutrals
+				exitPointX
+				exitPointY
+				exitPointZ
+
+			// values for Players
+				countHoming
+				countNuke 
+				countMine
+				countECM
+				energy
+				warpState
+				currentRealSpeed (read only)
+				totalCoolant
+
+// for use in member variable 'int eliteAbilityBits'
+const int ELITE_INVIS_TO_MAIN_SCREEN = 1
+const int ELITE_INVIS_TO_SCIENCE = 2
+const int ELITE_INVIS_TO_TACTICAL = 4
+const int ELITE_CLOAKING = 8
+const int ELITE_HET = 16
+const int ELITE_WARP = 32
+const int ELITE_TELEPORT = 64
+
+take the number of all the abilities you want the elite enemy to have, add them together, and that's the number you should set in eliteAbilityBits.
+
+eliteAIType?
+0 = behave just like a normal ship (hunt stations, unless a neutral or player is close)
+1 = follow the nearest normal fleet around, attack the player when close
+2 = ignore everything except players 

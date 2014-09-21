@@ -1,0 +1,9 @@
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\alert.wav
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\ArtemisComm.BigRedButtonOfDeath.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\ArtemisComm.BigRedButtonOfDeath.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\ArtemisComm.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\log4net.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Debug\ArtemisComm.pdb
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Debug\ArtemisComm.BigRedButtonOfDeath.csprojResolveAssemblyReference.cache
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Debug\ArtemisComm.BigRedButtonOfDeath.dll
+E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Debug\ArtemisComm.BigRedButtonOfDeath.pdb

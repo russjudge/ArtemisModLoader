@@ -1,0 +1,98 @@
+﻿<Window x:Class="ArtemisComm.BigRedButtonOfDeath.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:valueConvert="clr-namespace:ArtemisComm.BigRedButtonOfDeath.WPF"
+        Name="uc"
+        Title="The Big Red Button of Death"
+        Width="470"
+        Height="400"
+        Closed="OnClosed">
+    <Window.Resources>
+        <valueConvert:BoolToVisibilityParameterConverter x:Key="BoolToVisibilityParameterConverter" />
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0" Color="#FFF0E6D1" />
+                <GradientStop Offset="1" Color="#FFF5BB3D" />
+            </LinearGradientBrush>
+        </DockPanel.Background>
+        <GroupBox DockPanel.Dock="Top" Visibility="{Binding ConnectionStarted, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}">
+            <GroupBox.Header>
+                <TextBlock FontWeight="Bold" Text="Connect To Server" />
+            </GroupBox.Header>
+            <StackPanel Orientation="Horizontal">
+
+                <Label Content="Host:" FontWeight="Bold" />
+                <TextBox Width="150" Text="{Binding Path=Host, ElementName=uc, Mode=TwoWay}" />
+                <Label Content="Port:" FontWeight="Bold" />
+                <TextBox Width="150" Text="{Binding Path=Port, ElementName=uc, Mode=TwoWay}" />
+                <Button Click="OnConnect" Content="Connect" />
+            </StackPanel>
+        </GroupBox>
+        <Grid DockPanel.Dock="Top" Visibility="{Binding ConnectionStarted, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}">
+            <AdornerDecorator Visibility="{Binding SimulationRunning, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Collapsed|Visible'}">
+                <TextBlock FontSize="36"
+                           FontWeight="Bold"
+                           Text="Simulation Over."
+                           TextWrapping="Wrap"
+                           Visibility="{Binding GameRunning,
+                                                ElementName=uc,
+                                                Mode=OneWay,
+                                                Converter={StaticResource BoolToVisibilityParameterConverter},
+                                                ConverterParameter='Visible|Collapsed'}" />
+            </AdornerDecorator>
+            <TextBlock FontSize="36"
+                       FontWeight="Bold"
+                       Text="Please stand by...Waiting for game to start."
+                       TextWrapping="Wrap"
+                       Visibility="{Binding GameRunning,
+                                            ElementName=uc,
+                                            Mode=OneWay,
+                                            Converter={StaticResource BoolToVisibilityParameterConverter},
+                                            ConverterParameter='Collapsed|Visible'}" />
+            <AdornerDecorator Visibility="{Binding SimulationRunning, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}">
+                <Button Click="OnSelfDestruct"
+                        DockPanel.Dock="Top"
+                        Visibility="{Binding SelfDestructRunning,
+                                             ElementName=uc,
+                                             Mode=OneWay,
+                                             Converter={StaticResource BoolToVisibilityParameterConverter},
+                                             ConverterParameter='Collapsed|Visible'}">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Offset="0.64" Color="Red" />
+                            <GradientStop Offset="0.766" Color="#FF997220" />
+                            <GradientStop Offset="1" Color="#FF8D3333" />
+                        </RadialGradientBrush>
+
+                    </Button.Background>
+                    <Button.Content>
+                        <TextBlock FontSize="24"
+                                   FontWeight="Bold"
+                                   Text="Push to start self-destruct" />
+                    </Button.Content>
+
+                </Button>
+            </AdornerDecorator>
+            <AdornerDecorator Visibility="{Binding SimulationRunning, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}">
+                <Button Click="OnResetSelfDestruct" Visibility="{Binding SelfDestructRunning, ElementName=uc, Mode=OneWay, Converter={StaticResource BoolToVisibilityParameterConverter}, ConverterParameter='Visible|Collapsed'}">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Offset="0.64" Color="#FF3AFF00" />
+                            <GradientStop Offset="0.766" Color="#FF997220" />
+                            <GradientStop Offset="1" Color="#FF3F8D33" />
+                        </RadialGradientBrush>
+
+                    </Button.Background>
+                    <Button.Content>
+                        <TextBlock FontSize="24"
+                                   FontWeight="Bold"
+                                   Text="Push to abort self-destruct" />
+                    </Button.Content>
+
+                </Button>
+            </AdornerDecorator>
+        </Grid>
+    </DockPanel>
+</Window>

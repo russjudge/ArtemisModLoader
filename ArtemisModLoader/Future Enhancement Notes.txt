@@ -1,0 +1,104 @@
+﻿TODO:
+Code completion on Name for objects.
+
+Spacemap (designer) on Mission studio
+
+move File explorer functionality to own project and enable file renaming.
+
+-------------------------------
+ 
+
+ //TODO: Add DependsOn for missions.
+ Meta information for missions.
+
+//TODO: Proper validity indication for vessels on non-existent sides.
+	Vessels in vesselData without matching hullrace, and NO hullraces in vesseldatafile.
+
+--------------------------------------------------------------------------------------------------------------------
+//TODO: 
+- Get the Drag-drop functionality for setting Beam range and arcwidth working.
+ The silly thing is just driving me nuts--can't seem to get the math right (too 
+ many things interacting with each other when something changes).  I'll get it working sooner or later.
+
+
+  -- find any text strings not in resource and move to resource.
+
+  Mission commands found in hex editor:
+
+  Affects object position:
+  <create
+  <destroy
+  <destroy_near
+  <set_object_property
+   <addto_object_property
+  <copy_object_property
+  <set_relative_position
+    <set_to_gm_position
+
+
+	Affects variables (which can affect object position):
+  <set_variable
+  <set_timer
+  <set_fleet_property
+
+
+  <add_ai
+  <clear_ai
+  <direct
+  <big_message
+  <incoming_message
+  <end_mission
+  <incomming_comms_text
+  <log
+
+  <set_skybox_index
+  <warning_popup_message
+
+
+  <start_getting_kepresses_from
+  <end_getting_keypresses_from
+  
+  
+  <set_difficulty_level
+  <set_player_grid_damage
+  <play_sound_now
+  <set_damcon_members
+
+
+  <set_ship_text
+  
+  
+  <if_inside_box
+  <if_outside_box
+  <if_inside_sphere
+  <if_outside_sphere
+  <if_distance
+  <if_variable
+  <if_damcon_members
+  <if_fleet_count
+  <if_difficulty
+  <if_docked
+  <if_player_is_targeting
+  <if_timer_finished
+  <if_exists
+  <if_not_exists
+  <if_object_property
+  <if_gm_key
+
+  <if_client_key
+
+  new commands:
+	start_getting_keypresses_from
+	end_getting_keypresses_from
+    set_ship_text
+	if_client_key
+
+	Just used a hex editor on Artemis.exe, and I think I can make an educated guess at all the new commands and conditions.  The trick will be figuring out the attributes, unless I get lucky and Thom updates the documentation (hint, hint).
+
+new commands (at least, these are NOT documented in "mission-file-docs.txt") appear to be the following:
+start_getting_keypresses_from
+end_getting_keypresses_from
+set_ship_text
+if_client_key
+
+start_getting_kepresses_from is probably for setting the console to get keystrokes from, so that if_client_key can process the keystrokes (if_client_key is probably like the if_gm_key).  I might be able to guess at the attributes by a little trial and error and a little more hex editor scanning.

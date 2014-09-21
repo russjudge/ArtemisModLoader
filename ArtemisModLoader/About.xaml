@@ -1,0 +1,89 @@
+﻿<Window x:Class="ArtemisModLoader.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:aml="clr-namespace:ArtemisModLoader;assembly=AMLLibrary"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:ArtemisModLoader;assembly=AMLLibrary"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:AMLResources.Properties;assembly=AMLResources"
+        Name="uc"
+        Title="{x:Static resx:Resources.AboutLabel}"
+        MaxWidth="420"
+        Icon="pack://application:,,,/ArtemisModLoader;component/Images/MainIcon.png"
+        IsEnabled="{Binding Source={x:Static aml:UserConfiguration.Current},
+                            Path=IsProcessing,
+                            Converter={StaticResource OppositeBoolConverter}}"
+        SizeToContent="WidthAndHeight"
+        WindowStyle="ToolWindow"
+        d:DesignHeight="729"
+        mc:Ignorable="d">
+
+    <StackPanel>
+        <Label Content="{x:Static resx:Resources.Title}" FontWeight="Bold" />
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{x:Static resx:Resources.VersionLabel}" FontWeight="Bold" />
+            <TextBlock VerticalAlignment="Center" Text="{Binding Version, Mode=OneWay, ElementName=uc}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="{x:Static resx:Resources.AuthorLabel}" FontWeight="Bold" />
+            <TextBlock VerticalAlignment="Center" Text="Russ Judge" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Height="48"
+                    HorizontalAlignment="Left"
+                    Click="CheckForLatest_click"
+                    Content="{x:Static resx:Resources.CheckForLatest}" />
+            <Button Click="Reset_Click" Content="{x:Static resx:Resources.ResetToBaseStock}" />
+            <Button Click="ReadMe_Click" Content="{x:Static resx:Resources.ViewReadMe}" />
+        </StackPanel>
+        <Image Width="200" Source="pack://application:,,,/ArtemisModLoader;component/Images/MainIcon.png">
+            <Image.ToolTip>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Static resx:Resources.WTFLabel}" />
+                    <TextBlock Text="{x:Static local:DataStrings.WTFURL}" />
+                </StackPanel>
+            </Image.ToolTip>
+        </Image>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Click="PayPal_click">
+                <Image Width="120" Source="/ArtemisModLoader;component/Images/paypal-donate-feature.jpg" />
+            </Button>
+            <TextBlock Grid.Column="1"
+                       VerticalAlignment="Center"
+                       Padding="4,4,4,4"
+                       Text="Donations welcome!  A lot of hard work has been put into this application.  If you like what you see, please send a donation through PayPal to russjudge@gmail.com."
+                       TextWrapping="Wrap" />
+        </Grid>
+        <Label Content="{Binding AppPathLabel, Mode=OneTime, ElementName=uc}" FontWeight="Black" />
+        <TextBox IsReadOnly="True"
+                 Text="{Binding AppPath,
+                                Mode=OneTime,
+                                ElementName=uc}"
+                 TextWrapping="Wrap" />
+        <Button HorizontalAlignment="Right"
+                Click="GetResourcesProperties_Click"
+                Content="{x:Static resx:Resources.GetListOfResources}"
+                Visibility="Collapsed" />
+        <TextBlock FontWeight="Bold" Text="Credits:" />
+        <ListBox Height="255" RenderTransformOrigin="0.5,0.5">
+
+            <ListBoxItem Content="Special thanks to Alexey &quot;Hissatsu&quot; Andronov" />
+            <ListBoxItem Content="Philipp Sumi ... Notify Icon in the Taskbar written for WPF" />
+            <ListBoxItem Content="AvalonEdit team ... AvalonEdit, used for Mission Studio and Xml Editor" />
+            <ListBoxItem Content="Apache log4net ... logging service" />
+            <ListBoxItem Content="Dave Raggett ... HTML Tidy, used by Mission Studio and Xml Editor for formatting Xml." />
+            <ListBoxItem Content="NAudio team ... NAudio, which provides music functionality" />
+            <ListBoxItem Content="Mark Heath ... NVorbis, which provides OGG support" />
+            <ListBoxItem Content="SharpCompress team ... SharpCompress, which provides the file compression API" />
+            <ListBoxItem Content="WPF Toolkit Team ... WPFToolkit, which provides a few of the enhanced controls" />
+            <ListBoxItem Content="-----------------------------------------------------------------" />
+            <ListBoxItem Content="Sponsors:" />
+            <ListBoxItem Content="Steven Hancock" />
+        </ListBox>
+
+    </StackPanel>
+</Window>
