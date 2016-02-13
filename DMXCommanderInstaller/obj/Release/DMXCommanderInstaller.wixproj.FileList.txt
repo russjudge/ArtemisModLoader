@@ -1,6 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Release\DMXCommanderInstaller.msi
-E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Release\DMXCommanderInstaller.wixpdb
-obj\Release\Product.wixobj
-obj\Release\DMXCommanderInstaller.wixproj.BindContentsFileListnull.txt
-obj\Release\DMXCommanderInstaller.wixproj.BindOutputsFileListnull.txt
-obj\Release\DMXCommanderInstaller.wixproj.BindBuiltOutputsFileListnull.txt

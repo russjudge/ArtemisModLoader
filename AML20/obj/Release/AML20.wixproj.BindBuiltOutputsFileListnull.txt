@@ -1,2 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\AML20\bin\Release\AML30.msi
-E:\Development Projects\Source Control\ArtemisModLoader\AML20\bin\Release\AML30.wixpdb
