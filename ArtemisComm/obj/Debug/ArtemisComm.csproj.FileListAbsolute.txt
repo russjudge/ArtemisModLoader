@@ -1,8 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Debug\ArtemisComm.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Debug\ArtemisComm.pdb
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Debug\ArtemisComm.dll.CodeAnalysisLog.xml
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Debug\ArtemisComm.dll.lastcodeanalysissucceeded
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Debug\log4net.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Debug\ArtemisComm.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Debug\ArtemisComm.pdb
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Debug\ArtemisComm.csprojResolveAssemblyReference.cache

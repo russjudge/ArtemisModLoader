@@ -1,9 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\alert.wav
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\ArtemisComm.BigRedButtonOfDeath.Library.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\ArtemisComm.BigRedButtonOfDeath.Library.pdb
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\ArtemisComm.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\log4net.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\bin\Release\ArtemisComm.pdb
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Release\ArtemisComm.BigRedButtonOfDeath.Library.csprojResolveAssemblyReference.cache
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Release\ArtemisComm.BigRedButtonOfDeath.Library.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm.BigRedButtonOfDeath\obj\Release\ArtemisComm.BigRedButtonOfDeath.Library.pdb

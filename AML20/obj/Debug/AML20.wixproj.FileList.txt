@@ -1,6 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\AML20\bin\Debug\AML30.msi
-E:\Development Projects\Source Control\ArtemisModLoader\AML20\bin\Debug\AML30.wixpdb
-obj\Debug\Product.wixobj
-obj\Debug\AML20.wixproj.BindContentsFileListnull.txt
-obj\Debug\AML20.wixproj.BindOutputsFileListnull.txt
-obj\Debug\AML20.wixproj.BindBuiltOutputsFileListnull.txt
