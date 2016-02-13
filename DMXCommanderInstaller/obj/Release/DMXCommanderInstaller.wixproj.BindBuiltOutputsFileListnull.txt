@@ -1,2 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Release\DMXCommanderInstaller.msi
-E:\Development Projects\Source Control\ArtemisModLoader\DMXCommanderInstaller\bin\Release\DMXCommanderInstaller.wixpdb

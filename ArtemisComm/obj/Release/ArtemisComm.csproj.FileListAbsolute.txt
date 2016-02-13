@@ -1,6 +1,0 @@
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Release\ArtemisComm.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Release\ArtemisComm.pdb
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\bin\Release\log4net.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Release\ArtemisComm.csprojResolveAssemblyReference.cache
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Release\ArtemisComm.dll
-E:\Development Projects\Source Control\ArtemisModLoader\ArtemisComm\obj\Release\ArtemisComm.pdb
