@@ -80,7 +80,7 @@
                 Name="SharpCompress.dll"
                 Id="SHARPCOMPRESS.DLL"/>
               <File
-               Source="..\ArtemisModLoader\bin\$(var.ArtemisModLoader.Configuration)\log4net.dll"
+               Source="..\ReferencedFiles\log4net.dll"
                Name="log4net.dll"
                Id="LOG4NET.DLL"/>
 

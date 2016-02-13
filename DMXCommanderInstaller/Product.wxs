@@ -29,7 +29,7 @@
 
             <Component Id="ProductComponent" Guid="BA790231-7644-47D4-B79A-60A518DDBA50">
               <File
-                Source="..\DMXCommand\bin\Debug\DMXCommand.exe"
+                Source="..\DMXCommand\bin\Release\DMXCommand.exe"
                 Name="DMXCommand.exe"
                 Id="DMXCOMMAND.EXE" >
                 <Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" WorkingDirectory="INSTALLDIR" Name="DMX Commander" Icon="StartMenuIcon.exe" IconIndex="0" />
@@ -37,10 +37,10 @@
               <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" KeyPath="yes" Value="" />
             </Component>
             <Component Id="LibraryComponent" Guid="CAFFDDA5-3672-452A-9335-A710A1C7198F">
-              <File Source="..\DMXCommand\bin\Debug\DMXCommand.exe.config" Name="DMXCommand.exe.config" Id="DMXCOMMAND.EXE.CONFIG"  />
-              <File Source="..\DMXCommand\bin\Debug\RussLibrary.dll" Name="RussLibrary.dll" Id="RUSSLIBRARY.DLL"/>
+              <File Source="..\DMXCommand\bin\Release\DMXCommand.exe.config" Name="DMXCommand.exe.config" Id="DMXCOMMAND.EXE.CONFIG"  />
+              <File Source="..\DMXCommand\bin\Release\RussLibrary.dll" Name="RussLibrary.dll" Id="RUSSLIBRARY.DLL"/>
               <File
-               Source="..\DMXCommand\bin\Debug\log4net.dll"
+               Source="..\ReferencedFiles\log4net.dll"
                Name="log4net.dll"
                Id="LOG4NET.DLL"/>
 
@@ -50,12 +50,12 @@
               <File Source="..\ArtemisModLoader\EULA.rtf" Name="EULA.rtf" Id="EULA.RTF"/>
 
               <File
-                Source="..\DMXCommand\bin\Debug\ftd2xx.dll"
+                Source="..\DMXCommand\bin\Release\ftd2xx.dll"
                 Name="ftd2xx.dll"
                 Id="FTD2XX.DLL"/>
 
               <File
-                Source="..\DMXCommand\bin\Debug\DMXCommander.dll"
+                Source="..\DMXCommand\bin\Release\DMXCommander.dll"
                 Name="DMXCommander.dll"
                 Id="DMXCOMMANDER.DLL"/>
 
@@ -97,7 +97,7 @@
 
 
     <Icon
-      Id="StartMenuIcon.exe" SourceFile="..\DMXCommand\bin\Debug\DMXCommand.exe" />
+      Id="StartMenuIcon.exe" SourceFile="..\DMXCommand\bin\Release\DMXCommand.exe" />
     <Property Id="ARPPRODUCTION" Value="StartMenuIcon.exe" />
 
     <UI>
