@@ -856,4 +856,4 @@ version	Date		Description
 				Updated DMX API.
 				
 3.0.25	06/15/2014	Updated for Artemis Version 2.1.
-				
+3.0.26  04/08/2023  Reclaimed development for this.  Oh my--it's a bit out of date.  Got a lot of work to do for it.

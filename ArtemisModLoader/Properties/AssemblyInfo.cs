@@ -51,7 +51,7 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.25.*")]
+[assembly: AssemblyVersion("3.0.26.*")]
 [assembly: log4net.Config.XmlConfigurator()]
 [assembly: System.CLSCompliant(false)]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

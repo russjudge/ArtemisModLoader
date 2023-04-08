@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtemisModLoader", "ArtemisModLoader\ArtemisModLoader.csproj", "{7503F00A-B0D9-4FCF-A6A2-666F6E096E5B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B0CAFC3F-8146-4800-9BE8-1F0CA43FA023} = {B0CAFC3F-8146-4800-9BE8-1F0CA43FA023}
@@ -76,82 +78,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtemisComm.Proxy.Library",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RussLibrary.GameMapping", "RussLibrary.GameMapping\RussLibrary.GameMapping.csproj", "{0BCE2B58-FF63-4030-960A-87FE4B7108BB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AMLInstall", "AMLInstall\AMLInstall.vdproj", "{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 24
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://russ-superpc:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ArtemisModLoader\\ArtemisModLoader.csproj
-		SccProjectName1 = ArtemisModLoader
-		SccLocalPath1 = ArtemisModLoader
-		SccProjectUniqueName2 = RussLibrary\\RussLibrary.csproj
-		SccProjectName2 = RussLibrary
-		SccLocalPath2 = RussLibrary
-		SccProjectUniqueName3 = VesselDataLibrary\\VesselDataLibrary.csproj
-		SccProjectName3 = VesselDataLibrary
-		SccLocalPath3 = VesselDataLibrary
-		SccProjectUniqueName4 = Sandbox\\Sandbox.csproj
-		SccProjectName4 = Sandbox
-		SccLocalPath4 = Sandbox
-		SccProjectUniqueName5 = Resources\\Resources.csproj
-		SccProjectName5 = Resources
-		SccLocalPath5 = Resources
-		SccProjectUniqueName6 = AMLLibrary\\AMLLibrary.csproj
-		SccProjectName6 = AMLLibrary
-		SccLocalPath6 = AMLLibrary
-		SccProjectUniqueName7 = AML20\\AML20.wixproj
-		SccProjectName7 = AML20
-		SccLocalPath7 = AML20
-		SccProjectUniqueName8 = MissionScriptor\\MissionStudio.csproj
-		SccProjectName8 = MissionScriptor
-		SccLocalPath8 = MissionScriptor
-		SccProjectUniqueName9 = SandboxConsole\\SandboxConsole.csproj
-		SccProjectName9 = SandboxConsole
-		SccLocalPath9 = SandboxConsole
-		SccProjectUniqueName10 = RussLibraryXmlEditor\\RussLibraryXmlEditor.csproj
-		SccProjectName10 = RussLibraryXmlEditor
-		SccLocalPath10 = RussLibraryXmlEditor
-		SccProjectUniqueName11 = RussLibraryAudio\\RussLibraryAudio.csproj
-		SccProjectName11 = RussLibraryAudio
-		SccLocalPath11 = RussLibraryAudio
-		SccProjectUniqueName12 = RussLibraryFileExplorer\\RussLibraryFileExplorer.csproj
-		SccProjectName12 = RussLibraryFileExplorer
-		SccLocalPath12 = RussLibraryFileExplorer
-		SccProjectUniqueName13 = ArtemisEngineeringPresets\\ArtemisEngineeringPresets.csproj
-		SccProjectName13 = ArtemisEngineeringPresets
-		SccLocalPath13 = ArtemisEngineeringPresets
-		SccProjectUniqueName14 = VesselDataLibrary.Xml\\VesselDataLibrary.Xml.csproj
-		SccProjectName14 = VesselDataLibrary.Xml
-		SccLocalPath14 = VesselDataLibrary.Xml
-		SccProjectUniqueName15 = DMXCommander\\DMXCommander.csproj
-		SccProjectName15 = DMXCommander
-		SccLocalPath15 = DMXCommander
-		SccProjectUniqueName16 = DMXCommand\\DMXCommand.csproj
-		SccProjectName16 = DMXCommand
-		SccLocalPath16 = DMXCommand
-		SccProjectUniqueName17 = ArtemisComm\\ArtemisComm.csproj
-		SccProjectName17 = ArtemisComm
-		SccLocalPath17 = ArtemisComm
-		SccProjectUniqueName18 = ArtemisCommSandbox\\ArtemisCommSandbox.csproj
-		SccProjectName18 = ArtemisCommSandbox
-		SccLocalPath18 = ArtemisCommSandbox
-		SccProjectUniqueName19 = DMXCommanderInstaller\\DMXCommanderInstaller.wixproj
-		SccProjectName19 = DMXCommanderInstaller
-		SccLocalPath19 = DMXCommanderInstaller
-		SccProjectUniqueName20 = ArtemisComm.BigRedButtonOfDeath\\ArtemisComm.BigRedButtonOfDeath.Library.csproj
-		SccProjectName20 = ArtemisComm.BigRedButtonOfDeath
-		SccLocalPath20 = ArtemisComm.BigRedButtonOfDeath
-		SccProjectUniqueName21 = ArtemisComm.BigRedButtonOfDeath.WPF\\ArtemisComm.BigRedButtonOfDeath.WPF.csproj
-		SccProjectName21 = ArtemisComm.BigRedButtonOfDeath.WPF
-		SccLocalPath21 = ArtemisComm.BigRedButtonOfDeath.WPF
-		SccProjectUniqueName22 = ArtemisComm.Proxy.Library\\ArtemisComm.Proxy.Library.csproj
-		SccProjectName22 = ArtemisComm.Proxy.Library
-		SccLocalPath22 = ArtemisComm.Proxy.Library
-		SccProjectUniqueName23 = RussLibrary.GameMapping\\RussLibrary.GameMapping.csproj
-		SccProjectName23 = RussLibrary.GameMapping
-		SccLocalPath23 = RussLibrary.GameMapping
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -402,8 +331,17 @@ Global
 		{0BCE2B58-FF63-4030-960A-87FE4B7108BB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0BCE2B58-FF63-4030-960A-87FE4B7108BB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0BCE2B58-FF63-4030-960A-87FE4B7108BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Debug|Any CPU.ActiveCfg = Debug
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Debug|x86.ActiveCfg = Debug
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Release|Any CPU.ActiveCfg = Release
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Release|Mixed Platforms.ActiveCfg = Release
+		{17182B5B-F9F3-4DD5-B52A-A54CAF67AB59}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22798B55-BE28-470A-81A4-04C20A7CC438}
 	EndGlobalSection
 EndGlobal
